@@ -1,1 +1,70 @@
-red ban phase
+<!doctype html>
+<html>
+<head>
+    <title>Title Here</title>
+    <meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .namebar{
+            width: 80%;
+            height: 75px;
+            font-size: 24pt;
+            font-family: 'Comic Sans MS';
+            position: sticky;
+            left: 10%;
+            margin-top: 15px;
+            margin-bottom: 50px;
+        }
+        .labeltext{
+            color: white;
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            margin-top: 100px;
+            position: sticky;
+            left: 10%;
+        }
+        .gobutton{
+            font-family: 'Comic Sans MS';
+            font-size: 30pt;
+            border-radius: 12px;
+            width: 6%;
+            margin: 0px 25px;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+        }
+        .gobutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+    </style>
+</head>
+<body id='bg' style="background-color:#414141;">
+	<select id="redBanOneSelect">
+		<option id="ahri" class="names"></option>
+        <option id="ryze" class="names"></option>
+        <option id="twisted fate" class="names"></option>
+	</select>
+	<select id="redBanTwoSelect">
+		<option id="ahri" class="names"></option>
+        <option id="ryze" class="names"></option>
+        <option id="twisted fate" class="names"></option>
+	</select>
+	<select id="redBanThreeSelect">
+		<option id="ahri" class="names">Ahri</option>
+        <option id="ryze" class="names">Ryze</option>
+        <option id="twisted fate" class="names">Twisted Fate</option>
+	</select>
+    
+    <script>
+		function setBan(banID){
+			localStorage.setItem(banID,9);
+		}
+        function lockBans() {
+			if ((localStorage.getItem("redBanOne") != null) && (localStorage.getItem("redBanTwo") != null) && (localStorage.getItem("redBanThree") != null)){
+				localStorage.setItem("redBanFinished",'true');
+				document.location.href = "waitingForChampSelect.html";
+			}
+		}
+    </script>
+</body>
+</html>
