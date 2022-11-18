@@ -1,1 +1,37 @@
-
+<!doctype html>
+<html>
+<head>
+<title>Title Here</title>
+<meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .textt{
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            position: absolute;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body style="background-color:#414141;">
+    <input class="names" disabled style="background-color:rgb(40, 80, 167);left:0%" id="blueSummonerTag"></input>
+    <input class="names" disabled style="background-color:rgb(201, 63, 63);right:0%" id="redSummonerTag"></input>
+  
+    <center>
+        <p class="textt" style="font-size:75pt;margin:220px 0px">Opponent Still Banning...</p>
+    </center>
+    <script>
+      document.getElementByID("blueSummonerTag").value = localStorage.getItem("blueSummoner")
+      document.getElementByID("redSummonerTag").value = localStorage.getItem("redSummoner")
+        setInterval(function(){
+            if((localStorage.getItem("blueBanFinished") == 'true') && (localStorage.getItem("redBanFinished") == 'true')){
+                if (localStorage.getItem("blueSummoner") == sessionStorage.getItem("summonerName")) {
+                    document.location.href = "blueChampionSelect.html";
+                }
+                else if (localStorage.getItem("redSummoner") == sessionStorage.getItem("summonerName")){
+                    document.location.href = "redChampionSelect.html";
+                }
+            }
+        }, 50)
+    </script>
+</body>
+</html>
