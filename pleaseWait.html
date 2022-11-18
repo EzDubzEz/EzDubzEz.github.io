@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<title>Title Here</title>
+<meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .textt{
+            font-family: 'Comic Sans MS';
+            color: white;
+        }
+    </style>
+</head>
+<body style="background-color:#414141;">
+    <center>
+        <p class="textt" style="font-size:75pt;margin:220px 0px">Please Wait For Selection...</p>
+    </center>
+    <center>
+        <label class="textt" style="font-size: 22pt;">You're registered as: </label>
+        <input id="summonName" disabled style="border-width: 4px;font-size: 22pt;background-color: white;color:black;border-color:black;text-align: center;"></input>
+    </center>
+    <script>
+        setInterval(function(){
+            document.getElementById("summonName").value = sessionStorage.getItem("summonerName");
+            if(localStorage.getItem("draftStarted") == 'true'){
+                if (localStorage.getItem("blueSummoner") == sessionStorage.getItem("summonerName")) {
+                    document.location.href = "blueBanPhase.html";
+                }
+                else if (localStorage.getItem("redSummoner") == sessionStorage.getItem("summonerName")){
+                    document.location.href = "redBanPhase.html";
+                }
+                else{
+                    document.location.href = "spectatePage.html";
+                }
+            }
+        }, 50)
+    </script>
+</body>
+</html>

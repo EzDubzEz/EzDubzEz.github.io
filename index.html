@@ -1,1 +1,124 @@
-Hello World
+<!doctype html>
+<html>
+<head>
+    <title>Title Here</title>
+    <meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .namebar{
+            width: 80%;
+            height: 75px;
+            font-size: 24pt;
+            font-family: 'Comic Sans MS';
+            position: sticky;
+            left: 10%;
+            margin-top: 15px;
+            margin-bottom: 50px;
+        }
+        .labeltext{
+            color: white;
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            margin-top: 100px;
+            position: sticky;
+            left: 10%;
+        }
+        .gobutton{
+            font-family: 'Comic Sans MS';
+            font-size: 30pt;
+            border-radius: 12px;
+            width: 6%;
+            margin: 0px 25px;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+        }
+        .gobutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+    </style>
+</head>
+<body id='bg' style="background-color:#414141;">
+    <center>
+        <label style="font-family:'Comic Sans MS';font-size:30pt;color:white;">Name: </label>
+        <input type="text" style="margin-top:20%;font-family:'Comic Sans MS';font-size:30pt;border-radius:12px;border-width: 6px;" maxlength="20" id="nameInputBox"></input>
+        <button class="gobutton" onclick="ready()">Go</button>
+    </center>
+    <p id="test"></p>
+    <a href="adminPage.html">
+        <textarea style="position:absolute; bottom:0%; right:0%;background-color:#414141;; width:20px;height:20px;resize: none;border-color: #414141;" disabled></textarea>
+    </a>
+    <a href="variablePage.html">
+        <textarea style="position:absolute; bottom:0%; left:0%;background-color:#414141;; width:20px;height:20px;resize: none;border-color: #414141;" disabled></textarea>
+    </a>
+    <script>
+        function ready(){
+            document.getElementById("test").innerHTML = localStorage.getItem("nameOne");
+            if(document.getElementById("nameInputBox").value != ''){
+                if(localStorage.getItem("nameOne") == null){
+                    localStorage.setItem("nameOne",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameTwo") == null){
+                    localStorage.setItem("nameTwo",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameThree") == null){
+                    localStorage.setItem("nameThree",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameFour") == null){
+                    localStorage.setItem("nameFour",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameFive") == null){
+                    localStorage.setItem("nameFive",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameSix") == null){
+                    localStorage.setItem("nameSix",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameSeven") == null){
+                    localStorage.setItem("nameSeven",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameEight") == null){
+                    localStorage.setItem("nameEight",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameNine") == null){
+                    localStorage.setItem("nameNine",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameTen") == null){
+                    localStorage.setItem("nameTen",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameEleven") == null){
+                    localStorage.setItem("nameEleven",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameTwelve") == null){
+                    localStorage.setItem("nameTwelve",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameThirteen") == null){
+                    localStorage.setItem("nameThirteen",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameFourteen") == null){
+                    localStorage.setItem("nameFourteen",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameFifteen") == null){
+                    localStorage.setItem("nameFifteen",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameSixteen") == null){
+                    localStorage.setItem("nameSixteen",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameSeventeen") == null){
+                    localStorage.setItem("nameSeventeen",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameEighteen") == null){
+                    localStorage.setItem("nameEighteen",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameNineteen") == null){
+                    localStorage.setItem("nameNineteen",document.getElementById("nameInputBox").value)
+                }
+                else if(localStorage.getItem("nameTwenty") == null){
+                    localStorage.setItem("nameTwenty",document.getElementById("nameInputBox").value)
+                }
+                sessionStorage.setItem("summonerName",document.getElementById("nameInputBox").value)
+                document.location.href = "pleaseWait.html";
+            }
+        }
+    </script>
+</body>
+</html>

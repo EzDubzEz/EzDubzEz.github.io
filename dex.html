@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <title>Title Here</title>
+    <meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .namebar{
+            width: 80%;
+            height: 75px;
+            font-size: 24pt;
+            font-family: 'Comic Sans MS';
+            position: sticky;
+            left: 10%;
+            margin-top: 15px;
+            margin-bottom: 50px;
+        }
+        .labeltext{
+            color: white;
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            margin-top: 100px;
+            position: sticky;
+            left: 10%;
+        }
+    </style>
+</head>
+<body id='bg' style="background-color:rgb(17, 17, 17);">
+    <button onclick="resetVars()" style="position:absolute;margin:15px;right:0%;top:0%;">Reset</button>
+        <label class="labeltext" for="bluename">Blue Team Name</label><br>
+        <input style="background-color:  rgb(40, 80, 167)" class="namebar" id="bluename"></input><br>
+        <label class="labeltext" for="bluename">Red Team Name</label><br>
+        <input style="background-color:  rgb(201, 63, 63)" class="namebar" id="redname"></input>
+    <script>
+        var one = false;
+        var two = false;
+        function resetVars(){
+            localStorage.setItem('one','false');
+            localStorage.setItem('two','false');
+        }
+        function clickOne(){
+            one = true;
+            localStorage.setItem('one','true');
+        }
+        function clickTwo(){
+            two = true;
+        }
+        var flip = true;
+        setInterval(function() {
+            /*if(flip){
+                document.getElementById('bg').style.backgroundColor = 'red';
+                flip=false
+            }
+            else{
+                document.getElementById('bg').style.backgroundColor = 'green';
+                flip = true
+            }*/
+            document.getElementById('hi').innerHTML = localStorage.getItem('one');
+            if(localStorage.getItem('one') == 'true'){
+                document.getElementById('bg').style.backgroundColor = 'red';
+            }
+        }, 500);
+        setInterval(function(){
+            document.getElementById("one").innerHTML = localStorage.getItem("one")
+            document.getElementById("two").innerHTML = localStorage.getItem("two")
+        }, 50)
+    </script>
+</body>
+</html>

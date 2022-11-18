@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<title>Title Here</title>
+<meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .names{
+            color: white;
+            font-family: 'Comic Sans MS';
+            font-size: 15pt;
+        }
+        .resetbutton{
+            font-family: 'Comic Sans MS';
+            font-size: 30pt;
+            border-radius: 12px;
+            width: 150px;
+            margin: 50px;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            position: absolute;
+            top: 0%;
+            right: 0%;
+
+
+        }
+        .resetbutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+    </style>
+</head>
+<body style="background-color:#414141;">
+    <button class="resetbutton"  onclick="resetGamer()">Reset</button>
+    <p id="nameOneVar" class="names"></p>
+    <p id="nameTwoVar" class="names"></p>
+    <p id="nameThreeVar"  class="names"></p>
+    <p id="nameFourVar"  class="names"></p>
+    <p id="nameFiveVar"  class="names"></p>
+    <p id="nameSixVar"  class="names"></p>
+    <p id="nameSevenVar"  class="names"></p>
+    <p id="nameEightVar"  class="names"></p>
+    <p id="nameNineVar"  class="names"></p>
+    <p id="nameTenVar"  class="names"></p>
+    <p id="nameElevenVar"  class="names"></p>
+    <p id="nameTwelveVar"  class="names"></p>
+    <p id="nameThirteenVar"  class="names"></p>
+    <p id="nameFourteenVar"  class="names"></p>
+    <p id="nameFifteenVar"  class="names"></p>
+    <p id="nameSixteenVar"  class="names"></p>
+    <p id="nameSeventeenVar"  class="names"></p>
+    <p id="nameEighteenVar"  class="names"></p>
+    <p id="nameNineteenVar"  class="names"></p>
+    <p id="nameTwentyVar"  class="names"></p>
+    <p id="blueSummonerVar"  class="names"></p>
+    <p id="redSummonerVar"  class="names"></p>
+    <p id="draftStartedVar"  class="names"></p>
+    <p id="redBanOneVar"  class="names"></p>
+    <p id="redBanTwoVar"  class="names"></p>
+    <p id="redBanThreeVar"  class="names"></p>
+    <p id="redChampionVar"  class="names"></p>
+    <p id="blueBanOneVar"  class="names"></p>
+    <p id="blueBanTwoVar"  class="names"></p>
+    <p id="blueBanThreeVar"  class="names"></p>
+    <p id="blueChampionVar"  class="names"></p>
+    
+    <script>
+        setInterval(function(){
+            document.getElementById("nameOneVar").innerHTML = "nameOne: " + localStorage.getItem("nameOne");
+            document.getElementById("nameTwoVar").innerHTML = "nameTwo: " + localStorage.getItem("nameTwo");
+            document.getElementById("nameThreeVar").innerHTML = "nameThree: " + localStorage.getItem("nameThree");
+            document.getElementById("nameFourVar").innerHTML = "nameFour: " + localStorage.getItem("nameFour");
+            document.getElementById("nameFiveVar").innerHTML = "nameFive: " + localStorage.getItem("nameFive");
+            document.getElementById("nameSixVar").innerHTML = "nameSix: " + localStorage.getItem("nameSix");
+            document.getElementById("nameSevenVar").innerHTML = "nameSeven: " + localStorage.getItem("nameSeven");
+            document.getElementById("nameEightVar").innerHTML = "nameEight: " + localStorage.getItem("nameEight");
+            document.getElementById("nameNineVar").innerHTML = "nameNine: " + localStorage.getItem("nameNine");
+            document.getElementById("nameTenVar").innerHTML = "nameTen: " + localStorage.getItem("nameTen");
+            document.getElementById("nameElevenVar").innerHTML = "nameEleven: " + localStorage.getItem("nameEleven");
+            document.getElementById("nameTwelveVar").innerHTML = "nameTwelve: " + localStorage.getItem("nameTwelve");
+            document.getElementById("nameThirteenVar").innerHTML = "nameThirteen: " + localStorage.getItem("nameThirteen");
+            document.getElementById("nameFourteenVar").innerHTML = "nameFourteen: " + localStorage.getItem("nameFourteen");
+            document.getElementById("nameFifteenVar").innerHTML = "nameFifteen: " + localStorage.getItem("nameFifteen");
+            document.getElementById("nameSixteenVar").innerHTML = "nameSixteen: " + localStorage.getItem("nameSixteen");
+            document.getElementById("nameSeventeenVar").innerHTML = "nameSeventeen: " + localStorage.getItem("nameSeventeen");
+            document.getElementById("nameEighteenVar").innerHTML = "nameEighteen: " + localStorage.getItem("nameEighteen");
+            document.getElementById("nameNineteenVar").innerHTML = "nameNineteen: " + localStorage.getItem("nameNineteen");
+            document.getElementById("nameTwentyVar").innerHTML = "nameTwenty: " + localStorage.getItem("nameTwenty");
+            document.getElementById("blueSummonerVar").innerHTML = "blueSummoner: " + localStorage.getItem("blueSummoner");
+            document.getElementById("redSummonerVar").innerHTML = "redSummoner: " + localStorage.getItem("redSummoner");
+            document.getElementById("draftStartedVar").innerHTML = "draftStarted: " + localStorage.getItem("draftStarted");
+            document.getElementById("redBanOneVar").innerHTML = "redBanOne: " + localStorage.getItem("redBanOne");
+            document.getElementById("redBanTwoVar").innerHTML = "redBanTwo: " + localStorage.getItem("redBanTwo");
+            document.getElementById("redBanThreeVar").innerHTML = "redBanThree: " + localStorage.getItem("redBanThree");
+            document.getElementById("redChampionVar").innerHTML = "redChampion: " + localStorage.getItem("redChampion");
+            document.getElementById("blueBanOneVar").innerHTML = "blueBanOne: " + localStorage.getItem("blueBanOne");
+            document.getElementById("blueBanTwoVar").innerHTML = "blueBanTwo: " + localStorage.getItem("blueBanTwo");
+            document.getElementById("blueBanThreeVar").innerHTML = "blueBanThree: " + localStorage.getItem("blueBanThree");
+            document.getElementById("blueChampionVar").innerHTML = "blueChampion: " + localStorage.getItem("blueChampion");
+        }, 100)
+        function resetGamer(){
+            localStorage.clear()
+        }
+    </script>
+</body>
+</html>
