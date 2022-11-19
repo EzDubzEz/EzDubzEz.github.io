@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Title Here</title>
+<title>Admin Page</title>
 <meta name="1v1 Tournament Draft" content="Login Page">
     <style>
         .names{
@@ -18,18 +18,38 @@
             border-width: 6px;
             position: absolute;
             text-align: center;
-            left: 20%;
+            left: 50%;
+            transform: translate(-50%,0%);
             margin-top: 20%;
 
         }
         .startbutton:hover{
             background-color: grey;
             color:rgb(34, 34, 34)
+        }.restartbutton{
+            font-family: 'Comic Sans MS';
+            font-size: 55pt;
+            border-radius: 12px;
+            width: 40%;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%,0%);
+            margin-top: 32%;
+
+        }
+        .restartbutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
         }
     </style>
 </head>
 <body style="background-color:#414141;">
-    <select class="names" style="background-color:rgb(40, 80, 167); position:absolute; margin: 50px;left:0%" id="blueSelection">
+    <p style="position:absolute;left:50%;margin-top:7.5%;transform:translate(-50%,0%);font-family:'Comic Sans MS';font-size:40pt;color:white;" id="startedDraft"></p>
+    <select class="names" style="background-color:rgb(40, 80, 167); position:absolute; margin: 50px;left:0%;border-width: 3px;border-color: black;" id="blueSelection">
         <option id="nameOneBlue" class="names"></option>
         <option id="nameTwoBlue" class="names"></option>
         <option id="nameThreeBlue"  class="names"></option>
@@ -51,7 +71,7 @@
         <option id="nameNineteenBlue"  class="names"></option>
         <option id="nameTwentyBlue"  class="names"></option>
     </select>
-    <select class="names" style="background-color:rgb(201, 63, 63); position:absolute; margin: 50px;right:0%" id="redSelection">
+    <select class="names" style="background-color:rgb(201, 63, 63); position:absolute; margin: 50px;right:0%;border-width: 3px;border-color: black" id="redSelection">
         <option id="nameOneRed" class="names"></option>
         <option id="nameTwoRed" class="names"></option>
         <option id="nameThreeRed"  class="names"></option>
@@ -74,9 +94,16 @@
         <option id="nameTwentyRed"  class="names"></option>
     </select>
     <button class="startbutton" onclick="beginDraft()">Let's Start</button>
+    <button class="restartbutton" onclick="endDraft()">End Draft</button>
     
     <script>
         setInterval(function(){
+            if (localStorage.getItem("draftStarted") == 'true'){
+                document.getElementById("startedDraft").innerHTML = "Ongoing Match..."
+            }
+            else{
+                document.getElementById("startedDraft").innerHTML = "No Ongoing Match..."
+            }
             document.getElementById("nameOneBlue").innerHTML = localStorage.getItem("nameOne");
             document.getElementById("nameTwoBlue").innerHTML = localStorage.getItem("nameTwo");
             document.getElementById("nameThreeBlue").innerHTML = localStorage.getItem("nameThree");
@@ -121,23 +148,39 @@
         }, 50)
         function beginDraft(){
             if (document.getElementById("blueSelection").value != document.getElementById("redSelection").value){
-                localStorage.setItem("blueSummoner",document.getElementById("blueSelection").value)
-                localStorage.setItem("redSummoner",document.getElementById("redSelection").value)
-                localStorage.setItem("draftStarted",'true')
-                clearPicksAndBans()
+                localStorage.setItem("blueSummoner",document.getElementById("blueSelection").value);
+                localStorage.setItem("redSummoner",document.getElementById("redSelection").value);
+                clearPicksAndBans();
+                sessionStorage.setItem("redBanOneSet",'false');
+                sessionStorage.setItem("redBanTwoSet",'false');
+                sessionStorage.setItem("redBanThreeSet",'false');
+                sessionStorage.setItem("redChampionSet",'false');
+                sessionStorage.setItem("blueBanOneSet",'false');
+                sessionStorage.setItem("blueBanTwoSet",'false');
+                sessionStorage.setItem("blueBanThreeSet",'false');
+                sessionStorage.setItem("blueChampionSet",'false');
+                localStorage.setItem("draftStarted",'true');
             }
         }
+        function endDraft(){
+            localStorage.setItem("draftStarted",'false')
+        }
         function clearPicksAndBans(){
-            localStorage.removeItem("redBanOne")
-            localStorage.removeItem("redBanTwo")
-            localStorage.removeItem("redBanThree")
-            localStorage.removeItem("redChampion")
-            localStorage.removeItem("blueBanOne")
-            localStorage.removeItem("blueBanTwo")
-            localStorage.removeItem("blueBanThree")
-            localStorage.removeItem("blueChampion")
-            localStorage.removeItem("redBanFinished")
-            localStorage.removeItem("blueBanFinished")
+            localStorage.setItem("redBanFinished",'false')
+            localStorage.setItem("blueBanFinished",'false')
+            localStorage.setItem("redReady",'false')
+            localStorage.setItem("blueReady",'false')
+            localStorage.setItem("redFinished",'false')
+            localStorage.setItem("blueFinished",'false')
+            localStorage.setItem("redBanOne",null)
+            localStorage.setItem("redBanOne",null)
+            localStorage.setItem("redBanTwo",null)
+            localStorage.setItem("redBanThree",null)
+            localStorage.setItem("redChampion",null)
+            localStorage.setItem("blueBanOne",null)
+            localStorage.setItem("blueBanTwo",null)
+            localStorage.setItem("blueBanThree",null)
+            localStorage.setItem("blueChampion",null)
         }
     </script>
 </body>

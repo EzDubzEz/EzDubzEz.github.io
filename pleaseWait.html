@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Title Here</title>
+<title>Waiting To Start</title>
 <meta name="1v1 Tournament Draft" content="Login Page">
     <style>
         .textt{
@@ -15,13 +15,21 @@
         <p class="textt" style="font-size:75pt;margin:220px 0px">Please Wait For Selection...</p>
     </center>
     <center>
-        <label class="textt" style="font-size: 22pt;">You're registered as: </label>
-        <input id="summonName" disabled style="border-width: 4px;font-size: 22pt;background-color: white;color:black;border-color:black;text-align: center;"></input>
+        <label class="textt" style="font-size: 22pt;font-family: 'Comic Sans MS';">You're registered as: </label>
+        <input id="summonName" disabled style="border-width: 4px;font-family:'Comic Sans MS';font-size: 22pt;background-color: white;color:black;border-color:black;text-align: center;"></input>
     </center>
     <script>
         setInterval(function(){
             document.getElementById("summonName").value = sessionStorage.getItem("summonerName");
             if(localStorage.getItem("draftStarted") == 'true'){
+                sessionStorage.setItem("redBanOneSet",'false');
+                sessionStorage.setItem("redBanTwoSet",'false');
+                sessionStorage.setItem("redBanThreeSet",'false');
+                sessionStorage.setItem("redChampionSet",'false');
+                sessionStorage.setItem("blueBanOneSet",'false');
+                sessionStorage.setItem("blueBanTwoSet",'false');
+                sessionStorage.setItem("blueBanThreeSet",'false');
+                sessionStorage.setItem("blueChampionSet",'false');
                 if (localStorage.getItem("blueSummoner") == sessionStorage.getItem("summonerName")) {
                     document.location.href = "blueBanPhase.html";
                 }

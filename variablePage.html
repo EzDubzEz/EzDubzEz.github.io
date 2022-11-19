@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Title Here</title>
+<title>Variables</title>
 <meta name="1v1 Tournament Draft" content="Login Page">
     <style>
         .names{
@@ -59,10 +59,20 @@
     <p id="redBanTwoVar"  class="names"></p>
     <p id="redBanThreeVar"  class="names"></p>
     <p id="redChampionVar"  class="names"></p>
+    <p id="redBanFinishedVar"  class="names"></p>
     <p id="blueBanOneVar"  class="names"></p>
     <p id="blueBanTwoVar"  class="names"></p>
     <p id="blueBanThreeVar"  class="names"></p>
     <p id="blueChampionVar"  class="names"></p>
+    <p id="blueBanFinishedVar"  class="names"></p>
+    <p id="redBanOneSetVar"  class="names"></p>
+    <p id="redBanTwoSetVar"  class="names"></p>
+    <p id="redBanThreeSetVar"  class="names"></p>
+    <p id="redChampionSetVar"  class="names"></p>
+    <p id="blueBanOneSetVar"  class="names"></p>
+    <p id="blueBanTwoSetVar"  class="names"></p>
+    <p id="blueBanThreeSetVar"  class="names"></p>
+    <p id="blueChampionSetVar"  class="names"></p>
     
     <script>
         setInterval(function(){
@@ -93,10 +103,20 @@
             document.getElementById("redBanTwoVar").innerHTML = "redBanTwo: " + localStorage.getItem("redBanTwo");
             document.getElementById("redBanThreeVar").innerHTML = "redBanThree: " + localStorage.getItem("redBanThree");
             document.getElementById("redChampionVar").innerHTML = "redChampion: " + localStorage.getItem("redChampion");
+            document.getElementById("redBanFinishedVar").innerHTML = "redBanFinished: " + localStorage.getItem("redBanFinished");
             document.getElementById("blueBanOneVar").innerHTML = "blueBanOne: " + localStorage.getItem("blueBanOne");
             document.getElementById("blueBanTwoVar").innerHTML = "blueBanTwo: " + localStorage.getItem("blueBanTwo");
             document.getElementById("blueBanThreeVar").innerHTML = "blueBanThree: " + localStorage.getItem("blueBanThree");
             document.getElementById("blueChampionVar").innerHTML = "blueChampion: " + localStorage.getItem("blueChampion");
+            document.getElementById("blueBanFinishedVar").innerHTML = "blueBanFinished: " + localStorage.getItem("blueBanFinished");
+            document.getElementById("redBanOneSetVar").innerHTML = "redBanOneSet: " + localStorage.getItem("redBanOneSet");
+            document.getElementById("redBanTwoSetVar").innerHTML = "redBanTwoSet: " + localStorage.getItem("redBanTwoSet");
+            document.getElementById("redBanThreeSetVar").innerHTML = "redBanThreeSet: " + localStorage.getItem("redBanThreeSet");
+            document.getElementById("redChampionSetVar").innerHTML = "redChampionSet: " + localStorage.getItem("redChampionSet");
+            document.getElementById("blueBanOneSetVar").innerHTML = "blueBanOneSet: " + localStorage.getItem("blueBanOneSet");
+            document.getElementById("blueBanTwoSetVar").innerHTML = "blueBanTwoSet: " + localStorage.getItem("blueBanTwoSet");
+            document.getElementById("blueBanThreeSetVar").innerHTML = "blueBanThreeSet: " + localStorage.getItem("blueBanThreeSet");
+            document.getElementById("blueChampionSetVar").innerHTML = "blueChampionSet: " + localStorage.getItem("blueChampionSet");
         }, 100)
         function resetGamer(){
             localStorage.clear()
