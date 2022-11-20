@@ -65,6 +65,7 @@
             outline: 0px solid black;
             outline-offset: -10px;
             padding: 3px;
+            background-color: gray;
             
         }
         .icons{
@@ -85,6 +86,13 @@
             top: 11%;
             left: 1%;
             border: 4px solid black;
+        }
+        .bans{
+            position: absolute;
+            width: 20%;
+            border: 3px solid black;
+            outline: 3px solid black;
+            outline-offset: -5px;
         }
     </style>
 </head>
@@ -419,9 +427,31 @@
         <image class="icons" onclick="select('zoe')" src="icon/zoe.jpg" id="zoeIconBlue">
         <image class="icons" onclick="select('zyra')" src="icon/zyra.jpg" id="zyraIconBlue">
     </div>
+    
+    <img class="bans" src="banners/blank.jpg" alt="blueBanOne" style="right:1.6%;top:14%" id="blueBanOneRed">
+    <img class="bans" src="banners/blank.jpg" alt="redBanOne" style="right:23.2%;top:14%" id="redBanOneRed">
+    
+    <img class="bans" src="banners/blank.jpg" alt="blueBanTwo" style="right:1.6%;top:43%" id="blueBanTwoRed">
+    <img class="bans" src="banners/blank.jpg" alt="redBanTwo" style="right:23.2%;top:43%" id="redBanTwoRed">
+    
+    <img class="bans" src="banners/blank.jpg" alt="blueBanThree" style="right:1.6%;top:72%" id="blueBanThreeRed">
+    <img class="bans" src="banners/blank.jpg" alt="redBanThree" style="right: 23.2%;top:72%" id="redBanThreeRed">
+    
     <button onclick="lockIn()" class="banbutton" id="redLockChampButton">Lock In</button>
     
     <script>
+        function champName(name){
+            if (name=='Wukong'){
+                name='monkeyking';
+            }
+            if (name=='Renata Glasc'){
+                name='renata';
+            }
+            if (name=="Nunu & Willump"){
+                name='nunu'
+            }
+            return(name.toLowerCase().replace(/\s/g, "").replace("'",""))
+        }
         function imBackBaby(name) {
             if(name == "aurelionsol"){
                 name = "Aurelion Sol";
@@ -535,6 +565,12 @@
                 document.getElementById("blueSummonerTag").style.right="1%"
                 document.getElementById("redSummonerTag").style.left="1%"
             }
+            document.getElementById("blueBanOneRed").src = "banners/"+localStorage.getItem("blueBanOne")+".jpg"
+            document.getElementById("redBanOneRed").src = "banners/"+localStorage.getItem("redBanOne")+".jpg"
+            document.getElementById("blueBanTwoRed").src = "banners/"+localStorage.getItem("blueBanTwo")+".jpg"
+            document.getElementById("redBanTwoRed").src = "banners/"+localStorage.getItem("redBanTwo")+".jpg"
+            document.getElementById("blueBanThreeRed").src = "banners/"+localStorage.getItem("blueBanThree")+".jpg"
+            document.getElementById("redBanThreeRed").src = "banners/"+localStorage.getItem("redBanThree")+".jpg"
 
             if (!"aatrox".includes(document.getElementById("redChampionBar").value.toLowerCase()) && !"aatrox".includes(document.getElementById("redChampionBar").value.toLowerCase())){
                 document.getElementById("aatroxIconBlue").style.visibility = "hidden";

@@ -8,6 +8,22 @@
             font-family: 'Comic Sans MS';
             color: white;
         }
+        .namebutton{
+            font-family: 'Comic Sans MS';
+            font-size: 22pt;
+            border-radius: 12px;
+            width: 250px;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            text-align: center;
+            margin-top: 2%;
+
+        }
+        .namebutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
     </style>
 </head>
 <body style="background-color:#414141;">
@@ -18,7 +34,75 @@
         <label class="textt" style="font-size: 22pt;font-family: 'Comic Sans MS';">You're registered as: </label>
         <input id="summonName" disabled style="border-width: 4px;font-family:'Comic Sans MS';font-size: 22pt;background-color: white;color:black;border-color:black;text-align: center;"></input>
     </center>
+    <center>
+        <button class="namebutton" id="changeNameButton" onclick="changeName()">Change Name</button>
+    </center>
     <script>
+        function changeName(){
+            var name = sessionStorage.getItem("summonerName");
+            if(localStorage.getItem("nameOne") == name){
+                localStorage.removeItem("nameOne");
+            }
+            else if(localStorage.getItem("nameTwo") == name){
+                localStorage.removeItem("nameTwo");
+            }
+            else if(localStorage.getItem("nameThree") == name){
+                localStorage.removeItem("nameThree");
+            }
+            else if(localStorage.getItem("nameFour") == name){
+                localStorage.removeItem("nameFour");
+            }
+            else if(localStorage.getItem("nameFive") == name){
+                localStorage.removeItem("nameFive");
+            }
+            else if(localStorage.getItem("nameSix") == name){
+                localStorage.removeItem("nameSix");
+            }
+            else if(localStorage.getItem("nameSeven") == name){
+                localStorage.removeItem("nameSeven");
+            }
+            else if(localStorage.getItem("nameEight") == name){
+                localStorage.removeItem("nameEight");
+            }
+            else if(localStorage.getItem("nameNine") == name){
+                localStorage.removeItem("nameNine");
+            }
+            else if(localStorage.getItem("nameTen") == name){
+                localStorage.removeItem("nameTen");
+            }
+            else if(localStorage.getItem("nameEleven") == name){
+                localStorage.removeItem("nameEleven");
+            }
+            else if(localStorage.getItem("nameTwelve") == name){
+                localStorage.removeItem("nameTwelve");
+            }
+            else if(localStorage.getItem("nameThirteen") == name){
+                localStorage.removeItem("nameThirteen");
+            }
+            else if(localStorage.getItem("nameFourteen") == name){
+                localStorage.removeItem("nameFourteen");
+            }
+            else if(localStorage.getItem("nameFifteen") == name){
+                localStorage.removeItem("nameFifteen");
+            }
+            else if(localStorage.getItem("nameSixteen") == name){
+                localStorage.removeItem("nameSixteen");
+            }
+            else if(localStorage.getItem("nameSeventeen") == name){
+                localStorage.removeItem("nameSeventeen");
+            }
+            else if(localStorage.getItem("nameEighteen") == name){
+                localStorage.removeItem("nameEighteen");
+            }
+            else if(localStorage.getItem("nameNineteen") == name){
+                localStorage.removeItem("nameNineteen");
+            }
+            else if(localStorage.getItem("nameTwenty") == name){
+                localStorage.removeItem("nameTwenty");
+            }
+            sessionStorage.removeItem("summonerName");
+            document.location.href = "index.html";
+        }
         setInterval(function(){
             document.getElementById("summonName").value = sessionStorage.getItem("summonerName");
             if(localStorage.getItem("draftStarted") == 'true'){

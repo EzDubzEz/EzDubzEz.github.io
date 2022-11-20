@@ -56,6 +56,7 @@
             outline-offset: -5px;
             padding-top:5px;
             padding-left:5px;
+            background-color: gray;
             
         }
         .icons{
@@ -1160,7 +1161,7 @@
         }
         function lockBans() {
             if((localStorage.getItem("blueBanOne") != localStorage.getItem("blueBanTwo")) && (localStorage.getItem("blueBanTwo") != localStorage.getItem("blueBanThree")) && (localStorage.getItem("blueBanOne") != 'null') && (localStorage.getItem("blueBanTwo") != 'null') && (localStorage.getItem("blueBanThree") != 'null')){
-				localStorage.setItem("blueBanFinished",'true')
+				localStorage.setItem("blueBanFinished",'true');
                 document.location.href = "readyUp.html";
 			}
 		}

@@ -44,7 +44,6 @@
         <input type="text" style="margin-top:20%;font-family:'Comic Sans MS';font-size:30pt;border-radius:12px;border-width: 6px;" maxlength="20" id="nameInputBox"></input>
         <button class="gobutton" onclick="ready()">Go</button>
     </center>
-    <p id="test"></p>
     <a href="adminPage.html">
         <textarea style="position:absolute; bottom:0%; right:0%;background-color:#414141;; width:20px;height:20px;resize: none;border-color: #414141;" disabled></textarea>
     </a>
@@ -53,7 +52,6 @@
     </a>
     <script>
         function ready(){
-            document.getElementById("test").innerHTML = localStorage.getItem("nameOne");
             if(document.getElementById("nameInputBox").value != ''){
                 if(localStorage.getItem("nameOne") == null){
                     localStorage.setItem("nameOne",document.getElementById("nameInputBox").value)
@@ -116,9 +114,13 @@
                     localStorage.setItem("nameTwenty",document.getElementById("nameInputBox").value)
                 }
                 sessionStorage.setItem("summonerName",document.getElementById("nameInputBox").value)
-                document.location.href = "pleaseWait.html";
             }
         }
+        setInterval(function() {
+            if (sessionStorage.getItem("summonerName") != null){
+                document.location.href = "pleaseWait.html";
+            }
+        }, 50)
     </script>
 </body>
 </html>
