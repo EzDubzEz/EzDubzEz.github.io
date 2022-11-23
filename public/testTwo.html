@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<title>Title Here</title>
+<meta name="1v1 Tournament Draft" content="Login Page">
+</head>
+<body style="background-color:rgb(255, 255, 255);">
+    <center>
+        <a href="index.html">
+            <button>Button</button>
+        </a>
+    </center>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+</html>

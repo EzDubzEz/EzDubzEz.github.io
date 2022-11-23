@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<title>Spectate</title>
+<meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .summnames{
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            position: absolute;
+            color: black;
+            text-align: center;
+            border-width: 3px;
+            border-color: black;
+            top: 25px;
+            width: 20%;
+            
+        }
+        .words{
+            font-family: 'Comic Sans MS';
+            font-size: 40pt;
+            color: white;
+            
+        }
+        .bans{
+            position: absolute;
+            width: 20%;
+            border: 3px solid white;
+            outline: 3px solid white;
+            outline-offset: -5px;
+            background-color: white;
+        }
+        .champs{
+            position: absolute;
+            width: 21.1%;
+            border: 3px solid white;
+            outline: 3px solid white;
+            outline-offset: -5px;
+        }
+        .symbols{
+            width: 3%;
+            position:absolute;
+            top: 25px;
+        }
+    </style>
+</head>
+<body style="background-color:#414141;">
+    <input class="summnames" disabled style="background-color:rgb(40, 80, 167);left:1.6%" id="blueSummonerTag"></input>
+    <input class="summnames" disabled style="background-color:rgb(201, 63, 63);right:1.6%" id="redSummonerTag"></input>
+
+    <image src="images/banned2.png" class="symbols" style="left:23%" id="bannedSpecBlue"></image>
+    <image src="images/ready2.png" class="symbols" style="left:27%" id="readySpecBlue"></image>
+    <image src="images/fight2.png" class="symbols" style="left:31%" id="fightSpecBlue"></image>
+    
+    <image src="images/banned2.png" class="symbols" style="right:23%" id="bannedSpecRed"></image>
+    <image src="images/ready2.png" class="symbols" style="right:27%" id="readySpecRed"></image>
+    <image src="images/fight2.png" class="symbols" style="right:31%" id="fightSpecRed"></image>
+
+    <p class="words" style="position:absolute;left:50%;top:3%;transform:translate(-50%,0%);margin:0px">Prepare To Game</p>
+    
+
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanOne" style="left:1.6%;top:14%" id="blueBanOneSpec">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanOne" style="right:1.6%;top:14%" id="redBanOneSpec">
+    
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanTwo" style="left:1.6%;top:43%" id="blueBanTwoSpec">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanTwo" style="right:1.6%;top:43%" id="redBanTwoSpec">
+    
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanThree" style="left:1.6%;top:72%" id="blueBanThreeSpec">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanThree" style="right:1.6%;top:72%" id="redBanThreeSpec">
+    
+    <img class="champs" src="images/verticle/blank.jpg" alt="blueChampion" style="left:23%;top:18.1%" id="blueChampionSpec">
+    <img class="champs" src="images/verticle/blank.jpg" alt="redChampion" style="right:23%;top:18.1%" id="redChampionSpec">
+    
+    <img src="images/vs.png" alt="vs" style="position:absolute;width:10%;left:50%;top:50%;transform:translate(-50%,-50%);" id="versus">
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getDatabase, ref, child, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          databaseURL: "https://lol-1v1-draft-default-rtdb.firebaseio.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        function setdaVariable(variable,value){
+            set(ref(db, variable), {value: value});
+        }
+        function getdaVariable(variable){
+            return get(child(ref(db), `${variable}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val()['value'];} })
+        }
+        window.setVariable = setdaVariable;
+        window.getVariable = getdaVariable;
+    </script>
+    <script>
+        function champName(name){
+            if (name=='Wukong'){
+                name='monkeyking';
+            }
+            if (name=='Renata Glasc'){
+                name='renata';
+            }
+            if (name=="Nunu & Willump"){
+                name='nunu'
+            }
+            return(name.toLowerCase().replace(/\s/g, "").replace("'",""))
+        }
+        var finished = false;
+        setInterval(async function(){
+            if(await getVariable("draftStarted") == false){
+                document.location.href = "pleaseWait.html";
+            }
+            if (!finished){
+                if (await getVariable("blueReady") == true) {
+                    document.getElementById("readySpecBlue").src = "images/ready.png";
+                }
+                if (await getVariable("redReady") == true) {
+                    document.getElementById("readySpecRed").src = "images/ready.png";
+                }
+                if(await getVariable("redBanFinished") == true){
+                    document.getElementById("redBanOneSpec").style.borderColor = 'black';
+                    document.getElementById("redBanOneSpec").style.outlineColor = 'black';
+                    document.getElementById("redBanTwoSpec").style.borderColor = 'black';
+                    document.getElementById("redBanTwoSpec").style.outlineColor = 'black';
+                    document.getElementById("redBanThreeSpec").style.borderColor = 'black';
+                    document.getElementById("redBanThreeSpec").style.outlineColor = 'black';
+                    document.getElementById("bannedSpecRed").src = "images/banned.png";
+                }
+                if(await getVariable("blueBanFinished") == true){
+                    document.getElementById("blueBanOneSpec").style.borderColor = 'black';
+                    document.getElementById("blueBanOneSpec").style.outlineColor = 'black';
+                    document.getElementById("blueBanTwoSpec").style.borderColor = 'black';
+                    document.getElementById("blueBanTwoSpec").style.outlineColor = 'black';
+                    document.getElementById("blueBanThreeSpec").style.borderColor = 'black';
+                    document.getElementById("blueBanThreeSpec").style.outlineColor = 'black';
+                    document.getElementById("bannedSpecBlue").src = "images/banned.png";
+                }
+                finished = true;
+                if(await getVariable("redFinished") == true){
+                    document.getElementById("redChampionSpec").style.borderColor = 'black';
+                    document.getElementById("redChampionSpec").style.outlineColor = 'black';
+                    document.getElementById("fightSpecRed").src = "images/fight.png";
+                }
+                else{finished = false;}
+                if(await getVariable("blueFinished") == true){
+                    document.getElementById("blueChampionSpec").style.borderColor = 'black';
+                    document.getElementById("blueChampionSpec").style.outlineColor = 'black';
+                    document.getElementById("fightSpecBlue").src = "images/fight.png";
+                }
+                else{finished = false;}
+                if (finished){
+                    document.getElementById("versus").src = "images/vs2.png"
+                }
+                if(await getVariable("redBanOne") != undefined){
+                    document.getElementById("redBanOneSpec").src = "images/banners/"+champName(await getVariable("redBanOne"))+".jpg";
+                }
+                if(await getVariable("redBanTwo") != undefined){
+                    document.getElementById("redBanTwoSpec").src = "images/banners/"+champName(await getVariable("redBanTwo"))+".jpg";
+                }
+                if(await getVariable("redBanThree") != undefined){
+                    document.getElementById("redBanThreeSpec").src = "images/banners/"+champName(await getVariable("redBanThree"))+".jpg";
+                }
+                if(await getVariable("redChampion") != undefined){
+                    document.getElementById("redChampionSpec").src = "images/verticle/"+champName(await getVariable("redChampion"))+".jpg";
+                }
+                if(await getVariable("blueBanOne") != undefined){
+                    document.getElementById("blueBanOneSpec").src = "images/banners/"+champName(await getVariable("blueBanOne"))+".jpg";
+                }
+                if(await getVariable("blueBanTwo") != undefined){
+                    document.getElementById("blueBanTwoSpec").src = "images/banners/"+champName(await getVariable("blueBanTwo"))+".jpg";
+                }
+                if(await getVariable("blueBanThree") != undefined){
+                    document.getElementById("blueBanThreeSpec").src = "images/banners/"+champName(await getVariable("blueBanThree"))+".jpg";
+                }
+                if(await getVariable("blueChampion") != undefined){
+                    document.getElementById("blueChampionSpec").src = "images/verticle/"+champName(await getVariable("blueChampion"))+".jpg";
+                }
+                
+                document.getElementById("blueSummonerTag").value = await getVariable("blueSummoner");
+                document.getElementById("redSummonerTag").value = await getVariable("redSummoner");
+            }
+        }, 100);
+    </script>
+</body>
+</html>

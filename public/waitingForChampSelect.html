@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<title>Waiting For Champ Select</title>
+<meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .textt{
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            position: absolute;
+            margin: 50px;
+            top: 0%;
+            color: black;
+            text-align: center;
+            border-width: 3px;
+            border-color: black;
+        }
+    </style>
+</head>
+<body style="background-color:#414141;" onload="start()">
+    <input class="textt" disabled style="background-color:rgb(40, 80, 167);" id="blueSummonerTag"></input>
+    <input class="textt" disabled style="background-color:rgb(201, 63, 63);" id="redSummonerTag"></input>
+    <center>
+        <p style="font-size:75pt;margin-top:220px;font-family:'Comic Sans MS';color:white;">Opponent Not Ready...</p>
+    </center>
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getDatabase, ref, child, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          databaseURL: "https://lol-1v1-draft-default-rtdb.firebaseio.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        function setdaVariable(variable,value){
+            set(ref(db, variable), {value: value});
+        }
+        function getdaVariable(variable){
+            return get(child(ref(db), `${variable}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val()['value'];} })
+        }
+        window.setVariable = setdaVariable;
+        window.getVariable = getdaVariable;
+    </script>
+    <script>
+        async function start() {
+            document.getElementById("blueSummonerTag").value = await getVariable("blueSummoner");
+            document.getElementById("redSummonerTag").value = await getVariable("redSummoner");
+            if (await getVariable("blueSummoner") == sessionStorage.getItem("summonerName")) {
+                document.getElementById("blueSummonerTag").style.left="0%"
+                document.getElementById("redSummonerTag").style.right="0%"
+            }
+            else if (await getVariable("redSummoner") == sessionStorage.getItem("summonerName")){
+                document.getElementById("blueSummonerTag").style.right="0%"
+                document.getElementById("redSummonerTag").style.left="0%"
+            }
+        }
+        setInterval(async function(){
+            if(await getVariable("draftStarted") == false){
+                document.location.href = "pleaseWait.html";
+            }
+            if((await getVariable("blueReady") == true) && (await getVariable("redReady") == true)){
+                if (await getVariable("blueSummoner") == sessionStorage.getItem("summonerName")) {
+                    document.location.href = "blueChampionSelect.html";
+                }
+                else if (await getVariable("redSummoner") == sessionStorage.getItem("summonerName")){
+                    document.location.href = "redChampionSelect.html";
+                }
+            }
+            
+        }, 500);
+    </script>
+</body>
+</html>

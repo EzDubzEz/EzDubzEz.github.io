@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+<head>
+<title>Admin Page</title>
+<meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .names{
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+        }
+        .startbutton{
+            font-family: 'Comic Sans MS';
+            font-size: 70pt;
+            border-radius: 12px;
+            width: 60%;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%,0%);
+            margin-top: 20%;
+
+        }
+        .startbutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+        .restartbutton{
+            font-family: 'Comic Sans MS';
+            font-size: 55pt;
+            border-radius: 12px;
+            width: 40%;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%,0%);
+            margin-top: 32%;
+
+        }
+        .restartbutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+        .clearnamebutton{
+            font-family: 'Comic Sans MS';
+            font-size: 22pt;
+            border-radius: 12px;
+            width: 20%;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            margin: 25px;
+            bottom: 0%;
+
+        }
+        .clearnamebutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+    </style>
+</head>
+<body style="background-color:#414141;">
+    <p style="position:absolute;left:50%;margin-top:7.5%;transform:translate(-50%,0%);font-family:'Comic Sans MS';font-size:40pt;color:white;" id="startedDraft"></p>
+    <select class="names" style="background-color:rgb(40, 80, 167); position:absolute; margin: 50px;left:0%;border-width: 3px;border-color: black;" id="blueSelection">
+        <option id="nameOneBlue" class="names"></option>
+        <option id="nameTwoBlue" class="names"></option>
+        <option id="nameThreeBlue"  class="names"></option>
+        <option id="nameFourBlue"  class="names"></option>
+        <option id="nameFiveBlue"  class="names"></option>
+        <option id="nameSixBlue"  class="names"></option>
+        <option id="nameSevenBlue"  class="names"></option>
+        <option id="nameEightBlue"  class="names"></option>
+        <option id="nameNineBlue"  class="names"></option>
+        <option id="nameTenBlue"  class="names"></option>
+        <option id="nameElevenBlue"  class="names"></option>
+        <option id="nameTwelveBlue"  class="names"></option>
+        <option id="nameThirteenBlue"  class="names"></option>
+        <option id="nameFourteenBlue"  class="names"></option>
+        <option id="nameFifteenBlue"  class="names"></option>
+        <option id="nameSixteenBlue"  class="names"></option>
+        <option id="nameSeventeenBlue"  class="names"></option>
+        <option id="nameEighteenBlue"  class="names"></option>
+        <option id="nameNineteenBlue"  class="names"></option>
+        <option id="nameTwentyBlue"  class="names"></option>
+    </select>
+    <select class="names" style="background-color:rgb(201, 63, 63); position:absolute; margin: 50px;right:0%;border-width: 3px;border-color: black" id="redSelection">
+        <option id="nameOneRed" class="names"></option>
+        <option id="nameTwoRed" class="names"></option>
+        <option id="nameThreeRed"  class="names"></option>
+        <option id="nameFourRed"  class="names"></option>
+        <option id="nameFiveRed"  class="names"></option>
+        <option id="nameSixRed"  class="names"></option>
+        <option id="nameSevenRed"  class="names"></option>
+        <option id="nameEightRed"  class="names"></option>
+        <option id="nameNineRed"  class="names"></option>
+        <option id="nameTenRed"  class="names"></option>
+        <option id="nameElevenRed"  class="names"></option>
+        <option id="nameTwelveRed"  class="names"></option>
+        <option id="nameThirteenRed"  class="names"></option>
+        <option id="nameFourteenRed"  class="names"></option>
+        <option id="nameFifteenRed"  class="names"></option>
+        <option id="nameSixteenRed"  class="names"></option>
+        <option id="nameSeventeenRed"  class="names"></option>
+        <option id="nameEighteenRed"  class="names"></option>
+        <option id="nameNineteenRed"  class="names"></option>
+        <option id="nameTwentyRed"  class="names"></option>
+    </select>
+    <button class="startbutton" onclick="beginDraft()">Let's Start</button>
+    <button class="restartbutton" onclick="endDraft()">End Draft</button>
+    <select class="names" style="background-color:rgb(201, 63, 63); position:absolute; margin: 25px;bottom: 0%;right:50%;border-width: 3px;border-color: black" id="nameClearer">
+        <option id="nameOneRemove" class="names"></option>
+        <option id="nameTwoRemove" class="names"></option>
+        <option id="nameThreeRemove"  class="names"></option>
+        <option id="nameFourRemove"  class="names"></option>
+        <option id="nameFiveRemove"  class="names"></option>
+        <option id="nameSixRemove"  class="names"></option>
+        <option id="nameSevenRemove"  class="names"></option>
+        <option id="nameEightRemove"  class="names"></option>
+        <option id="nameNineRemove"  class="names"></option>
+        <option id="nameTenRemove"  class="names"></option>
+        <option id="nameElevenRemove"  class="names"></option>
+        <option id="nameTwelveRemove"  class="names"></option>
+        <option id="nameThirteenRemove"  class="names"></option>
+        <option id="nameFourteenRemove"  class="names"></option>
+        <option id="nameFifteenRemove"  class="names"></option>
+        <option id="nameSixteenRemove"  class="names"></option>
+        <option id="nameSeventeenRemove"  class="names"></option>
+        <option id="nameEighteenRemove"  class="names"></option>
+        <option id="nameNineteenRemove"  class="names"></option>
+        <option id="nameTwentyRemove"  class="names"></option>
+    </select>
+    <button class="clearnamebutton" onclick="clearName()">Remove Player</button>
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getDatabase, ref, child, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          databaseURL: "https://lol-1v1-draft-default-rtdb.firebaseio.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        function setdaVariable(variable,value){
+            set(ref(db, variable), {value: value});
+        }
+        function getdaVariable(variable){
+            return get(child(ref(db), `${variable}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val()['value'];} })
+        }
+        window.setVariable = setdaVariable;
+        window.getVariable = getdaVariable;
+    </script>
+    <script>
+        function beginDraft(){
+            if (document.getElementById("blueSelection").value != document.getElementById("redSelection").value){
+                setVariable("blueSummoner",document.getElementById("blueSelection").value);
+                setVariable("redSummoner",document.getElementById("redSelection").value);
+                clearPicksAndBans();
+                setVariable("draftStarted",'true');
+            }
+        }
+        function endDraft(){
+            setVariable("draftStarted",false);
+        }
+        function clearName(){
+            var number = ''
+            nameBox = document.getElementById('nameClearer').value;
+            if (nameBox == document.getElementById('nameOneRemove').value){
+                number = 'One';
+            }
+            else if (nameBox == document.getElementById('nameTwoRemove').value){
+                number = 'Two';
+            }
+            else if (nameBox == document.getElementById('nameThreeRemove').value){
+                number = 'Three';
+            }
+            else if (nameBox == document.getElementById('nameFourRemove').value){
+                number = 'Four';
+            }
+            else if (nameBox == document.getElementById('nameFiveRemove').value){
+                number = 'Five';
+            }
+            else if (nameBox == document.getElementById('nameSixRemove').value){
+                number = 'Six';
+            }
+            else if (nameBox == document.getElementById('nameSevenRemove').value){
+                number = 'Seven';
+            }
+            else if (nameBox == document.getElementById('nameEightRemove').value){
+                number = 'Eight';
+            }
+            else if (nameBox == document.getElementById('nameNineRemove').value){
+                number = 'Nine';
+            }
+            else if (nameBox == document.getElementById('nameTenRemove').value){
+                number = 'Ten';
+            }
+            else if (nameBox == document.getElementById('nameElevenRemove').value){
+                number = 'Eleven';
+            }
+            else if (nameBox == document.getElementById('nameTwelveRemove').value){
+                number = 'Twelve';
+            }
+            else if (nameBox == document.getElementById('nameThirteenRemove').value){
+                number = 'Thirteen';
+            }
+            else if (nameBox == document.getElementById('nameFourteenRemove').value){
+                number = 'Fourteen';
+            }
+            else if (nameBox == document.getElementById('nameFifteenRemove').value){
+                number = 'Fifteen';
+            }
+            else if (nameBox == document.getElementById('nameSixteenRemove').value){
+                number = 'Sixteen';
+            }
+            else if (nameBox == document.getElementById('nameSeventeenRemove').value){
+                number = 'Seventeen';
+            }
+            else if (nameBox == document.getElementById('nameEighteenRemove').value){
+                number = 'Eighteen';
+            }
+            else if (nameBox == document.getElementById('nameNineteenRemove').value){
+                number = 'Nineteen';
+            }
+            else if (nameBox == document.getElementById('nameTwentyRemove').value){
+                number = 'Twenty';
+            }
+            setVariable("name"+number,null);
+        }
+        function clearPicksAndBans(){
+            setVariable("redBanFinished",false);
+            setVariable("blueBanFinished",false);
+            setVariable("redReady",false);
+            setVariable("blueReady",false);
+            setVariable("redFinished",false);
+            setVariable("blueFinished",false);
+            setVariable("redBanOne",null);
+            setVariable("redBanTwo",null);
+            setVariable("redBanThree",null);
+            setVariable("redChampion",null);
+            setVariable("blueBanOne",null);
+            setVariable("blueBanTwo",null);
+            setVariable("blueBanThree",null);
+            setVariable("blueChampion",null);
+        }
+        setInterval(async function(){
+            if (await getVariable("draftStarted") == 'true'){
+                document.getElementById("startedDraft").innerHTML = "Ongoing Match..."
+            }
+            else{
+                document.getElementById("startedDraft").innerHTML = "No Ongoing Match..."
+            }
+            var nameOne = await getVariable("nameOne");
+            var nameTwo = await getVariable("nameTwo");
+            var nameThree = await getVariable("nameThree");
+            var nameFour = await getVariable("nameFour");
+            var nameFive = await getVariable("nameFive");
+            var nameSix = await getVariable("nameSix");
+            var nameSeven = await getVariable("nameSeven");
+            var nameEight = await getVariable("nameEight");
+            var nameNine = await getVariable("nameNine");
+            var nameTen = await getVariable("nameTen");
+            var nameEleven = await getVariable("nameEleven");
+            var nameTwelve = await getVariable("nameTwelve");
+            var nameThirteen = await getVariable("nameThirteen");
+            var nameFourteen = await getVariable("nameFourteen");
+            var nameFifteen = await getVariable("nameFifteen");
+            var nameSixteen = await getVariable("nameSixteen");
+            var nameSeventeen = await getVariable("nameSeventeen");
+            var nameEighteen = await getVariable("nameEighteen");
+            var nameNineteen = await getVariable("nameNineteen");
+            var nameTwenty = await getVariable("nameTwenty");
+
+            document.getElementById("nameOneBlue").innerHTML = nameOne;
+            document.getElementById("nameTwoBlue").innerHTML = nameTwo;
+            document.getElementById("nameThreeBlue").innerHTML = nameThree;
+            document.getElementById("nameFourBlue").innerHTML = nameFour;
+            document.getElementById("nameFiveBlue").innerHTML = nameFive;
+            document.getElementById("nameSixBlue").innerHTML = nameSix;
+            document.getElementById("nameSevenBlue").innerHTML = nameSeven;
+            document.getElementById("nameEightBlue").innerHTML = nameEight;
+            document.getElementById("nameNineBlue").innerHTML = nameNine;
+            document.getElementById("nameTenBlue").innerHTML = nameTen;
+            document.getElementById("nameElevenBlue").innerHTML = nameEleven;
+            document.getElementById("nameTwelveBlue").innerHTML = nameTwelve;
+            document.getElementById("nameThirteenBlue").innerHTML = nameThirteen;
+            document.getElementById("nameFourteenBlue").innerHTML = nameFourteen;
+            document.getElementById("nameFifteenBlue").innerHTML = nameFifteen;
+            document.getElementById("nameSixteenBlue").innerHTML = nameSixteen;
+            document.getElementById("nameSeventeenBlue").innerHTML = nameSeventeen;
+            document.getElementById("nameEighteenBlue").innerHTML = nameEighteen;
+            document.getElementById("nameNineteenBlue").innerHTML = nameNineteen;
+            document.getElementById("nameTwentyBlue").innerHTML = nameTwenty;
+
+            document.getElementById("nameOneRed").innerHTML = nameOne;
+            document.getElementById("nameTwoRed").innerHTML = nameTwo;
+            document.getElementById("nameThreeRed").innerHTML = nameThree;
+            document.getElementById("nameFourRed").innerHTML = nameFour;
+            document.getElementById("nameFiveRed").innerHTML = nameFive;
+            document.getElementById("nameSixRed").innerHTML = nameSix;
+            document.getElementById("nameSevenRed").innerHTML = nameSeven;
+            document.getElementById("nameEightRed").innerHTML = nameEight;
+            document.getElementById("nameNineRed").innerHTML = nameNine;
+            document.getElementById("nameTenRed").innerHTML = nameTen;
+            document.getElementById("nameElevenRed").innerHTML = nameEleven;
+            document.getElementById("nameTwelveRed").innerHTML = nameTwelve;
+            document.getElementById("nameThirteenRed").innerHTML = nameThirteen;
+            document.getElementById("nameFourteenRed").innerHTML = nameFourteen;
+            document.getElementById("nameFifteenRed").innerHTML = nameFifteen;
+            document.getElementById("nameSixteenRed").innerHTML = nameSixteen;
+            document.getElementById("nameSeventeenRed").innerHTML = nameSeventeen;
+            document.getElementById("nameEighteenRed").innerHTML = nameEighteen;
+            document.getElementById("nameNineteenRed").innerHTML = nameNineteen;
+            document.getElementById("nameTwentyRed").innerHTML = nameTwenty;
+            
+            document.getElementById("nameOneRemove").innerHTML = nameOne;
+            document.getElementById("nameTwoRemove").innerHTML = nameTwo;
+            document.getElementById("nameThreeRemove").innerHTML = nameThree;
+            document.getElementById("nameFourRemove").innerHTML = nameFour;
+            document.getElementById("nameFiveRemove").innerHTML = nameFive;
+            document.getElementById("nameSixRemove").innerHTML = nameSix;
+            document.getElementById("nameSevenRemove").innerHTML = nameSeven;
+            document.getElementById("nameEightRemove").innerHTML = nameEight;
+            document.getElementById("nameNineRemove").innerHTML = nameNine;
+            document.getElementById("nameTenRemove").innerHTML = nameTen;
+            document.getElementById("nameElevenRemove").innerHTML = nameEleven;
+            document.getElementById("nameTwelveRemove").innerHTML = nameTwelve;
+            document.getElementById("nameThirteenRemove").innerHTML = nameThirteen;
+            document.getElementById("nameFourteenRemove").innerHTML = nameFourteen;
+            document.getElementById("nameFifteenRemove").innerHTML = nameFifteen;
+            document.getElementById("nameSixteenRemove").innerHTML = nameSixteen;
+            document.getElementById("nameSeventeenRemove").innerHTML = nameSeventeen;
+            document.getElementById("nameEighteenRemove").innerHTML = nameEighteen;
+            document.getElementById("nameNineteenRemove").innerHTML = nameNineteen;
+            document.getElementById("nameTwentyRemove").innerHTML = nameTwenty;
+        }, 1000)
+    </script>
+</body>
+</html>

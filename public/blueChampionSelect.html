@@ -29,14 +29,14 @@
             text-align: center;
             width: 12%;
             position: absolute;
+            cursor: default;
             bottom: 2%;
-            cursor: pointer;
             left: 1%;
-            background-color: rgb(51,51,51);
+            background-color: grey;
             border-width: 6px;
         }
         .banbutton:hover{
-            background-color: grey;
+            background-color: grey!important;
         }
         .names{
             font-size: 18pt;
@@ -96,349 +96,376 @@
         }
     </style>
 </head>
-<body id='bg' style="background-color:#414141;">
-    <input class="textt" disabled style="background-color:rgb(40, 80, 167);" id="blueSummonerTag"></input>
-    <input class="textt" disabled style="background-color:rgb(201, 63, 63);" id="redSummonerTag"></input>
+<body id='bg' style="background-color:#414141;" onload="start()">
+    <input class="textt" disabled style="background-color:rgb(40, 80, 167);left:1%" id="blueSummonerTag"></input>
+    <input class="textt" disabled style="background-color:rgb(201, 63, 63);right:1%" id="redSummonerTag"></input>
     <input  class="champbar" id="blueChampionBar" onclick="reset()"></input>
     <div class="icondiv" id="mydivBlueSplash">
-        <image class="splasharts" src="splashart/aatrox.jpg" id="aatroxSplashartBlue"></image>
-        <image class="splasharts" src="splashart/ahri.jpg" id="ahriSplashartBlue"></image>
-        <image class="splasharts" src="splashart/akali.jpg" id="akaliSplashartBlue"></image>
-        <image class="splasharts" src="splashart/akshan.jpg" id="akshanSplashartBlue"></image>
-        <image class="splasharts" src="splashart/alistar.jpg" id="alistarSplashartBlue"></image>
-        <image class="splasharts" src="splashart/amumu.jpg" id="amumuSplashartBlue"></image>
-        <image class="splasharts" src="splashart/anivia.jpg" id="aniviaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/annie.jpg" id="annieSplashartBlue"></image>
-        <image class="splasharts" src="splashart/aphelios.jpg" id="apheliosSplashartBlue"></image>
-        <image class="splasharts" src="splashart/ashe.jpg" id="asheSplashartBlue"></image>
-        <image class="splasharts" src="splashart/aurelionsol.jpg" id="aurelionsolSplashartBlue"></image>
-        <image class="splasharts" src="splashart/azir.jpg" id="azirSplashartBlue"></image>
-        <image class="splasharts" src="splashart/bard.jpg" id="bardSplashartBlue"></image>
-        <image class="splasharts" src="splashart/belveth.jpg" id="belvethSplashartBlue"></image>
-        <image class="splasharts" src="splashart/blitzcrank.jpg" id="blitzcrankSplashartBlue"></image>
-        <image class="splasharts" src="splashart/brand.jpg" id="brandSplashartBlue"></image>
-        <image class="splasharts" src="splashart/braum.jpg" id="braumSplashartBlue"></image>
-        <image class="splasharts" src="splashart/caitlyn.jpg" id="caitlynSplashartBlue"></image>
-        <image class="splasharts" src="splashart/camille.jpg" id="camilleSplashartBlue"></image>
-        <image class="splasharts" src="splashart/cassiopeia.jpg" id="cassiopeiaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/chogath.jpg" id="chogathSplashartBlue"></image>
-        <image class="splasharts" src="splashart/corki.jpg" id="corkiSplashartBlue"></image>
-        <image class="splasharts" src="splashart/darius.jpg" id="dariusSplashartBlue"></image>
-        <image class="splasharts" src="splashart/diana.jpg" id="dianaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/drmundo.jpg" id="drmundoSplashartBlue"></image>
-        <image class="splasharts" src="splashart/draven.jpg" id="dravenSplashartBlue"></image>
-        <image class="splasharts" src="splashart/ekko.jpg" id="ekkoSplashartBlue"></image>
-        <image class="splasharts" src="splashart/elise.jpg" id="eliseSplashartBlue"></image>
-        <image class="splasharts" src="splashart/evelynn.jpg" id="evelynnSplashartBlue"></image>
-        <image class="splasharts" src="splashart/ezreal.jpg" id="ezrealSplashartBlue"></image>
-        <image class="splasharts" src="splashart/fiddlesticks.jpg" id="fiddlesticksSplashartBlue"></image>
-        <image class="splasharts" src="splashart/fiora.jpg" id="fioraSplashartBlue"></image>
-        <image class="splasharts" src="splashart/fizz.jpg" id="fizzSplashartBlue"></image>
-        <image class="splasharts" src="splashart/galio.jpg" id="galioSplashartBlue"></image>
-        <image class="splasharts" src="splashart/gangplank.jpg" id="gangplankSplashartBlue"></image>
-        <image class="splasharts" src="splashart/garen.jpg" id="garenSplashartBlue"></image>
-        <image class="splasharts" src="splashart/gnar.jpg" id="gnarSplashartBlue"></image>
-        <image class="splasharts" src="splashart/gragas.jpg" id="gragasSplashartBlue"></image>
-        <image class="splasharts" src="splashart/graves.jpg" id="gravesSplashartBlue"></image>
-        <image class="splasharts" src="splashart/gwen.jpg" id="gwenSplashartBlue"></image>
-        <image class="splasharts" src="splashart/hecarim.jpg" id="hecarimSplashartBlue"></image>
-        <image class="splasharts" src="splashart/heimerdinger.jpg" id="heimerdingerSplashartBlue"></image>
-        <image class="splasharts" src="splashart/illaoi.jpg" id="illaoiSplashartBlue"></image>
-        <image class="splasharts" src="splashart/irelia.jpg" id="ireliaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/ivern.jpg" id="ivernSplashartBlue"></image>
-        <image class="splasharts" src="splashart/janna.jpg" id="jannaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/jarvaniv.jpg" id="jarvanivSplashartBlue"></image>
-        <image class="splasharts" src="splashart/jax.jpg" id="jaxSplashartBlue"></image>
-        <image class="splasharts" src="splashart/jayce.jpg" id="jayceSplashartBlue"></image>
-        <image class="splasharts" src="splashart/jhin.jpg" id="jhinSplashartBlue"></image>
-        <image class="splasharts" src="splashart/jinx.jpg" id="jinxSplashartBlue"></image>
-        <image class="splasharts" src="splashart/kaisa.jpg" id="kaisaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/kalista.jpg" id="kalistaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/karma.jpg" id="karmaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/karthus.jpg" id="karthusSplashartBlue"></image>
-        <image class="splasharts" src="splashart/kassadin.jpg" id="kassadinSplashartBlue"></image>
-        <image class="splasharts" src="splashart/katarina.jpg" id="katarinaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/kayle.jpg" id="kayleSplashartBlue"></image>
-        <image class="splasharts" src="splashart/kayn.jpg" id="kaynSplashartBlue"></image>
-        <image class="splasharts" src="splashart/kennen.jpg" id="kennenSplashartBlue"></image>
-        <image class="splasharts" src="splashart/khazix.jpg" id="khazixSplashartBlue"></image>
-        <image class="splasharts" src="splashart/kindred.jpg" id="kindredSplashartBlue"></image>
-        <image class="splasharts" src="splashart/kled.jpg" id="kledSplashartBlue"></image>
-        <image class="splasharts" src="splashart/kogmaw.jpg" id="kogmawSplashartBlue"></image>
-        <image class="splasharts" src="splashart/ksante.jpg" id="ksanteSplashartBlue"></image>
-        <image class="splasharts" src="splashart/leblanc.jpg" id="leblancSplashartBlue"></image>
-        <image class="splasharts" src="splashart/leesin.jpg" id="leesinSplashartBlue"></image>
-        <image class="splasharts" src="splashart/leona.jpg" id="leonaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/lillia.jpg" id="lilliaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/lissandra.jpg" id="lissandraSplashartBlue"></image>
-        <image class="splasharts" src="splashart/lucian.jpg" id="lucianSplashartBlue"></image>
-        <image class="splasharts" src="splashart/lulu.jpg" id="luluSplashartBlue"></image>
-        <image class="splasharts" src="splashart/lux.jpg" id="luxSplashartBlue"></image>
-        <image class="splasharts" src="splashart/malphite.jpg" id="malphiteSplashartBlue"></image>
-        <image class="splasharts" src="splashart/malzahar.jpg" id="malzaharSplashartBlue"></image>
-        <image class="splasharts" src="splashart/maokai.jpg" id="maokaiSplashartBlue"></image>
-        <image class="splasharts" src="splashart/masteryi.jpg" id="masteryiSplashartBlue"></image>
-        <image class="splasharts" src="splashart/missfortune.jpg" id="missfortuneSplashartBlue"></image>
-        <image class="splasharts" src="splashart/mordekaiser.jpg" id="mordekaiserSplashartBlue"></image>
-        <image class="splasharts" src="splashart/morgana.jpg" id="morganaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/nami.jpg" id="namiSplashartBlue"></image>
-        <image class="splasharts" src="splashart/nasus.jpg" id="nasusSplashartBlue"></image>
-        <image class="splasharts" src="splashart/nautilus.jpg" id="nautilusSplashartBlue"></image>
-        <image class="splasharts" src="splashart/neeko.jpg" id="neekoSplashartBlue"></image>
-        <image class="splasharts" src="splashart/nidalee.jpg" id="nidaleeSplashartBlue"></image>
-        <image class="splasharts" src="splashart/nilah.jpg" id="nilahSplashartBlue"></image>
-        <image class="splasharts" src="splashart/nocturne.jpg" id="nocturneSplashartBlue"></image>
-        <image class="splasharts" src="splashart/nunu.jpg" id="nunuSplashartBlue"></image>
-        <image class="splasharts" src="splashart/olaf.jpg" id="olafSplashartBlue"></image>
-        <image class="splasharts" src="splashart/orianna.jpg" id="oriannaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/ornn.jpg" id="ornnSplashartBlue"></image>
-        <image class="splasharts" src="splashart/pantheon.jpg" id="pantheonSplashartBlue"></image>
-        <image class="splasharts" src="splashart/poppy.jpg" id="poppySplashartBlue"></image>
-        <image class="splasharts" src="splashart/pyke.jpg" id="pykeSplashartBlue"></image>
-        <image class="splasharts" src="splashart/qiyana.jpg" id="qiyanaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/quinn.jpg" id="quinnSplashartBlue"></image>
-        <image class="splasharts" src="splashart/rakan.jpg" id="rakanSplashartBlue"></image>
-        <image class="splasharts" src="splashart/rammus.jpg" id="rammusSplashartBlue"></image>
-        <image class="splasharts" src="splashart/reksai.jpg" id="reksaiSplashartBlue"></image>
-        <image class="splasharts" src="splashart/rell.jpg" id="rellSplashartBlue"></image>
-        <image class="splasharts" src="splashart/renata.jpg" id="renataSplashartBlue"></image>
-        <image class="splasharts" src="splashart/renekton.jpg" id="renektonSplashartBlue"></image>
-        <image class="splasharts" src="splashart/rengar.jpg" id="rengarSplashartBlue"></image>
-        <image class="splasharts" src="splashart/riven.jpg" id="rivenSplashartBlue"></image>
-        <image class="splasharts" src="splashart/rumble.jpg" id="rumbleSplashartBlue"></image>
-        <image class="splasharts" src="splashart/ryze.jpg" id="ryzeSplashartBlue"></image>
-        <image class="splasharts" src="splashart/samira.jpg" id="samiraSplashartBlue"></image>
-        <image class="splasharts" src="splashart/sejuani.jpg" id="sejuaniSplashartBlue"></image>
-        <image class="splasharts" src="splashart/senna.jpg" id="sennaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/seraphine.jpg" id="seraphineSplashartBlue"></image>
-        <image class="splasharts" src="splashart/sett.jpg" id="settSplashartBlue"></image>
-        <image class="splasharts" src="splashart/shaco.jpg" id="shacoSplashartBlue"></image>
-        <image class="splasharts" src="splashart/shen.jpg" id="shenSplashartBlue"></image>
-        <image class="splasharts" src="splashart/shyvana.jpg" id="shyvanaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/singed.jpg" id="singedSplashartBlue"></image>
-        <image class="splasharts" src="splashart/sion.jpg" id="sionSplashartBlue"></image>
-        <image class="splasharts" src="splashart/sivir.jpg" id="sivirSplashartBlue"></image>
-        <image class="splasharts" src="splashart/skarner.jpg" id="skarnerSplashartBlue"></image>
-        <image class="splasharts" src="splashart/sona.jpg" id="sonaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/soraka.jpg" id="sorakaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/swain.jpg" id="swainSplashartBlue"></image>
-        <image class="splasharts" src="splashart/sylas.jpg" id="sylasSplashartBlue"></image>
-        <image class="splasharts" src="splashart/syndra.jpg" id="syndraSplashartBlue"></image>
-        <image class="splasharts" src="splashart/tahmkench.jpg" id="tahmkenchSplashartBlue"></image>
-        <image class="splasharts" src="splashart/taliyah.jpg" id="taliyahSplashartBlue"></image>
-        <image class="splasharts" src="splashart/talon.jpg" id="talonSplashartBlue"></image>
-        <image class="splasharts" src="splashart/taric.jpg" id="taricSplashartBlue"></image>
-        <image class="splasharts" src="splashart/teemo.jpg" id="teemoSplashartBlue"></image>
-        <image class="splasharts" src="splashart/thresh.jpg" id="threshSplashartBlue"></image>
-        <image class="splasharts" src="splashart/tristana.jpg" id="tristanaSplashartBlue"></image>
-        <image class="splasharts" src="splashart/trundle.jpg" id="trundleSplashartBlue"></image>
-        <image class="splasharts" src="splashart/tryndamere.jpg" id="tryndamereSplashartBlue"></image>
-        <image class="splasharts" src="splashart/twistedfate.jpg" id="twistedfateSplashartBlue"></image>
-        <image class="splasharts" src="splashart/twitch.jpg" id="twitchSplashartBlue"></image>
-        <image class="splasharts" src="splashart/udyr.jpg" id="udyrSplashartBlue"></image>
-        <image class="splasharts" src="splashart/urgot.jpg" id="urgotSplashartBlue"></image>
-        <image class="splasharts" src="splashart/varus.jpg" id="varusSplashartBlue"></image>
-        <image class="splasharts" src="splashart/vayne.jpg" id="vayneSplashartBlue"></image>
-        <image class="splasharts" src="splashart/veigar.jpg" id="veigarSplashartBlue"></image>
-        <image class="splasharts" src="splashart/velkoz.jpg" id="velkozSplashartBlue"></image>
-        <image class="splasharts" src="splashart/vex.jpg" id="vexSplashartBlue"></image>
-        <image class="splasharts" src="splashart/vi.jpg" id="viSplashartBlue"></image>
-        <image class="splasharts" src="splashart/viego.jpg" id="viegoSplashartBlue"></image>
-        <image class="splasharts" src="splashart/viktor.jpg" id="viktorSplashartBlue"></image>
-        <image class="splasharts" src="splashart/vladimir.jpg" id="vladimirSplashartBlue"></image>
-        <image class="splasharts" src="splashart/volibear.jpg" id="volibearSplashartBlue"></image>
-        <image class="splasharts" src="splashart/warwick.jpg" id="warwickSplashartBlue"></image>
-        <image class="splasharts" src="splashart/monkeyking.jpg" id="monkeykingSplashartBlue"></image>
-        <image class="splasharts" src="splashart/xayah.jpg" id="xayahSplashartBlue"></image>
-        <image class="splasharts" src="splashart/xerath.jpg" id="xerathSplashartBlue"></image>
-        <image class="splasharts" src="splashart/xinzhao.jpg" id="xinzhaoSplashartBlue"></image>
-        <image class="splasharts" src="splashart/yasuo.jpg" id="yasuoSplashartBlue"></image>
-        <image class="splasharts" src="splashart/yone.jpg" id="yoneSplashartBlue"></image>
-        <image class="splasharts" src="splashart/yorick.jpg" id="yorickSplashartBlue"></image>
-        <image class="splasharts" src="splashart/yuumi.jpg" id="yuumiSplashartBlue"></image>
-        <image class="splasharts" src="splashart/zac.jpg" id="zacSplashartBlue"></image>
-        <image class="splasharts" src="splashart/zed.jpg" id="zedSplashartBlue"></image>
-        <image class="splasharts" src="splashart/zeri.jpg" id="zeriSplashartBlue"></image>
-        <image class="splasharts" src="splashart/ziggs.jpg" id="ziggsSplashartBlue"></image>
-        <image class="splasharts" src="splashart/zilean.jpg" id="zileanSplashartBlue"></image>
-        <image class="splasharts" src="splashart/zoe.jpg" id="zoeSplashartBlue"></image>
-        <image class="splasharts" src="splashart/zyra.jpg" id="zyraSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/aatrox.jpg" id="aatroxSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/ahri.jpg" id="ahriSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/akali.jpg" id="akaliSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/akshan.jpg" id="akshanSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/alistar.jpg" id="alistarSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/amumu.jpg" id="amumuSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/anivia.jpg" id="aniviaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/annie.jpg" id="annieSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/aphelios.jpg" id="apheliosSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/ashe.jpg" id="asheSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/aurelionsol.jpg" id="aurelionsolSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/azir.jpg" id="azirSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/bard.jpg" id="bardSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/belveth.jpg" id="belvethSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/blitzcrank.jpg" id="blitzcrankSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/brand.jpg" id="brandSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/braum.jpg" id="braumSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/caitlyn.jpg" id="caitlynSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/camille.jpg" id="camilleSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/cassiopeia.jpg" id="cassiopeiaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/chogath.jpg" id="chogathSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/corki.jpg" id="corkiSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/darius.jpg" id="dariusSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/diana.jpg" id="dianaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/drmundo.jpg" id="drmundoSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/draven.jpg" id="dravenSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/ekko.jpg" id="ekkoSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/elise.jpg" id="eliseSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/evelynn.jpg" id="evelynnSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/ezreal.jpg" id="ezrealSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/fiddlesticks.jpg" id="fiddlesticksSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/fiora.jpg" id="fioraSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/fizz.jpg" id="fizzSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/galio.jpg" id="galioSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/gangplank.jpg" id="gangplankSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/garen.jpg" id="garenSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/gnar.jpg" id="gnarSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/gragas.jpg" id="gragasSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/graves.jpg" id="gravesSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/gwen.jpg" id="gwenSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/hecarim.jpg" id="hecarimSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/heimerdinger.jpg" id="heimerdingerSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/illaoi.jpg" id="illaoiSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/irelia.jpg" id="ireliaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/ivern.jpg" id="ivernSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/janna.jpg" id="jannaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/jarvaniv.jpg" id="jarvanivSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/jax.jpg" id="jaxSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/jayce.jpg" id="jayceSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/jhin.jpg" id="jhinSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/jinx.jpg" id="jinxSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/kaisa.jpg" id="kaisaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/kalista.jpg" id="kalistaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/karma.jpg" id="karmaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/karthus.jpg" id="karthusSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/kassadin.jpg" id="kassadinSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/katarina.jpg" id="katarinaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/kayle.jpg" id="kayleSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/kayn.jpg" id="kaynSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/kennen.jpg" id="kennenSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/khazix.jpg" id="khazixSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/kindred.jpg" id="kindredSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/kled.jpg" id="kledSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/kogmaw.jpg" id="kogmawSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/ksante.jpg" id="ksanteSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/leblanc.jpg" id="leblancSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/leesin.jpg" id="leesinSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/leona.jpg" id="leonaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/lillia.jpg" id="lilliaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/lissandra.jpg" id="lissandraSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/lucian.jpg" id="lucianSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/lulu.jpg" id="luluSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/lux.jpg" id="luxSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/malphite.jpg" id="malphiteSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/malzahar.jpg" id="malzaharSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/maokai.jpg" id="maokaiSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/masteryi.jpg" id="masteryiSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/missfortune.jpg" id="missfortuneSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/mordekaiser.jpg" id="mordekaiserSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/morgana.jpg" id="morganaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/nami.jpg" id="namiSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/nasus.jpg" id="nasusSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/nautilus.jpg" id="nautilusSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/neeko.jpg" id="neekoSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/nidalee.jpg" id="nidaleeSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/nilah.jpg" id="nilahSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/nocturne.jpg" id="nocturneSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/nunu.jpg" id="nunuSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/olaf.jpg" id="olafSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/orianna.jpg" id="oriannaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/ornn.jpg" id="ornnSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/pantheon.jpg" id="pantheonSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/poppy.jpg" id="poppySplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/pyke.jpg" id="pykeSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/qiyana.jpg" id="qiyanaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/quinn.jpg" id="quinnSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/rakan.jpg" id="rakanSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/rammus.jpg" id="rammusSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/reksai.jpg" id="reksaiSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/rell.jpg" id="rellSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/renata.jpg" id="renataSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/renekton.jpg" id="renektonSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/rengar.jpg" id="rengarSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/riven.jpg" id="rivenSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/rumble.jpg" id="rumbleSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/ryze.jpg" id="ryzeSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/samira.jpg" id="samiraSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/sejuani.jpg" id="sejuaniSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/senna.jpg" id="sennaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/seraphine.jpg" id="seraphineSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/sett.jpg" id="settSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/shaco.jpg" id="shacoSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/shen.jpg" id="shenSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/shyvana.jpg" id="shyvanaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/singed.jpg" id="singedSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/sion.jpg" id="sionSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/sivir.jpg" id="sivirSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/skarner.jpg" id="skarnerSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/sona.jpg" id="sonaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/soraka.jpg" id="sorakaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/swain.jpg" id="swainSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/sylas.jpg" id="sylasSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/syndra.jpg" id="syndraSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/tahmkench.jpg" id="tahmkenchSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/taliyah.jpg" id="taliyahSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/talon.jpg" id="talonSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/taric.jpg" id="taricSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/teemo.jpg" id="teemoSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/thresh.jpg" id="threshSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/tristana.jpg" id="tristanaSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/trundle.jpg" id="trundleSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/tryndamere.jpg" id="tryndamereSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/twistedfate.jpg" id="twistedfateSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/twitch.jpg" id="twitchSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/udyr.jpg" id="udyrSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/urgot.jpg" id="urgotSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/varus.jpg" id="varusSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/vayne.jpg" id="vayneSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/veigar.jpg" id="veigarSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/velkoz.jpg" id="velkozSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/vex.jpg" id="vexSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/vi.jpg" id="viSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/viego.jpg" id="viegoSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/viktor.jpg" id="viktorSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/vladimir.jpg" id="vladimirSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/volibear.jpg" id="volibearSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/warwick.jpg" id="warwickSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/monkeyking.jpg" id="monkeykingSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/xayah.jpg" id="xayahSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/xerath.jpg" id="xerathSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/xinzhao.jpg" id="xinzhaoSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/yasuo.jpg" id="yasuoSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/yone.jpg" id="yoneSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/yorick.jpg" id="yorickSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/yuumi.jpg" id="yuumiSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/zac.jpg" id="zacSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/zed.jpg" id="zedSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/zeri.jpg" id="zeriSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/ziggs.jpg" id="ziggsSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/zilean.jpg" id="zileanSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/zoe.jpg" id="zoeSplashartBlue"></image>
+        <image class="splasharts" src="images/splashart/zyra.jpg" id="zyraSplashartBlue"></image>
         
-        <image class="icons" onclick="select('aatrox')" src="icon/aatrox.jpg" id="aatroxIconBlue">
-        <image class="icons" onclick="select('ahri')" src="icon/ahri.jpg" id="ahriIconBlue">
-        <image class="icons" onclick="select('akali')" src="icon/akali.jpg" id="akaliIconBlue">
-        <image class="icons" onclick="select('akshan')" src="icon/akshan.jpg" id="akshanIconBlue">
-        <image class="icons" onclick="select('alistar')" src="icon/alistar.jpg" id="alistarIconBlue">
-        <image class="icons" onclick="select('amumu')" src="icon/amumu.jpg" id="amumuIconBlue">
-        <image class="icons" onclick="select('anivia')" src="icon/anivia.jpg" id="aniviaIconBlue">
-        <image class="icons" onclick="select('annie')" src="icon/annie.jpg" id="annieIconBlue">
-        <image class="icons" onclick="select('aphelios')" src="icon/aphelios.jpg" id="apheliosIconBlue">
-        <image class="icons" onclick="select('ashe')" src="icon/ashe.jpg" id="asheIconBlue">
-        <image class="icons" onclick="select('aurelionsol')" src="icon/aurelionsol.jpg" id="aurelionsolIconBlue">
-        <image class="icons" onclick="select('azir')" src="icon/azir.jpg" id="azirIconBlue">
-        <image class="icons" onclick="select('bard')" src="icon/bard.jpg" id="bardIconBlue">
-        <image class="icons" onclick="select('belveth')" src="icon/belveth.jpg" id="belvethIconBlue">
-        <image class="icons" onclick="select('blitzcrank')" src="icon/blitzcrank.jpg" id="blitzcrankIconBlue">
-        <image class="icons" onclick="select('brand')" src="icon/brand.jpg" id="brandIconBlue">
-        <image class="icons" onclick="select('braum')" src="icon/braum.jpg" id="braumIconBlue">
-        <image class="icons" onclick="select('caitlyn')" src="icon/caitlyn.jpg" id="caitlynIconBlue">
-        <image class="icons" onclick="select('camille')" src="icon/camille.jpg" id="camilleIconBlue">
-        <image class="icons" onclick="select('cassiopeia')" src="icon/cassiopeia.jpg" id="cassiopeiaIconBlue">
-        <image class="icons" onclick="select('chogath')" src="icon/chogath.jpg" id="chogathIconBlue">
-        <image class="icons" onclick="select('corki')" src="icon/corki.jpg" id="corkiIconBlue">
-        <image class="icons" onclick="select('darius')" src="icon/darius.jpg" id="dariusIconBlue">
-        <image class="icons" onclick="select('diana')" src="icon/diana.jpg" id="dianaIconBlue">
-        <image class="icons" onclick="select('drmundo')" src="icon/drmundo.jpg" id="drmundoIconBlue">
-        <image class="icons" onclick="select('draven')" src="icon/draven.jpg" id="dravenIconBlue">
-        <image class="icons" onclick="select('ekko')" src="icon/ekko.jpg" id="ekkoIconBlue">
-        <image class="icons" onclick="select('elise')" src="icon/elise.jpg" id="eliseIconBlue">
-        <image class="icons" onclick="select('evelynn')" src="icon/evelynn.jpg" id="evelynnIconBlue">
-        <image class="icons" onclick="select('ezreal')" src="icon/ezreal.jpg" id="ezrealIconBlue">
-        <image class="icons" onclick="select('fiddlesticks')" src="icon/fiddlesticks.jpg" id="fiddlesticksIconBlue">
-        <image class="icons" onclick="select('fiora')" src="icon/fiora.jpg" id="fioraIconBlue">
-        <image class="icons" onclick="select('fizz')" src="icon/fizz.jpg" id="fizzIconBlue">
-        <image class="icons" onclick="select('galio')" src="icon/galio.jpg" id="galioIconBlue">
-        <image class="icons" onclick="select('gangplank')" src="icon/gangplank.jpg" id="gangplankIconBlue">
-        <image class="icons" onclick="select('garen')" src="icon/garen.jpg" id="garenIconBlue">
-        <image class="icons" onclick="select('gnar')" src="icon/gnar.jpg" id="gnarIconBlue">
-        <image class="icons" onclick="select('gragas')" src="icon/gragas.jpg" id="gragasIconBlue">
-        <image class="icons" onclick="select('graves')" src="icon/graves.jpg" id="gravesIconBlue">
-        <image class="icons" onclick="select('gwen')" src="icon/gwen.jpg" id="gwenIconBlue">
-        <image class="icons" onclick="select('hecarim')" src="icon/hecarim.jpg" id="hecarimIconBlue">
-        <image class="icons" onclick="select('heimerdinger')" src="icon/heimerdinger.jpg" id="heimerdingerIconBlue">
-        <image class="icons" onclick="select('illaoi')" src="icon/illaoi.jpg" id="illaoiIconBlue">
-        <image class="icons" onclick="select('irelia')" src="icon/irelia.jpg" id="ireliaIconBlue">
-        <image class="icons" onclick="select('ivern')" src="icon/ivern.jpg" id="ivernIconBlue">
-        <image class="icons" onclick="select('janna')" src="icon/janna.jpg" id="jannaIconBlue">
-        <image class="icons" onclick="select('jarvaniv')" src="icon/jarvaniv.jpg" id="jarvanivIconBlue">
-        <image class="icons" onclick="select('jax')" src="icon/jax.jpg" id="jaxIconBlue">
-        <image class="icons" onclick="select('jayce')" src="icon/jayce.jpg" id="jayceIconBlue">
-        <image class="icons" onclick="select('jhin')" src="icon/jhin.jpg" id="jhinIconBlue">
-        <image class="icons" onclick="select('jinx')" src="icon/jinx.jpg" id="jinxIconBlue">
-        <image class="icons" onclick="select('kaisa')" src="icon/kaisa.jpg" id="kaisaIconBlue">
-        <image class="icons" onclick="select('kalista')" src="icon/kalista.jpg" id="kalistaIconBlue">
-        <image class="icons" onclick="select('karma')" src="icon/karma.jpg" id="karmaIconBlue">
-        <image class="icons" onclick="select('karthus')" src="icon/karthus.jpg" id="karthusIconBlue">
-        <image class="icons" onclick="select('kassadin')" src="icon/kassadin.jpg" id="kassadinIconBlue">
-        <image class="icons" onclick="select('katarina')" src="icon/katarina.jpg" id="katarinaIconBlue">
-        <image class="icons" onclick="select('kayle')" src="icon/kayle.jpg" id="kayleIconBlue">
-        <image class="icons" onclick="select('kayn')" src="icon/kayn.jpg" id="kaynIconBlue">
-        <image class="icons" onclick="select('kennen')" src="icon/kennen.jpg" id="kennenIconBlue">
-        <image class="icons" onclick="select('khazix')" src="icon/khazix.jpg" id="khazixIconBlue">
-        <image class="icons" onclick="select('kindred')" src="icon/kindred.jpg" id="kindredIconBlue">
-        <image class="icons" onclick="select('kled')" src="icon/kled.jpg" id="kledIconBlue">
-        <image class="icons" onclick="select('kogmaw')" src="icon/kogmaw.jpg" id="kogmawIconBlue">
-        <image class="icons" onclick="select('ksante')" src="icon/ksante.jpg" id="ksanteIconBlue">
-        <image class="icons" onclick="select('leblanc')" src="icon/leblanc.jpg" id="leblancIconBlue">
-        <image class="icons" onclick="select('leesin')" src="icon/leesin.jpg" id="leesinIconBlue">
-        <image class="icons" onclick="select('leona')" src="icon/leona.jpg" id="leonaIconBlue">
-        <image class="icons" onclick="select('lillia')" src="icon/lillia.jpg" id="lilliaIconBlue">
-        <image class="icons" onclick="select('lissandra')" src="icon/lissandra.jpg" id="lissandraIconBlue">
-        <image class="icons" onclick="select('lucian')" src="icon/lucian.jpg" id="lucianIconBlue">
-        <image class="icons" onclick="select('lulu')" src="icon/lulu.jpg" id="luluIconBlue">
-        <image class="icons" onclick="select('lux')" src="icon/lux.jpg" id="luxIconBlue">
-        <image class="icons" onclick="select('malphite')" src="icon/malphite.jpg" id="malphiteIconBlue">
-        <image class="icons" onclick="select('malzahar')" src="icon/malzahar.jpg" id="malzaharIconBlue">
-        <image class="icons" onclick="select('maokai')" src="icon/maokai.jpg" id="maokaiIconBlue">
-        <image class="icons" onclick="select('masteryi')" src="icon/masteryi.jpg" id="masteryiIconBlue">
-        <image class="icons" onclick="select('missfortune')" src="icon/missfortune.jpg" id="missfortuneIconBlue">
-        <image class="icons" onclick="select('mordekaiser')" src="icon/mordekaiser.jpg" id="mordekaiserIconBlue">
-        <image class="icons" onclick="select('morgana')" src="icon/morgana.jpg" id="morganaIconBlue">
-        <image class="icons" onclick="select('nami')" src="icon/nami.jpg" id="namiIconBlue">
-        <image class="icons" onclick="select('nasus')" src="icon/nasus.jpg" id="nasusIconBlue">
-        <image class="icons" onclick="select('nautilus')" src="icon/nautilus.jpg" id="nautilusIconBlue">
-        <image class="icons" onclick="select('neeko')" src="icon/neeko.jpg" id="neekoIconBlue">
-        <image class="icons" onclick="select('nidalee')" src="icon/nidalee.jpg" id="nidaleeIconBlue">
-        <image class="icons" onclick="select('nilah')" src="icon/nilah.jpg" id="nilahIconBlue">
-        <image class="icons" onclick="select('nocturne')" src="icon/nocturne.jpg" id="nocturneIconBlue">
-        <image class="icons" onclick="select('nunu')" src="icon/nunu.jpg" id="nunuIconBlue">
-        <image class="icons" onclick="select('olaf')" src="icon/olaf.jpg" id="olafIconBlue">
-        <image class="icons" onclick="select('orianna')" src="icon/orianna.jpg" id="oriannaIconBlue">
-        <image class="icons" onclick="select('ornn')" src="icon/ornn.jpg" id="ornnIconBlue">
-        <image class="icons" onclick="select('pantheon')" src="icon/pantheon.jpg" id="pantheonIconBlue">
-        <image class="icons" onclick="select('poppy')" src="icon/poppy.jpg" id="poppyIconBlue">
-        <image class="icons" onclick="select('pyke')" src="icon/pyke.jpg" id="pykeIconBlue">
-        <image class="icons" onclick="select('qiyana')" src="icon/qiyana.jpg" id="qiyanaIconBlue">
-        <image class="icons" onclick="select('quinn')" src="icon/quinn.jpg" id="quinnIconBlue">
-        <image class="icons" onclick="select('rakan')" src="icon/rakan.jpg" id="rakanIconBlue">
-        <image class="icons" onclick="select('rammus')" src="icon/rammus.jpg" id="rammusIconBlue">
-        <image class="icons" onclick="select('reksai')" src="icon/reksai.jpg" id="reksaiIconBlue">
-        <image class="icons" onclick="select('rell')" src="icon/rell.jpg" id="rellIconBlue">
-        <image class="icons" onclick="select('renata')" src="icon/renata.jpg" id="renataIconBlue">
-        <image class="icons" onclick="select('renekton')" src="icon/renekton.jpg" id="renektonIconBlue">
-        <image class="icons" onclick="select('rengar')" src="icon/rengar.jpg" id="rengarIconBlue">
-        <image class="icons" onclick="select('riven')" src="icon/riven.jpg" id="rivenIconBlue">
-        <image class="icons" onclick="select('rumble')" src="icon/rumble.jpg" id="rumbleIconBlue">
-        <image class="icons" onclick="select('ryze')" src="icon/ryze.jpg" id="ryzeIconBlue">
-        <image class="icons" onclick="select('samira')" src="icon/samira.jpg" id="samiraIconBlue">
-        <image class="icons" onclick="select('sejuani')" src="icon/sejuani.jpg" id="sejuaniIconBlue">
-        <image class="icons" onclick="select('senna')" src="icon/senna.jpg" id="sennaIconBlue">
-        <image class="icons" onclick="select('seraphine')" src="icon/seraphine.jpg" id="seraphineIconBlue">
-        <image class="icons" onclick="select('sett')" src="icon/sett.jpg" id="settIconBlue">
-        <image class="icons" onclick="select('shaco')" src="icon/shaco.jpg" id="shacoIconBlue">
-        <image class="icons" onclick="select('shen')" src="icon/shen.jpg" id="shenIconBlue">
-        <image class="icons" onclick="select('shyvana')" src="icon/shyvana.jpg" id="shyvanaIconBlue">
-        <image class="icons" onclick="select('singed')" src="icon/singed.jpg" id="singedIconBlue">
-        <image class="icons" onclick="select('sion')" src="icon/sion.jpg" id="sionIconBlue">
-        <image class="icons" onclick="select('sivir')" src="icon/sivir.jpg" id="sivirIconBlue">
-        <image class="icons" onclick="select('skarner')" src="icon/skarner.jpg" id="skarnerIconBlue">
-        <image class="icons" onclick="select('sona')" src="icon/sona.jpg" id="sonaIconBlue">
-        <image class="icons" onclick="select('soraka')" src="icon/soraka.jpg" id="sorakaIconBlue">
-        <image class="icons" onclick="select('swain')" src="icon/swain.jpg" id="swainIconBlue">
-        <image class="icons" onclick="select('sylas')" src="icon/sylas.jpg" id="sylasIconBlue">
-        <image class="icons" onclick="select('syndra')" src="icon/syndra.jpg" id="syndraIconBlue">
-        <image class="icons" onclick="select('tahmkench')" src="icon/tahmkench.jpg" id="tahmkenchIconBlue">
-        <image class="icons" onclick="select('taliyah')" src="icon/taliyah.jpg" id="taliyahIconBlue">
-        <image class="icons" onclick="select('talon')" src="icon/talon.jpg" id="talonIconBlue">
-        <image class="icons" onclick="select('taric')" src="icon/taric.jpg" id="taricIconBlue">
-        <image class="icons" onclick="select('teemo')" src="icon/teemo.jpg" id="teemoIconBlue">
-        <image class="icons" onclick="select('thresh')" src="icon/thresh.jpg" id="threshIconBlue">
-        <image class="icons" onclick="select('tristana')" src="icon/tristana.jpg" id="tristanaIconBlue">
-        <image class="icons" onclick="select('trundle')" src="icon/trundle.jpg" id="trundleIconBlue">
-        <image class="icons" onclick="select('tryndamere')" src="icon/tryndamere.jpg" id="tryndamereIconBlue">
-        <image class="icons" onclick="select('twistedfate')" src="icon/twistedfate.jpg" id="twistedfateIconBlue">
-        <image class="icons" onclick="select('twitch')" src="icon/twitch.jpg" id="twitchIconBlue">
-        <image class="icons" onclick="select('udyr')" src="icon/udyr.jpg" id="udyrIconBlue">
-        <image class="icons" onclick="select('urgot')" src="icon/urgot.jpg" id="urgotIconBlue">
-        <image class="icons" onclick="select('varus')" src="icon/varus.jpg" id="varusIconBlue">
-        <image class="icons" onclick="select('vayne')" src="icon/vayne.jpg" id="vayneIconBlue">
-        <image class="icons" onclick="select('veigar')" src="icon/veigar.jpg" id="veigarIconBlue">
-        <image class="icons" onclick="select('velkoz')" src="icon/velkoz.jpg" id="velkozIconBlue">
-        <image class="icons" onclick="select('vex')" src="icon/vex.jpg" id="vexIconBlue">
-        <image class="icons" onclick="select('vi')" src="icon/vi.jpg" id="viIconBlue">
-        <image class="icons" onclick="select('viego')" src="icon/viego.jpg" id="viegoIconBlue">
-        <image class="icons" onclick="select('viktor')" src="icon/viktor.jpg" id="viktorIconBlue">
-        <image class="icons" onclick="select('vladimir')" src="icon/vladimir.jpg" id="vladimirIconBlue">
-        <image class="icons" onclick="select('volibear')" src="icon/volibear.jpg" id="volibearIconBlue">
-        <image class="icons" onclick="select('warwick')" src="icon/warwick.jpg" id="warwickIconBlue">
-        <image class="icons" onclick="select('monkeyking')" src="icon/monkeyking.jpg" id="monkeykingIconBlue">
-        <image class="icons" onclick="select('xayah')" src="icon/xayah.jpg" id="xayahIconBlue">
-        <image class="icons" onclick="select('xerath')" src="icon/xerath.jpg" id="xerathIconBlue">
-        <image class="icons" onclick="select('xinzhao')" src="icon/xinzhao.jpg" id="xinzhaoIconBlue">
-        <image class="icons" onclick="select('yasuo')" src="icon/yasuo.jpg" id="yasuoIconBlue">
-        <image class="icons" onclick="select('yone')" src="icon/yone.jpg" id="yoneIconBlue">
-        <image class="icons" onclick="select('yorick')" src="icon/yorick.jpg" id="yorickIconBlue">
-        <image class="icons" onclick="select('yuumi')" src="icon/yuumi.jpg" id="yuumiIconBlue">
-        <image class="icons" onclick="select('zac')" src="icon/zac.jpg" id="zacIconBlue">
-        <image class="icons" onclick="select('zed')" src="icon/zed.jpg" id="zedIconBlue">
-        <image class="icons" onclick="select('zeri')" src="icon/zeri.jpg" id="zeriIconBlue">
-        <image class="icons" onclick="select('ziggs')" src="icon/ziggs.jpg" id="ziggsIconBlue">
-        <image class="icons" onclick="select('zilean')" src="icon/zilean.jpg" id="zileanIconBlue">
-        <image class="icons" onclick="select('zoe')" src="icon/zoe.jpg" id="zoeIconBlue">
-        <image class="icons" onclick="select('zyra')" src="icon/zyra.jpg" id="zyraIconBlue">
+        <image class="icons" onclick="select('aatrox')" src="images/icon/aatrox.jpg" id="aatroxIconBlue">
+        <image class="icons" onclick="select('ahri')" src="images/icon/ahri.jpg" id="ahriIconBlue">
+        <image class="icons" onclick="select('akali')" src="images/icon/akali.jpg" id="akaliIconBlue">
+        <image class="icons" onclick="select('akshan')" src="images/icon/akshan.jpg" id="akshanIconBlue">
+        <image class="icons" onclick="select('alistar')" src="images/icon/alistar.jpg" id="alistarIconBlue">
+        <image class="icons" onclick="select('amumu')" src="images/icon/amumu.jpg" id="amumuIconBlue">
+        <image class="icons" onclick="select('anivia')" src="images/icon/anivia.jpg" id="aniviaIconBlue">
+        <image class="icons" onclick="select('annie')" src="images/icon/annie.jpg" id="annieIconBlue">
+        <image class="icons" onclick="select('aphelios')" src="images/icon/aphelios.jpg" id="apheliosIconBlue">
+        <image class="icons" onclick="select('ashe')" src="images/icon/ashe.jpg" id="asheIconBlue">
+        <image class="icons" onclick="select('aurelionsol')" src="images/icon/aurelionsol.jpg" id="aurelionsolIconBlue">
+        <image class="icons" onclick="select('azir')" src="images/icon/azir.jpg" id="azirIconBlue">
+        <image class="icons" onclick="select('bard')" src="images/icon/bard.jpg" id="bardIconBlue">
+        <image class="icons" onclick="select('belveth')" src="images/icon/belveth.jpg" id="belvethIconBlue">
+        <image class="icons" onclick="select('blitzcrank')" src="images/icon/blitzcrank.jpg" id="blitzcrankIconBlue">
+        <image class="icons" onclick="select('brand')" src="images/icon/brand.jpg" id="brandIconBlue">
+        <image class="icons" onclick="select('braum')" src="images/icon/braum.jpg" id="braumIconBlue">
+        <image class="icons" onclick="select('caitlyn')" src="images/icon/caitlyn.jpg" id="caitlynIconBlue">
+        <image class="icons" onclick="select('camille')" src="images/icon/camille.jpg" id="camilleIconBlue">
+        <image class="icons" onclick="select('cassiopeia')" src="images/icon/cassiopeia.jpg" id="cassiopeiaIconBlue">
+        <image class="icons" onclick="select('chogath')" src="images/icon/chogath.jpg" id="chogathIconBlue">
+        <image class="icons" onclick="select('corki')" src="images/icon/corki.jpg" id="corkiIconBlue">
+        <image class="icons" onclick="select('darius')" src="images/icon/darius.jpg" id="dariusIconBlue">
+        <image class="icons" onclick="select('diana')" src="images/icon/diana.jpg" id="dianaIconBlue">
+        <image class="icons" onclick="select('drmundo')" src="images/icon/drmundo.jpg" id="drmundoIconBlue">
+        <image class="icons" onclick="select('draven')" src="images/icon/draven.jpg" id="dravenIconBlue">
+        <image class="icons" onclick="select('ekko')" src="images/icon/ekko.jpg" id="ekkoIconBlue">
+        <image class="icons" onclick="select('elise')" src="images/icon/elise.jpg" id="eliseIconBlue">
+        <image class="icons" onclick="select('evelynn')" src="images/icon/evelynn.jpg" id="evelynnIconBlue">
+        <image class="icons" onclick="select('ezreal')" src="images/icon/ezreal.jpg" id="ezrealIconBlue">
+        <image class="icons" onclick="select('fiddlesticks')" src="images/icon/fiddlesticks.jpg" id="fiddlesticksIconBlue">
+        <image class="icons" onclick="select('fiora')" src="images/icon/fiora.jpg" id="fioraIconBlue">
+        <image class="icons" onclick="select('fizz')" src="images/icon/fizz.jpg" id="fizzIconBlue">
+        <image class="icons" onclick="select('galio')" src="images/icon/galio.jpg" id="galioIconBlue">
+        <image class="icons" onclick="select('gangplank')" src="images/icon/gangplank.jpg" id="gangplankIconBlue">
+        <image class="icons" onclick="select('garen')" src="images/icon/garen.jpg" id="garenIconBlue">
+        <image class="icons" onclick="select('gnar')" src="images/icon/gnar.jpg" id="gnarIconBlue">
+        <image class="icons" onclick="select('gragas')" src="images/icon/gragas.jpg" id="gragasIconBlue">
+        <image class="icons" onclick="select('graves')" src="images/icon/graves.jpg" id="gravesIconBlue">
+        <image class="icons" onclick="select('gwen')" src="images/icon/gwen.jpg" id="gwenIconBlue">
+        <image class="icons" onclick="select('hecarim')" src="images/icon/hecarim.jpg" id="hecarimIconBlue">
+        <image class="icons" onclick="select('heimerdinger')" src="images/icon/heimerdinger.jpg" id="heimerdingerIconBlue">
+        <image class="icons" onclick="select('illaoi')" src="images/icon/illaoi.jpg" id="illaoiIconBlue">
+        <image class="icons" onclick="select('irelia')" src="images/icon/irelia.jpg" id="ireliaIconBlue">
+        <image class="icons" onclick="select('ivern')" src="images/icon/ivern.jpg" id="ivernIconBlue">
+        <image class="icons" onclick="select('janna')" src="images/icon/janna.jpg" id="jannaIconBlue">
+        <image class="icons" onclick="select('jarvaniv')" src="images/icon/jarvaniv.jpg" id="jarvanivIconBlue">
+        <image class="icons" onclick="select('jax')" src="images/icon/jax.jpg" id="jaxIconBlue">
+        <image class="icons" onclick="select('jayce')" src="images/icon/jayce.jpg" id="jayceIconBlue">
+        <image class="icons" onclick="select('jhin')" src="images/icon/jhin.jpg" id="jhinIconBlue">
+        <image class="icons" onclick="select('jinx')" src="images/icon/jinx.jpg" id="jinxIconBlue">
+        <image class="icons" onclick="select('kaisa')" src="images/icon/kaisa.jpg" id="kaisaIconBlue">
+        <image class="icons" onclick="select('kalista')" src="images/icon/kalista.jpg" id="kalistaIconBlue">
+        <image class="icons" onclick="select('karma')" src="images/icon/karma.jpg" id="karmaIconBlue">
+        <image class="icons" onclick="select('karthus')" src="images/icon/karthus.jpg" id="karthusIconBlue">
+        <image class="icons" onclick="select('kassadin')" src="images/icon/kassadin.jpg" id="kassadinIconBlue">
+        <image class="icons" onclick="select('katarina')" src="images/icon/katarina.jpg" id="katarinaIconBlue">
+        <image class="icons" onclick="select('kayle')" src="images/icon/kayle.jpg" id="kayleIconBlue">
+        <image class="icons" onclick="select('kayn')" src="images/icon/kayn.jpg" id="kaynIconBlue">
+        <image class="icons" onclick="select('kennen')" src="images/icon/kennen.jpg" id="kennenIconBlue">
+        <image class="icons" onclick="select('khazix')" src="images/icon/khazix.jpg" id="khazixIconBlue">
+        <image class="icons" onclick="select('kindred')" src="images/icon/kindred.jpg" id="kindredIconBlue">
+        <image class="icons" onclick="select('kled')" src="images/icon/kled.jpg" id="kledIconBlue">
+        <image class="icons" onclick="select('kogmaw')" src="images/icon/kogmaw.jpg" id="kogmawIconBlue">
+        <image class="icons" onclick="select('ksante')" src="images/icon/ksante.jpg" id="ksanteIconBlue">
+        <image class="icons" onclick="select('leblanc')" src="images/icon/leblanc.jpg" id="leblancIconBlue">
+        <image class="icons" onclick="select('leesin')" src="images/icon/leesin.jpg" id="leesinIconBlue">
+        <image class="icons" onclick="select('leona')" src="images/icon/leona.jpg" id="leonaIconBlue">
+        <image class="icons" onclick="select('lillia')" src="images/icon/lillia.jpg" id="lilliaIconBlue">
+        <image class="icons" onclick="select('lissandra')" src="images/icon/lissandra.jpg" id="lissandraIconBlue">
+        <image class="icons" onclick="select('lucian')" src="images/icon/lucian.jpg" id="lucianIconBlue">
+        <image class="icons" onclick="select('lulu')" src="images/icon/lulu.jpg" id="luluIconBlue">
+        <image class="icons" onclick="select('lux')" src="images/icon/lux.jpg" id="luxIconBlue">
+        <image class="icons" onclick="select('malphite')" src="images/icon/malphite.jpg" id="malphiteIconBlue">
+        <image class="icons" onclick="select('malzahar')" src="images/icon/malzahar.jpg" id="malzaharIconBlue">
+        <image class="icons" onclick="select('maokai')" src="images/icon/maokai.jpg" id="maokaiIconBlue">
+        <image class="icons" onclick="select('masteryi')" src="images/icon/masteryi.jpg" id="masteryiIconBlue">
+        <image class="icons" onclick="select('missfortune')" src="images/icon/missfortune.jpg" id="missfortuneIconBlue">
+        <image class="icons" onclick="select('mordekaiser')" src="images/icon/mordekaiser.jpg" id="mordekaiserIconBlue">
+        <image class="icons" onclick="select('morgana')" src="images/icon/morgana.jpg" id="morganaIconBlue">
+        <image class="icons" onclick="select('nami')" src="images/icon/nami.jpg" id="namiIconBlue">
+        <image class="icons" onclick="select('nasus')" src="images/icon/nasus.jpg" id="nasusIconBlue">
+        <image class="icons" onclick="select('nautilus')" src="images/icon/nautilus.jpg" id="nautilusIconBlue">
+        <image class="icons" onclick="select('neeko')" src="images/icon/neeko.jpg" id="neekoIconBlue">
+        <image class="icons" onclick="select('nidalee')" src="images/icon/nidalee.jpg" id="nidaleeIconBlue">
+        <image class="icons" onclick="select('nilah')" src="images/icon/nilah.jpg" id="nilahIconBlue">
+        <image class="icons" onclick="select('nocturne')" src="images/icon/nocturne.jpg" id="nocturneIconBlue">
+        <image class="icons" onclick="select('nunu')" src="images/icon/nunu.jpg" id="nunuIconBlue">
+        <image class="icons" onclick="select('olaf')" src="images/icon/olaf.jpg" id="olafIconBlue">
+        <image class="icons" onclick="select('orianna')" src="images/icon/orianna.jpg" id="oriannaIconBlue">
+        <image class="icons" onclick="select('ornn')" src="images/icon/ornn.jpg" id="ornnIconBlue">
+        <image class="icons" onclick="select('pantheon')" src="images/icon/pantheon.jpg" id="pantheonIconBlue">
+        <image class="icons" onclick="select('poppy')" src="images/icon/poppy.jpg" id="poppyIconBlue">
+        <image class="icons" onclick="select('pyke')" src="images/icon/pyke.jpg" id="pykeIconBlue">
+        <image class="icons" onclick="select('qiyana')" src="images/icon/qiyana.jpg" id="qiyanaIconBlue">
+        <image class="icons" onclick="select('quinn')" src="images/icon/quinn.jpg" id="quinnIconBlue">
+        <image class="icons" onclick="select('rakan')" src="images/icon/rakan.jpg" id="rakanIconBlue">
+        <image class="icons" onclick="select('rammus')" src="images/icon/rammus.jpg" id="rammusIconBlue">
+        <image class="icons" onclick="select('reksai')" src="images/icon/reksai.jpg" id="reksaiIconBlue">
+        <image class="icons" onclick="select('rell')" src="images/icon/rell.jpg" id="rellIconBlue">
+        <image class="icons" onclick="select('renata')" src="images/icon/renata.jpg" id="renataIconBlue">
+        <image class="icons" onclick="select('renekton')" src="images/icon/renekton.jpg" id="renektonIconBlue">
+        <image class="icons" onclick="select('rengar')" src="images/icon/rengar.jpg" id="rengarIconBlue">
+        <image class="icons" onclick="select('riven')" src="images/icon/riven.jpg" id="rivenIconBlue">
+        <image class="icons" onclick="select('rumble')" src="images/icon/rumble.jpg" id="rumbleIconBlue">
+        <image class="icons" onclick="select('ryze')" src="images/icon/ryze.jpg" id="ryzeIconBlue">
+        <image class="icons" onclick="select('samira')" src="images/icon/samira.jpg" id="samiraIconBlue">
+        <image class="icons" onclick="select('sejuani')" src="images/icon/sejuani.jpg" id="sejuaniIconBlue">
+        <image class="icons" onclick="select('senna')" src="images/icon/senna.jpg" id="sennaIconBlue">
+        <image class="icons" onclick="select('seraphine')" src="images/icon/seraphine.jpg" id="seraphineIconBlue">
+        <image class="icons" onclick="select('sett')" src="images/icon/sett.jpg" id="settIconBlue">
+        <image class="icons" onclick="select('shaco')" src="images/icon/shaco.jpg" id="shacoIconBlue">
+        <image class="icons" onclick="select('shen')" src="images/icon/shen.jpg" id="shenIconBlue">
+        <image class="icons" onclick="select('shyvana')" src="images/icon/shyvana.jpg" id="shyvanaIconBlue">
+        <image class="icons" onclick="select('singed')" src="images/icon/singed.jpg" id="singedIconBlue">
+        <image class="icons" onclick="select('sion')" src="images/icon/sion.jpg" id="sionIconBlue">
+        <image class="icons" onclick="select('sivir')" src="images/icon/sivir.jpg" id="sivirIconBlue">
+        <image class="icons" onclick="select('skarner')" src="images/icon/skarner.jpg" id="skarnerIconBlue">
+        <image class="icons" onclick="select('sona')" src="images/icon/sona.jpg" id="sonaIconBlue">
+        <image class="icons" onclick="select('soraka')" src="images/icon/soraka.jpg" id="sorakaIconBlue">
+        <image class="icons" onclick="select('swain')" src="images/icon/swain.jpg" id="swainIconBlue">
+        <image class="icons" onclick="select('sylas')" src="images/icon/sylas.jpg" id="sylasIconBlue">
+        <image class="icons" onclick="select('syndra')" src="images/icon/syndra.jpg" id="syndraIconBlue">
+        <image class="icons" onclick="select('tahmkench')" src="images/icon/tahmkench.jpg" id="tahmkenchIconBlue">
+        <image class="icons" onclick="select('taliyah')" src="images/icon/taliyah.jpg" id="taliyahIconBlue">
+        <image class="icons" onclick="select('talon')" src="images/icon/talon.jpg" id="talonIconBlue">
+        <image class="icons" onclick="select('taric')" src="images/icon/taric.jpg" id="taricIconBlue">
+        <image class="icons" onclick="select('teemo')" src="images/icon/teemo.jpg" id="teemoIconBlue">
+        <image class="icons" onclick="select('thresh')" src="images/icon/thresh.jpg" id="threshIconBlue">
+        <image class="icons" onclick="select('tristana')" src="images/icon/tristana.jpg" id="tristanaIconBlue">
+        <image class="icons" onclick="select('trundle')" src="images/icon/trundle.jpg" id="trundleIconBlue">
+        <image class="icons" onclick="select('tryndamere')" src="images/icon/tryndamere.jpg" id="tryndamereIconBlue">
+        <image class="icons" onclick="select('twistedfate')" src="images/icon/twistedfate.jpg" id="twistedfateIconBlue">
+        <image class="icons" onclick="select('twitch')" src="images/icon/twitch.jpg" id="twitchIconBlue">
+        <image class="icons" onclick="select('udyr')" src="images/icon/udyr.jpg" id="udyrIconBlue">
+        <image class="icons" onclick="select('urgot')" src="images/icon/urgot.jpg" id="urgotIconBlue">
+        <image class="icons" onclick="select('varus')" src="images/icon/varus.jpg" id="varusIconBlue">
+        <image class="icons" onclick="select('vayne')" src="images/icon/vayne.jpg" id="vayneIconBlue">
+        <image class="icons" onclick="select('veigar')" src="images/icon/veigar.jpg" id="veigarIconBlue">
+        <image class="icons" onclick="select('velkoz')" src="images/icon/velkoz.jpg" id="velkozIconBlue">
+        <image class="icons" onclick="select('vex')" src="images/icon/vex.jpg" id="vexIconBlue">
+        <image class="icons" onclick="select('vi')" src="images/icon/vi.jpg" id="viIconBlue">
+        <image class="icons" onclick="select('viego')" src="images/icon/viego.jpg" id="viegoIconBlue">
+        <image class="icons" onclick="select('viktor')" src="images/icon/viktor.jpg" id="viktorIconBlue">
+        <image class="icons" onclick="select('vladimir')" src="images/icon/vladimir.jpg" id="vladimirIconBlue">
+        <image class="icons" onclick="select('volibear')" src="images/icon/volibear.jpg" id="volibearIconBlue">
+        <image class="icons" onclick="select('warwick')" src="images/icon/warwick.jpg" id="warwickIconBlue">
+        <image class="icons" onclick="select('monkeyking')" src="images/icon/monkeyking.jpg" id="monkeykingIconBlue">
+        <image class="icons" onclick="select('xayah')" src="images/icon/xayah.jpg" id="xayahIconBlue">
+        <image class="icons" onclick="select('xerath')" src="images/icon/xerath.jpg" id="xerathIconBlue">
+        <image class="icons" onclick="select('xinzhao')" src="images/icon/xinzhao.jpg" id="xinzhaoIconBlue">
+        <image class="icons" onclick="select('yasuo')" src="images/icon/yasuo.jpg" id="yasuoIconBlue">
+        <image class="icons" onclick="select('yone')" src="images/icon/yone.jpg" id="yoneIconBlue">
+        <image class="icons" onclick="select('yorick')" src="images/icon/yorick.jpg" id="yorickIconBlue">
+        <image class="icons" onclick="select('yuumi')" src="images/icon/yuumi.jpg" id="yuumiIconBlue">
+        <image class="icons" onclick="select('zac')" src="images/icon/zac.jpg" id="zacIconBlue">
+        <image class="icons" onclick="select('zed')" src="images/icon/zed.jpg" id="zedIconBlue">
+        <image class="icons" onclick="select('zeri')" src="images/icon/zeri.jpg" id="zeriIconBlue">
+        <image class="icons" onclick="select('ziggs')" src="images/icon/ziggs.jpg" id="ziggsIconBlue">
+        <image class="icons" onclick="select('zilean')" src="images/icon/zilean.jpg" id="zileanIconBlue">
+        <image class="icons" onclick="select('zoe')" src="images/icon/zoe.jpg" id="zoeIconBlue">
+        <image class="icons" onclick="select('zyra')" src="images/icon/zyra.jpg" id="zyraIconBlue">
     </div>
     
-    <img class="bans" src="banners/blank.jpg" alt="blueBanOne" style="right:23.2%;top:14%" id="blueBanOneBlue">
-    <img class="bans" src="banners/blank.jpg" alt="redBanOne" style="right:1.6%;top:14%" id="redBanOneBlue">
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanOne" style="right:23.2%;top:14%" id="blueBanOneBlue">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanOne" style="right:1.6%;top:14%" id="redBanOneBlue">
     
-    <img class="bans" src="banners/blank.jpg" alt="blueBanTwo" style="right:23.2%;top:43%" id="blueBanTwoBlue">
-    <img class="bans" src="banners/blank.jpg" alt="redBanTwo" style="right:1.6%;top:43%" id="redBanTwoBlue">
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanTwo" style="right:23.2%;top:43%" id="blueBanTwoBlue">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanTwo" style="right:1.6%;top:43%" id="redBanTwoBlue">
     
-    <img class="bans" src="banners/blank.jpg" alt="blueBanThree" style="right:23.2%;top:72%" id="blueBanThreeBlue">
-    <img class="bans" src="banners/blank.jpg" alt="redBanThree" style="right:1.6%;top:72%" id="redBanThreeBlue">
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanThree" style="right:23.2%;top:72%" id="blueBanThreeBlue">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanThree" style="right:1.6%;top:72%" id="redBanThreeBlue">
     
     <button onclick="lockIn()" class="banbutton" id="blueLockChampButton">Lock In</button>
-    
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getDatabase, ref, child, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          databaseURL: "https://lol-1v1-draft-default-rtdb.firebaseio.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        function setdaVariable(variable,value){
+            set(ref(db, variable), {value: value});
+        }
+        function getdaVariable(variable){
+            return get(child(ref(db), `${variable}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val()['value'];} })
+        }
+        window.setVariable = setdaVariable;
+        window.getVariable = getdaVariable;
+    </script>
     <script>
         function champName(name){
             if (name=='Wukong'){
@@ -518,15 +545,15 @@
             }
             return name.charAt(0).toUpperCase() + name.slice(1);
         }
-        function lockIn() {
-            let bans = [localStorage.getItem("blueBanOne"), localStorage.getItem("blueBanTwo"), localStorage.getItem("blueBanThree"), localStorage.getItem("redBanOne"), localStorage.getItem("redBanTwo"), localStorage.getItem("redBanThree")];
-			if (!bans.includes(localStorage.getItem("blueChampion")) && (localStorage.getItem("blueChampion") != 'null')){
-                localStorage.setItem("blueFinished",'true');
+        async function lockIn() {
+            let bans = [await getVariable("blueBanOne"), await getVariable("blueBanTwo"), await getVariable("blueBanThree"), await getVariable("redBanOne"), await getVariable("redBanTwo"), await getVariable("redBanThree")];
+			if (!bans.includes(await getVariable("blueChampion")) && (await getVariable("blueChampion") != undefined)){
+                setVariable("blueFinished",true);
 				document.location.href = "spectatePage.html";
 			}
 		}
-        function select(name) {
-            localStorage.setItem("blueChampion",name);
+        async function select(name) {
+            setVariable("blueChampion",name);
             document.getElementById("blueChampionBar").value = imBackBaby(name);
             document.getElementById("mydivBlueSplash").scrollTop = 0;
             document.getElementById("mydivBlueSplash").style.overflow = "hidden";
@@ -534,43 +561,43 @@
             document.getElementById("mydivBlueSplash").style.textAlign = "left";
             document.getElementById("mydivBlueSplash").style.paddingTop = "0px";
             document.getElementById("mydivBlueSplash").style.outlineWidth = "6px";
-            document.getElementById("blueLockChampButton").style.backgroundColor ='white'
-            document.getElementById("blueLockChampButton").style.cursor = 'pointer';
+            let bans = [await getVariable("blueBanOne"), await getVariable("blueBanTwo"), await getVariable("blueBanThree"), await getVariable("redBanOne"), await getVariable("redBanTwo"), await getVariable("redBanThree")];
+            var champ = await getVariable("blueChampion");
+			if (!(bans.includes(champ)) && (champ != undefined)){
+                document.getElementById("blueLockChampButton").style.backgroundColor ='white';
+                document.getElementById("blueLockChampButton").style.cursor = 'pointer';
+            }
         }
-        function reset() {
-            if(localStorage.getItem("blueChampion") != null){
+        async function reset() {
+            if(await getVariable("blueChampion") != undefined){
                 document.getElementById("blueChampionBar").value = "";
-                document.getElementById(localStorage.getItem("blueChampion")+"SplashartBlue").style.visibility = "hidden";
+                document.getElementById(await getVariable("blueChampion")+"SplashartBlue").style.visibility = "hidden";
                 document.getElementById("mydivBlueSplash").style.overflow = "auto";
                 document.getElementById("mydivBlueSplash").style.textAlign = "left";
                 document.getElementById("mydivBlueSplash").style.padding = "3px";
                 document.getElementById("mydivBlueSplash").style.outlineWidth = "0px";
-                localStorage.setItem("blueChampion",null)
-            }
-        }
-        setInterval(function() {
-            
-            document.getElementById("blueSummonerTag").value = localStorage.getItem("blueSummoner");
-            document.getElementById("redSummonerTag").value = localStorage.getItem("redSummoner");
-            let bans = [localStorage.getItem("blueBanOne"), localStorage.getItem("blueBanTwo"), localStorage.getItem("blueBanThree"), localStorage.getItem("redBanOne"), localStorage.getItem("redBanTwo"), localStorage.getItem("redBanThree")];
-			if (bans.includes(localStorage.getItem("blueChampion")) || (localStorage.getItem("blueChampion") == 'null')){
-                document.getElementById("blueLockChampButton").style.backgroundColor ='rgb(51,51,51)';
+                setVariable("blueChampion",null)
+                document.getElementById("blueLockChampButton").style.backgroundColor ='grey';
                 document.getElementById("blueLockChampButton").style.cursor = 'default';
             }
-            if (localStorage.getItem("blueSummoner") == sessionStorage.getItem("summonerName")) {
-                document.getElementById("blueSummonerTag").style.left="1%"
-                document.getElementById("redSummonerTag").style.right="1%"
+        }
+        async function start(){
+            document.getElementById("blueSummonerTag").value = await getVariable("blueSummoner");
+            document.getElementById("redSummonerTag").value = await getVariable("redSummoner");
+            document.getElementById("blueBanOneBlue").src = "images/banners/"+await getVariable("blueBanOne")+".jpg"
+            document.getElementById("redBanOneBlue").src = "images/banners/"+await getVariable("redBanOne")+".jpg"
+            document.getElementById("blueBanTwoBlue").src = "images/banners/"+await getVariable("blueBanTwo")+".jpg"
+            document.getElementById("redBanTwoBlue").src = "images/banners/"+await getVariable("redBanTwo")+".jpg"
+            document.getElementById("blueBanThreeBlue").src = "images/banners/"+await getVariable("blueBanThree")+".jpg"
+            document.getElementById("redBanThreeBlue").src = "images/banners/"+await getVariable("redBanThree")+".jpg"
+            if(await getVariable("blueFinished")){
+                document.location.href = "spectatePage.html"
             }
-            else if (localStorage.getItem("redSummoner") == sessionStorage.getItem("summonerName")){
-                document.getElementById("blueSummonerTag").style.right="1%"
-                document.getElementById("redSummonerTag").style.left="1%"
+        }
+        setInterval(async function() {
+            if(await getVariable("draftStarted") == false){
+                document.location.href = "pleaseWait.html";
             }
-            document.getElementById("blueBanOneBlue").src = "banners/"+localStorage.getItem("blueBanOne")+".jpg"
-            document.getElementById("redBanOneBlue").src = "banners/"+localStorage.getItem("redBanOne")+".jpg"
-            document.getElementById("blueBanTwoBlue").src = "banners/"+localStorage.getItem("blueBanTwo")+".jpg"
-            document.getElementById("redBanTwoBlue").src = "banners/"+localStorage.getItem("redBanTwo")+".jpg"
-            document.getElementById("blueBanThreeBlue").src = "banners/"+localStorage.getItem("blueBanThree")+".jpg"
-            document.getElementById("redBanThreeBlue").src = "banners/"+localStorage.getItem("redBanThree")+".jpg"
             if (!"aatrox".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"aatrox".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
                 document.getElementById("aatroxIconBlue").style.visibility = "hidden";
                 document.getElementById("aatroxIconBlue").style.position = "absolute";

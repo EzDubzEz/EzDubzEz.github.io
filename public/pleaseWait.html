@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<title>Waiting To Start</title>
+<meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .textt{
+            font-family: 'Comic Sans MS';
+            color: white;
+        }
+        .namebutton{
+            font-family: 'Comic Sans MS';
+            font-size: 22pt;
+            border-radius: 12px;
+            width: 250px;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            text-align: center;
+            margin-top: 2%;
+
+        }
+        .namebutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+    </style>
+</head>
+<body style="background-color:#414141;" onload="start()">
+    <center>
+        <p class="textt" style="font-size:75pt;margin:220px 0px">Please Wait For Selection...</p>
+    </center>
+    <center>
+        <label class="textt" style="font-size: 22pt;font-family: 'Comic Sans MS';">You're registered as: </label>
+        <input id="summonName" disabled style="border-width: 4px;font-family:'Comic Sans MS';font-size: 22pt;background-color: white;color:black;border-color:black;text-align: center;"></input>
+    </center>
+    <center>
+        <button class="namebutton" id="changeNameButton" onclick="changeName()">Change Name</button>
+    </center>
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getDatabase, ref, child, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          databaseURL: "https://lol-1v1-draft-default-rtdb.firebaseio.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        function setdaVariable(variable,value){
+            set(ref(db, variable), {value: value});
+        }
+        function getdaVariable(variable){
+            return get(child(ref(db), `${variable}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val()['value'];} })
+        }
+        window.setVariable = setdaVariable;
+        window.getVariable = getdaVariable;
+    </script>
+    <script>
+
+        async function changeName(){
+            var name = sessionStorage.getItem("summonerName");
+            if(await getVariable("nameOne") == name){
+                setVariable("nameOne",null);
+            }
+            else if(await getVariable("nameTwo") == name){
+                setVariable("nameTwo",null);
+            }
+            else if(await getVariable("nameThree") == name){
+                setVariable("nameThree",null);
+            }
+            else if(await getVariable("nameFour") == name){
+                setVariable("nameFour",null);
+            }
+            else if(await getVariable("nameFive") == name){
+                setVariable("nameFive",null);
+            }
+            else if(await getVariable("nameSix") == name){
+                setVariable("nameSix",null);
+            }
+            else if(await getVariable("nameSeven") == name){
+                setVariable("nameSeven",null);
+            }
+            else if(await getVariable("nameEight") == name){
+                setVariable("nameEight",null);
+            }
+            else if(await getVariable("nameNine") == name){
+                setVariable("nameNine",null);
+            }
+            else if(await getVariable("nameTen") == name){
+                setVariable("nameTen",null);
+            }
+            else if(await getVariable("nameEleven") == name){
+                setVariable("nameEleven",null);
+            }
+            else if(await getVariable("nameTwelve") == name){
+                setVariable("nameTwelve",null);
+            }
+            else if(await getVariable("nameThirteen") == name){
+                setVariable("nameThirteen",null);
+            }
+            else if(await getVariable("nameFourteen") == name){
+                setVariable("nameFourteen",null);
+            }
+            else if(await getVariable("nameFifteen") == name){
+                setVariable("nameFifteen",null);
+            }
+            else if(await getVariable("nameSixteen") == name){
+                setVariable("nameSixteen",null);
+            }
+            else if(await getVariable("nameSeventeen") == name){
+                setVariable("nameSeventeen",null);
+            }
+            else if(await getVariable("nameEighteen") == name){
+                setVariable("nameEighteen",null);
+            }
+            else if(await getVariable("nameNineteen") == name){
+                setVariable("nameNineteen",null);
+            }
+            else if(await getVariable("nameTwenty") == name){
+                setVariable("nameTwenty",null);
+            }
+            sessionStorage.clear();
+            document.location.href = "index.html";
+        }
+        async function start(){document.getElementById("summonName").value = sessionStorage.getItem("summonerName");
+        }
+        setInterval(async function(){
+            if (await getVariable(sessionStorage.getItem("whichName")) != sessionStorage.getItem("summonerName")){
+                sessionStorage.clear();
+                document.location.href = "index.html";
+            }
+            if(await getVariable("draftStarted") == 'true'){
+                if (await getVariable("blueSummoner") == sessionStorage.getItem("summonerName")) {
+                    document.location.href = "blueBanPhase.html";
+                }
+                else if (await getVariable("redSummoner") == sessionStorage.getItem("summonerName")){
+                    document.location.href = "redBanPhase.html";
+                }
+                else{
+                    document.location.href = "spectatePage.html";
+                }
+            }
+        }, 200)
+    </script>
+</body>
+</html>

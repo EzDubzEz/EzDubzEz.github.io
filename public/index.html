@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <meta name="1v1 Tournament Draft" content="Login Page">
+    <style>
+        .namebar{
+            width: 80%;
+            height: 75px;
+            font-size: 24pt;
+            font-family: 'Comic Sans MS';
+            position: sticky;
+            left: 10%;
+            margin-top: 15px;
+            margin-bottom: 50px;
+        }
+        .labeltext{
+            color: white;
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            margin-top: 100px;
+            position: sticky;
+            left: 10%;
+        }
+        .gobutton{
+            font-family: 'Comic Sans MS';
+            font-size: 30pt;
+            border-radius: 12px;
+            width: 6%;
+            margin: 0px 25px;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+        }
+        .gobutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+    </style>
+</head>
+<body id='bg' style="background-color:#414141;">
+    
+    <center>
+        <label style="font-family:'Comic Sans MS';font-size:30pt;color:white;">Name: </label>
+        <input type="text" style="margin-top:20%;font-family:'Comic Sans MS';font-size:30pt;border-radius:12px;border-width: 6px;" maxlength="20" id="nameInputBox"></input>
+        <button class="gobutton" onclick="ready()">Go</button>
+    </center>
+    <a href="adminPage.html">
+        <textarea style="position:absolute; bottom:0%; right:0%;background-color:#414141;; width:20px;height:20px;resize: none;border-color: #414141;" disabled></textarea>
+    </a>
+    <a href="variablePage.html">
+        <textarea style="position:absolute; bottom:0%; left:0%;background-color:#414141;; width:20px;height:20px;resize: none;border-color: #414141;" disabled></textarea>
+    </a>
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getDatabase, ref, child, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          databaseURL: "https://lol-1v1-draft-default-rtdb.firebaseio.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        function setdaVariable(variable,value){
+            set(ref(db, variable), {value: value});
+        }
+        function getdaVariable(variable){
+            return get(child(ref(db), `${variable}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val()['value'];} })
+        }
+        window.setVariable = setdaVariable;
+        window.getVariable = getdaVariable;
+        </script>
+        <script>
+        
+        async function ready(){
+            if(document.getElementById("nameInputBox").value != ''){
+                var number = ''
+                if(await getVariable("nameOne") == null){
+                    setVariable('nameOne',document.getElementById("nameInputBox").value);
+                    number = 'One';
+                }
+                else if(await getVariable("nameTwo") == null){
+                    setVariable("nameTwo",document.getElementById("nameInputBox").value);
+                    number = 'Two';
+                }
+                else if(await getVariable("nameThree") == null){
+                    setVariable("nameThree",document.getElementById("nameInputBox").value);
+                    number = 'Three';
+                }
+                else if(await getVariable("nameFour") == null){
+                    setVariable("nameFour",document.getElementById("nameInputBox").value);
+                    number = 'Four';
+                }
+                else if(await getVariable("nameFive") == null){
+                    setVariable("nameFive",document.getElementById("nameInputBox").value);
+                    number = 'Five';
+                }
+                else if(await getVariable("nameSix") == null){
+                    setVariable("nameSix",document.getElementById("nameInputBox").value);
+                    number = 'Six';
+                }
+                else if(await getVariable("nameSeven") == null){
+                    setVariable("nameSeven",document.getElementById("nameInputBox").value);
+                    number = 'Seven';
+                }
+                else if(await getVariable("nameEight") == null){
+                    setVariable("nameEight",document.getElementById("nameInputBox").value);
+                    number = 'Eight';
+                }
+                else if(await getVariable("nameNine") == null){
+                    setVariable("nameNine",document.getElementById("nameInputBox").value);
+                    number = 'Nine';
+                }
+                else if(await getVariable("nameTen") == null){
+                    setVariable("nameTen",document.getElementById("nameInputBox").value);
+                    number = 'Ten';
+                }
+                else if(await getVariable("nameEleven") == null){
+                    setVariable("nameEleven",document.getElementById("nameInputBox").value);
+                    number = 'Eleven';
+                }
+                else if(await getVariable("nameTwelve") == null){
+                    setVariable("nameTwelve",document.getElementById("nameInputBox").value);
+                    number = 'Twelve';
+                }
+                else if(await getVariable("nameThirteen") == null){
+                    setVariable("nameThirteen",document.getElementById("nameInputBox").value);
+                    number = 'Thirteen';
+                }
+                else if(await getVariable("nameFourteen") == null){
+                    setVariable("nameFourteen",document.getElementById("nameInputBox").value);
+                    number = 'Fourteen';
+                }
+                else if(await getVariable("nameFifteen") == null){
+                    setVariable("nameFifteen",document.getElementById("nameInputBox").value);
+                    number = 'Fifteen';
+                }
+                else if(await getVariable("nameSixteen") == null){
+                    setVariable("nameSixteen",document.getElementById("nameInputBox").value);
+                    number = 'Sixteen';
+                }
+                else if(await getVariable("nameSeventeen") == null){
+                    setVariable("nameSeventeen",document.getElementById("nameInputBox").value);
+                    number = 'Seventeen';
+                }
+                else if(await getVariable("nameEighteen") == null){
+                    setVariable("nameEighteen",document.getElementById("nameInputBox").value);
+                    number = 'Eighteen';
+                }
+                else if(await getVariable("nameNineteen") == null){
+                    setVariable("nameNineteen",document.getElementById("nameInputBox").value);
+                    number = 'Nineteen';
+                }
+                else if(await getVariable("nameTwenty") == null){
+                    setVariable("nameTwenty",document.getElementById("nameInputBox").value);
+                    number = 'Twenty';
+                }
+                sessionStorage.setItem("summonerName",document.getElementById("nameInputBox").value);
+                sessionStorage.setItem("whichName",'name'+number);
+                document.location.href = "pleaseWait.html";
+                console.log("finished");
+            }
+        }
+        setInterval(function() {
+            if (sessionStorage.getItem("summonerName") != null){
+                document.location.href = "pleaseWait.html";
+            }
+        }, 50)
+    </script>
+</body>
+</html>
