@@ -72,11 +72,12 @@
         async function ready() {
             if (await getVariable("blueSummoner") == sessionStorage.getItem("summonerName")) {
                 setVariable("blueReady",true);
+                document.location.href = "waitingForChampSelect.html";
             }
             else if (await getVariable("redSummoner") == sessionStorage.getItem("summonerName")){
                 setVariable("redReady",true);
+                document.location.href = "waitingForChampSelect.html";
             }
-            document.location.href = "waitingForChampSelect.html"
 		}
         async function start(){
             document.getElementById("summonerTag").value = sessionStorage.getItem("summonerName");
@@ -94,7 +95,7 @@
             if(await getVariable("draftStarted") == false){
                 document.location.href = "pleaseWait.html";
             }
-        })
+        }, 50);
     </script>
 </body>
 </html>
