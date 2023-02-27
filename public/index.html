@@ -80,101 +80,111 @@
         window.getVariable = getdaVariable;
         </script>
         <script>
-        
+        //"now < 1671512400000"
+        //"now < 1671512400000"
         async function ready(){
+            console.log("hi");
             if(document.getElementById("nameInputBox").value != ''){
-                var number = ''
-                if(await getVariable("nameOne") == null){
-                    setVariable('nameOne',document.getElementById("nameInputBox").value);
-                    number = 'One';
+                let names = [await getVariable('nameOne'), await getVariable('nameTwo'), await getVariable('nameThree'), await getVariable('nameFour'), await getVariable('nameFive'), await getVariable('nameSix'), await getVariable('nameSeven'), await getVariable('nameEight'), await getVariable('nameNine'), await getVariable('nameTen'), await getVariable('nameEleven'), await getVariable('nameTwelve'), await getVariable('nameThirteen'), await getVariable('nameFourteen'), await getVariable('nameFifteen'), await getVariable('nameSixteen'), await getVariable('nameSeventeen'), await getVariable('nameEighteen'), await getVariable('nameNineteen'), await getVariable('nameTwenty')];
+                if(!names.includes(document.getElementById("nameInputBox").value)){
+                    if(await getVariable("nameOne") == null){
+                        setVariable('nameOne',document.getElementById("nameInputBox").value);
+                        number = 'One';
+                    }
+                    else if(await getVariable("nameTwo") == null){
+                        setVariable("nameTwo",document.getElementById("nameInputBox").value);
+                        number = 'Two';
+                    }
+                    else if(await getVariable("nameThree") == null){
+                        setVariable("nameThree",document.getElementById("nameInputBox").value);
+                        number = 'Three';
+                    }
+                    else if(await getVariable("nameFour") == null){
+                        setVariable("nameFour",document.getElementById("nameInputBox").value);
+                        number = 'Four';
+                    }
+                    else if(await getVariable("nameFive") == null){
+                        setVariable("nameFive",document.getElementById("nameInputBox").value);
+                        number = 'Five';
+                    }
+                    else if(await getVariable("nameSix") == null){
+                        setVariable("nameSix",document.getElementById("nameInputBox").value);
+                        number = 'Six';
+                    }
+                    else if(await getVariable("nameSeven") == null){
+                        setVariable("nameSeven",document.getElementById("nameInputBox").value);
+                        number = 'Seven';
+                    }
+                    else if(await getVariable("nameEight") == null){
+                        setVariable("nameEight",document.getElementById("nameInputBox").value);
+                        number = 'Eight';
+                    }
+                    else if(await getVariable("nameNine") == null){
+                        setVariable("nameNine",document.getElementById("nameInputBox").value);
+                        number = 'Nine';
+                    }
+                    else if(await getVariable("nameTen") == null){
+                        setVariable("nameTen",document.getElementById("nameInputBox").value);
+                        number = 'Ten';
+                    }
+                    else if(await getVariable("nameEleven") == null){
+                        setVariable("nameEleven",document.getElementById("nameInputBox").value);
+                        number = 'Eleven';
+                    }
+                    else if(await getVariable("nameTwelve") == null){
+                        setVariable("nameTwelve",document.getElementById("nameInputBox").value);
+                        number = 'Twelve';
+                    }
+                    else if(await getVariable("nameThirteen") == null){
+                        setVariable("nameThirteen",document.getElementById("nameInputBox").value);
+                        number = 'Thirteen';
+                    }
+                    else if(await getVariable("nameFourteen") == null){
+                        setVariable("nameFourteen",document.getElementById("nameInputBox").value);
+                        number = 'Fourteen';
+                    }
+                    else if(await getVariable("nameFifteen") == null){
+                        setVariable("nameFifteen",document.getElementById("nameInputBox").value);
+                        number = 'Fifteen';
+                    }
+                    else if(await getVariable("nameSixteen") == null){
+                        setVariable("nameSixteen",document.getElementById("nameInputBox").value);
+                        number = 'Sixteen';
+                    }
+                    else if(await getVariable("nameSeventeen") == null){
+                        setVariable("nameSeventeen",document.getElementById("nameInputBox").value);
+                        number = 'Seventeen';
+                    }
+                    else if(await getVariable("nameEighteen") == null){
+                        setVariable("nameEighteen",document.getElementById("nameInputBox").value);
+                        number = 'Eighteen';
+                    }
+                    else if(await getVariable("nameNineteen") == null){
+                        setVariable("nameNineteen",document.getElementById("nameInputBox").value);
+                        number = 'Nineteen';
+                    }
+                    else if(await getVariable("nameTwenty") == null){
+                        setVariable("nameTwenty",document.getElementById("nameInputBox").value);
+                        number = 'Twenty';
+                    }
+                    console.log("finished1");
+                    sessionStorage.setItem("summonerName",document.getElementById("nameInputBox").value);
+                    sessionStorage.setItem("whichName",'name'+number);
+                    console.log("finished2");
+                    document.location.href = "pleaseWait.html";
+                    console.log("finished3");
                 }
-                else if(await getVariable("nameTwo") == null){
-                    setVariable("nameTwo",document.getElementById("nameInputBox").value);
-                    number = 'Two';
-                }
-                else if(await getVariable("nameThree") == null){
-                    setVariable("nameThree",document.getElementById("nameInputBox").value);
-                    number = 'Three';
-                }
-                else if(await getVariable("nameFour") == null){
-                    setVariable("nameFour",document.getElementById("nameInputBox").value);
-                    number = 'Four';
-                }
-                else if(await getVariable("nameFive") == null){
-                    setVariable("nameFive",document.getElementById("nameInputBox").value);
-                    number = 'Five';
-                }
-                else if(await getVariable("nameSix") == null){
-                    setVariable("nameSix",document.getElementById("nameInputBox").value);
-                    number = 'Six';
-                }
-                else if(await getVariable("nameSeven") == null){
-                    setVariable("nameSeven",document.getElementById("nameInputBox").value);
-                    number = 'Seven';
-                }
-                else if(await getVariable("nameEight") == null){
-                    setVariable("nameEight",document.getElementById("nameInputBox").value);
-                    number = 'Eight';
-                }
-                else if(await getVariable("nameNine") == null){
-                    setVariable("nameNine",document.getElementById("nameInputBox").value);
-                    number = 'Nine';
-                }
-                else if(await getVariable("nameTen") == null){
-                    setVariable("nameTen",document.getElementById("nameInputBox").value);
-                    number = 'Ten';
-                }
-                else if(await getVariable("nameEleven") == null){
-                    setVariable("nameEleven",document.getElementById("nameInputBox").value);
-                    number = 'Eleven';
-                }
-                else if(await getVariable("nameTwelve") == null){
-                    setVariable("nameTwelve",document.getElementById("nameInputBox").value);
-                    number = 'Twelve';
-                }
-                else if(await getVariable("nameThirteen") == null){
-                    setVariable("nameThirteen",document.getElementById("nameInputBox").value);
-                    number = 'Thirteen';
-                }
-                else if(await getVariable("nameFourteen") == null){
-                    setVariable("nameFourteen",document.getElementById("nameInputBox").value);
-                    number = 'Fourteen';
-                }
-                else if(await getVariable("nameFifteen") == null){
-                    setVariable("nameFifteen",document.getElementById("nameInputBox").value);
-                    number = 'Fifteen';
-                }
-                else if(await getVariable("nameSixteen") == null){
-                    setVariable("nameSixteen",document.getElementById("nameInputBox").value);
-                    number = 'Sixteen';
-                }
-                else if(await getVariable("nameSeventeen") == null){
-                    setVariable("nameSeventeen",document.getElementById("nameInputBox").value);
-                    number = 'Seventeen';
-                }
-                else if(await getVariable("nameEighteen") == null){
-                    setVariable("nameEighteen",document.getElementById("nameInputBox").value);
-                    number = 'Eighteen';
-                }
-                else if(await getVariable("nameNineteen") == null){
-                    setVariable("nameNineteen",document.getElementById("nameInputBox").value);
-                    number = 'Nineteen';
-                }
-                else if(await getVariable("nameTwenty") == null){
-                    setVariable("nameTwenty",document.getElementById("nameInputBox").value);
-                    number = 'Twenty';
-                }
-                sessionStorage.setItem("summonerName",document.getElementById("nameInputBox").value);
-                sessionStorage.setItem("whichName",'name'+number);
-                document.location.href = "pleaseWait.html";
-                console.log("finished");
             }
         }
-        setInterval(function() {
+        myInterval = setInterval(async function(){
             if (sessionStorage.getItem("summonerName") != null){
                 document.location.href = "pleaseWait.html";
+                clearInterval(myInterval);
             }
-        }, 50)
+        },50);
+        //setInterval(function() {
+            
+        //}, 50)
     </script>
-</body>
+</body> 
 </html>

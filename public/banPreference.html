@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+    <title>Ban Preference</title>
+    <meta name="1v1 Tournament Draft" content="Ban Preference Page">
+    <style>
+        .namebar{
+            width: 80%;
+            height: 75px;
+            font-size: 24pt;
+            font-family: 'Comic Sans MS';
+            position: sticky;
+            left: 10%;
+            margin-top: 15px;
+            margin-bottom: 50px;
+        }
+        .labeltext{
+            color: white;
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            margin-top: 100px;
+            position: sticky;
+            left: 10%;
+        }
+        .gobutton{
+            font-family: 'Comic Sans MS';
+            font-size: 30pt;
+            border-radius: 12px;
+            width: 6%;
+            margin: 0px 25px;
+            text-align: center;
+            width: 22%;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            position: absolute;
+            top:30%;
+        }
+        .gobutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+        .textt{
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            position: absolute;
+            top: 2%;
+            color: black;
+            text-align: center;
+            border-width: 3px;
+            border-color: black;
+        }
+    </style>
+</head>
+<body id='bg' style="background-color:#414141;" onload="start()">
+    <input class="textt" disabled style="background-color:rgb(40, 80, 167);" id="blueSummonerTag"></input>
+    <input class="textt" disabled style="background-color:rgb(201, 63, 63);" id="redSummonerTag"></input>
+    <button class="gobutton" id="tripleButton" style="right:60%" onclick="ready('Triple')">All At Once<br />(Triple Ban)</button>
+    <button class="gobutton" id="swapButton" style="left:60%" onclick="ready('Swap')">One At A Time<br />(Swap Ban)</button>
+    <label id = "words" style="font-family:'Comic Sans MS';font-size:60pt;color:white;text-align:center;position:absolute;left:50%;top:75%;width:99%;transform:translate(-50%,-50%);">Please Select Ban Type</label>
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getDatabase, ref, child, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          databaseURL: "https://lol-1v1-draft-default-rtdb.firebaseio.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        function setdaVariable(variable,value){
+            set(ref(db, variable), {value: value});
+        }
+        function getdaVariable(variable){
+            return get(child(ref(db), `${variable}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val()['value'];} })
+        }
+        window.setVariable = setdaVariable;
+        window.getVariable = getdaVariable;
+        </script>
+        <script>
+        async function ready(choice){
+            if (await getVariable("blueSummoner") == sessionStorage.getItem("summonerName")) {
+                setVariable("blueBanType",choice);
+            }
+            else {
+                setVariable("redBanType",choice);
+            }
+            if (await getVariable("blueBanType") == undefined || await getVariable("redBanType") == undefined){
+                
+                document.getElementById("tripleButton").style.visibility = "hidden";
+                document.getElementById("swapButton").style.visibility = "hidden";
+                document.getElementById("words").innerHTML = "Waiting For Opponent";
+                document.getElementById("words").style.top = "50%";
+                document.getElementById("words").style.fontSize = "75pt";
+            }
+            
+        }
+        async function start(){
+            document.getElementById("blueSummonerTag").value = await getVariable("blueSummoner");
+            document.getElementById("redSummonerTag").value = await getVariable("redSummoner");
+            if(sessionStorage.getItem("summonerName") == await getVariable("blueSummoner")){
+                document.getElementById("blueSummonerTag").style.left = "1%";
+                document.getElementById("redSummonerTag").style.right = "1%";
+            } else{
+                document.getElementById("blueSummonerTag").style.right = "1%";
+                document.getElementById("redSummonerTag").style.left = "1%";
+            }
+        }
+        myInterval = setInterval(async function(){
+            if(await getVariable("draftStarted") == false){
+                document.location.href = "pleaseWait.html";
+                clearInterval(myInterval);
+            }
+            if (await getVariable("blueBanType") != undefined && await getVariable("redBanType") != undefined){
+                if(await getVariable("blueBanType") == 'Swap' || await getVariable("redBanType") == 'Swap'){
+                    if(sessionStorage.getItem("summonerName") == await getVariable("blueSummoner")){
+                        document.location.href = "blueSwapBanPhase.html";
+                    } else{
+                        document.location.href = "redSwapBanPhase.html";
+                    }
+                }
+                else{
+                    if(sessionStorage.getItem("summonerName") == await getVariable("blueSummoner")){
+                        document.location.href = "blueTripleBanPhase.html";
+                    } else{
+                        document.location.href = "redTripleBanPhase.html";
+                    }
+                }
+                clearInterval(myInterval);
+            }
+        }, 200)
+    </script>
+</body>
+</html>

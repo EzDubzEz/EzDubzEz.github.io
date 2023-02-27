@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Blue Champion Select</title>
-    <meta name="1v1 Tournament Draft" content="Login Page">
+    <meta name="1v1 Tournament Draft" content="Blue Champion Select Page">
     <style>
         .namebar{
             width: 80%;
@@ -477,6 +477,9 @@
             if (name=="Nunu & Willump"){
                 name='nunu'
             }
+            if(name==undefined){
+                return name;
+            }
             return(name.toLowerCase().replace(/\s/g, "").replace("'",""))
         }
         function imBackBaby(name) {
@@ -594,9 +597,10 @@
                 document.location.href = "spectatePage.html"
             }
         }
-        setInterval(async function() {
+        myInterval = setInterval(async function() {
             if(await getVariable("draftStarted") == false){
                 document.location.href = "pleaseWait.html";
+                clearInterval(myInterval);
             }
             if (!"aatrox".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"aatrox".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
                 document.getElementById("aatroxIconBlue").style.visibility = "hidden";

@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 <head>
-    <title>Blue Ban Phase</title>
-    <meta name="1v1 Tournament Draft" content="Login Page">
+    <title>Blue Triple Ban Phase</title>
+    <meta name="1v1 Tournament Draft" content="Blue Triple Ban Phase Page">
     <style>
         .namebar{
             width: 80%;
@@ -2532,9 +2532,11 @@
                 document.getElementById("zyraIconBlue"+number).style.position = "static";
             }
         }
-        setInterval(async function() {
+        
+        myInterval = setInterval(async function() {
             if(await getVariable("draftStarted") == false){
                 document.location.href = "pleaseWait.html";
+                clearInterval(myInterval);
             }
             thing('One');
             thing('Two');

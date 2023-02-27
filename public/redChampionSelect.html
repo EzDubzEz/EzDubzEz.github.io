@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Red Champion Select</title>
-    <meta name="1v1 Tournament Draft" content="Login Page">
+    <meta name="1v1 Tournament Draft" content="Red Champion Select Page">
     <style>
         .namebar{
             width: 80%;
@@ -477,6 +477,9 @@
             if (name=="Nunu & Willump"){
                 name='nunu'
             }
+            if(name==undefined){
+                return name;
+            }
             return(name.toLowerCase().replace(/\s/g, "").replace("'",""))
         }
         function imBackBaby(name) {
@@ -590,13 +593,14 @@
             document.getElementById("redBanTwoRed").src = "images/banners/"+await getVariable("redBanTwo")+".jpg"
             document.getElementById("blueBanThreeRed").src = "images/banners/"+await getVariable("blueBanThree")+".jpg"
             document.getElementById("redBanThreeRed").src = "images/banners/"+await getVariable("redBanThree")+".jpg"
-            if(await getVariable("blueFinished")){
+            if(await getVariable("redFinished")){
                 document.location.href = "spectatePage.html"
             }
         }
-        setInterval(async function() {
+        myInterval = setInterval(async function() {
             if(await getVariable("draftStarted") == false){
                 document.location.href = "pleaseWait.html";
+                clearInterval(myInterval);
             }
             if (!"aatrox".includes(document.getElementById("redChampionBar").value.toLowerCase()) && !"aatrox".includes(document.getElementById("redChampionBar").value.toLowerCase())){
                 document.getElementById("aatroxIconRed").style.visibility = "hidden";

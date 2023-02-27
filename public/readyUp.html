@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Ready Up</title>
-    <meta name="1v1 Tournament Draft" content="Login Page">
+    <meta name="1v1 Tournament Draft" content="Ready Up Page">
     <style>
         .readybutton{
             font-family: 'Comic Sans MS';
@@ -91,9 +91,10 @@
                 document.location.href = "waitingForChampSelect.html"
             }
         }
-        setInterval(async function() {
+        myInterval = setInterval(async function() {
             if(await getVariable("draftStarted") == false){
                 document.location.href = "pleaseWait.html";
+                clearInterval(myInterval);
             }
         }, 50);
     </script>

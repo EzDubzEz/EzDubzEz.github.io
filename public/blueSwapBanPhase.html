@@ -1,0 +1,2007 @@
+<!doctype html>
+<html>
+<head>
+    <title>Blue Swap Ban Phase</title>
+    <meta name="1v1 Tournament Draft" content="Blue Swap Ban Phase Page">
+    <style>
+        .namebar{
+            width: 80%;
+            height: 75px;
+            font-size: 24pt;
+            font-family: 'Comic Sans MS';
+            position: sticky;
+            left: 10%;
+            margin-top: 15px;
+            margin-bottom: 50px;
+        }
+        .labeltext{
+            color: white;
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            margin-top: 100px;
+            position: sticky;
+            left: 10%;
+        }
+        .banbutton{
+            font-family: 'Comic Sans MS';
+            font-size: 30pt;
+            border-radius: 12px;
+            text-align: center;
+            width: 12%;
+            position: absolute;
+            cursor: default;
+            bottom: 2%;
+            left: 1%;
+            background-color: grey;
+            border-width: 6px;
+        }
+        .banbutton:hover{
+            background-color: grey!important;
+        }
+        .names{
+            font-size: 18pt;
+            font-family: 'Comic Sans MS';
+        }
+        .textt{
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            position: absolute;
+            top: 2%;
+            color: black;
+            text-align: center;
+            border-width: 3px;
+            border-color: black;
+        }
+        .icondiv{
+            border: 6px outset black;
+            width: 51%;
+            height: 58.5%;
+            position: absolute;
+            left: 1%;
+            overflow: auto;
+            scrollbar-color: #414141 black;
+            top: 23%;
+            text-align: left;
+            outline: 0px solid black;
+            outline-offset: -10px;
+            padding: 3px;
+            background-color: gray;
+            
+        }
+        .icons{
+            border: 3px outset black;
+            width: 9.8%;
+            cursor: pointer;
+        }
+        .splasharts{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            visibility: hidden;
+        }
+        .champbar{
+            font-size: 26pt;
+            font-family: 'Comic Sans MS';
+            position: absolute;
+            top: 14%;
+            left: 1%;
+            border: 4px solid black;
+        }
+        .bans{
+            position: absolute;
+            width: 20%;
+            border: 3px solid black;
+            outline: 3px solid black;
+            outline-offset: -5px;
+        }
+    </style>
+</head>
+<body id='bg' style="background-color:#414141;" onload="start()">
+    <input class="textt" disabled style="background-color:rgb(40, 80, 167);left:1%" id="blueSummonerTag"></input>
+    <input class="textt" disabled style="background-color:rgb(201, 63, 63);right:1%" id="redSummonerTag"></input>
+    <label style="color:white;left:1%;top:8%;position:absolute;font-family:Comic Sans MS;font-size:20pt;" id="leFunny"></label>
+    <input  class="champbar" id="blueChampionBar" onclick="reset()"></input>
+    <div class="icondiv" id="mydivBlueSplash">
+        <image class="splasharts" src="images/splashart/aatrox.jpg" id="aatroxSplashart"></image>
+        <image class="splasharts" src="images/splashart/ahri.jpg" id="ahriSplashart"></image>
+        <image class="splasharts" src="images/splashart/akali.jpg" id="akaliSplashart"></image>
+        <image class="splasharts" src="images/splashart/akshan.jpg" id="akshanSplashart"></image>
+        <image class="splasharts" src="images/splashart/alistar.jpg" id="alistarSplashart"></image>
+        <image class="splasharts" src="images/splashart/amumu.jpg" id="amumuSplashart"></image>
+        <image class="splasharts" src="images/splashart/anivia.jpg" id="aniviaSplashart"></image>
+        <image class="splasharts" src="images/splashart/annie.jpg" id="annieSplashart"></image>
+        <image class="splasharts" src="images/splashart/aphelios.jpg" id="apheliosSplashart"></image>
+        <image class="splasharts" src="images/splashart/ashe.jpg" id="asheSplashart"></image>
+        <image class="splasharts" src="images/splashart/aurelionsol.jpg" id="aurelionsolSplashart"></image>
+        <image class="splasharts" src="images/splashart/azir.jpg" id="azirSplashart"></image>
+        <image class="splasharts" src="images/splashart/bard.jpg" id="bardSplashart"></image>
+        <image class="splasharts" src="images/splashart/belveth.jpg" id="belvethSplashart"></image>
+        <image class="splasharts" src="images/splashart/blitzcrank.jpg" id="blitzcrankSplashart"></image>
+        <image class="splasharts" src="images/splashart/brand.jpg" id="brandSplashart"></image>
+        <image class="splasharts" src="images/splashart/braum.jpg" id="braumSplashart"></image>
+        <image class="splasharts" src="images/splashart/caitlyn.jpg" id="caitlynSplashart"></image>
+        <image class="splasharts" src="images/splashart/camille.jpg" id="camilleSplashart"></image>
+        <image class="splasharts" src="images/splashart/cassiopeia.jpg" id="cassiopeiaSplashart"></image>
+        <image class="splasharts" src="images/splashart/chogath.jpg" id="chogathSplashart"></image>
+        <image class="splasharts" src="images/splashart/corki.jpg" id="corkiSplashart"></image>
+        <image class="splasharts" src="images/splashart/darius.jpg" id="dariusSplashart"></image>
+        <image class="splasharts" src="images/splashart/diana.jpg" id="dianaSplashart"></image>
+        <image class="splasharts" src="images/splashart/drmundo.jpg" id="drmundoSplashart"></image>
+        <image class="splasharts" src="images/splashart/draven.jpg" id="dravenSplashart"></image>
+        <image class="splasharts" src="images/splashart/ekko.jpg" id="ekkoSplashart"></image>
+        <image class="splasharts" src="images/splashart/elise.jpg" id="eliseSplashart"></image>
+        <image class="splasharts" src="images/splashart/evelynn.jpg" id="evelynnSplashart"></image>
+        <image class="splasharts" src="images/splashart/ezreal.jpg" id="ezrealSplashart"></image>
+        <image class="splasharts" src="images/splashart/fiddlesticks.jpg" id="fiddlesticksSplashart"></image>
+        <image class="splasharts" src="images/splashart/fiora.jpg" id="fioraSplashart"></image>
+        <image class="splasharts" src="images/splashart/fizz.jpg" id="fizzSplashart"></image>
+        <image class="splasharts" src="images/splashart/galio.jpg" id="galioSplashart"></image>
+        <image class="splasharts" src="images/splashart/gangplank.jpg" id="gangplankSplashart"></image>
+        <image class="splasharts" src="images/splashart/garen.jpg" id="garenSplashart"></image>
+        <image class="splasharts" src="images/splashart/gnar.jpg" id="gnarSplashart"></image>
+        <image class="splasharts" src="images/splashart/gragas.jpg" id="gragasSplashart"></image>
+        <image class="splasharts" src="images/splashart/graves.jpg" id="gravesSplashart"></image>
+        <image class="splasharts" src="images/splashart/gwen.jpg" id="gwenSplashart"></image>
+        <image class="splasharts" src="images/splashart/hecarim.jpg" id="hecarimSplashart"></image>
+        <image class="splasharts" src="images/splashart/heimerdinger.jpg" id="heimerdingerSplashart"></image>
+        <image class="splasharts" src="images/splashart/illaoi.jpg" id="illaoiSplashart"></image>
+        <image class="splasharts" src="images/splashart/irelia.jpg" id="ireliaSplashart"></image>
+        <image class="splasharts" src="images/splashart/ivern.jpg" id="ivernSplashart"></image>
+        <image class="splasharts" src="images/splashart/janna.jpg" id="jannaSplashart"></image>
+        <image class="splasharts" src="images/splashart/jarvaniv.jpg" id="jarvanivSplashart"></image>
+        <image class="splasharts" src="images/splashart/jax.jpg" id="jaxSplashart"></image>
+        <image class="splasharts" src="images/splashart/jayce.jpg" id="jayceSplashart"></image>
+        <image class="splasharts" src="images/splashart/jhin.jpg" id="jhinSplashart"></image>
+        <image class="splasharts" src="images/splashart/jinx.jpg" id="jinxSplashart"></image>
+        <image class="splasharts" src="images/splashart/kaisa.jpg" id="kaisaSplashart"></image>
+        <image class="splasharts" src="images/splashart/kalista.jpg" id="kalistaSplashart"></image>
+        <image class="splasharts" src="images/splashart/karma.jpg" id="karmaSplashart"></image>
+        <image class="splasharts" src="images/splashart/karthus.jpg" id="karthusSplashart"></image>
+        <image class="splasharts" src="images/splashart/kassadin.jpg" id="kassadinSplashart"></image>
+        <image class="splasharts" src="images/splashart/katarina.jpg" id="katarinaSplashart"></image>
+        <image class="splasharts" src="images/splashart/kayle.jpg" id="kayleSplashart"></image>
+        <image class="splasharts" src="images/splashart/kayn.jpg" id="kaynSplashart"></image>
+        <image class="splasharts" src="images/splashart/kennen.jpg" id="kennenSplashart"></image>
+        <image class="splasharts" src="images/splashart/khazix.jpg" id="khazixSplashart"></image>
+        <image class="splasharts" src="images/splashart/kindred.jpg" id="kindredSplashart"></image>
+        <image class="splasharts" src="images/splashart/kled.jpg" id="kledSplashart"></image>
+        <image class="splasharts" src="images/splashart/kogmaw.jpg" id="kogmawSplashart"></image>
+        <image class="splasharts" src="images/splashart/ksante.jpg" id="ksanteSplashart"></image>
+        <image class="splasharts" src="images/splashart/leblanc.jpg" id="leblancSplashart"></image>
+        <image class="splasharts" src="images/splashart/leesin.jpg" id="leesinSplashart"></image>
+        <image class="splasharts" src="images/splashart/leona.jpg" id="leonaSplashart"></image>
+        <image class="splasharts" src="images/splashart/lillia.jpg" id="lilliaSplashart"></image>
+        <image class="splasharts" src="images/splashart/lissandra.jpg" id="lissandraSplashart"></image>
+        <image class="splasharts" src="images/splashart/lucian.jpg" id="lucianSplashart"></image>
+        <image class="splasharts" src="images/splashart/lulu.jpg" id="luluSplashart"></image>
+        <image class="splasharts" src="images/splashart/lux.jpg" id="luxSplashart"></image>
+        <image class="splasharts" src="images/splashart/malphite.jpg" id="malphiteSplashart"></image>
+        <image class="splasharts" src="images/splashart/malzahar.jpg" id="malzaharSplashart"></image>
+        <image class="splasharts" src="images/splashart/maokai.jpg" id="maokaiSplashart"></image>
+        <image class="splasharts" src="images/splashart/masteryi.jpg" id="masteryiSplashart"></image>
+        <image class="splasharts" src="images/splashart/missfortune.jpg" id="missfortuneSplashart"></image>
+        <image class="splasharts" src="images/splashart/mordekaiser.jpg" id="mordekaiserSplashart"></image>
+        <image class="splasharts" src="images/splashart/morgana.jpg" id="morganaSplashart"></image>
+        <image class="splasharts" src="images/splashart/nami.jpg" id="namiSplashart"></image>
+        <image class="splasharts" src="images/splashart/nasus.jpg" id="nasusSplashart"></image>
+        <image class="splasharts" src="images/splashart/nautilus.jpg" id="nautilusSplashart"></image>
+        <image class="splasharts" src="images/splashart/neeko.jpg" id="neekoSplashart"></image>
+        <image class="splasharts" src="images/splashart/nidalee.jpg" id="nidaleeSplashart"></image>
+        <image class="splasharts" src="images/splashart/nilah.jpg" id="nilahSplashart"></image>
+        <image class="splasharts" src="images/splashart/nocturne.jpg" id="nocturneSplashart"></image>
+        <image class="splasharts" src="images/splashart/nunu.jpg" id="nunuSplashart"></image>
+        <image class="splasharts" src="images/splashart/olaf.jpg" id="olafSplashart"></image>
+        <image class="splasharts" src="images/splashart/orianna.jpg" id="oriannaSplashart"></image>
+        <image class="splasharts" src="images/splashart/ornn.jpg" id="ornnSplashart"></image>
+        <image class="splasharts" src="images/splashart/pantheon.jpg" id="pantheonSplashart"></image>
+        <image class="splasharts" src="images/splashart/poppy.jpg" id="poppySplashart"></image>
+        <image class="splasharts" src="images/splashart/pyke.jpg" id="pykeSplashart"></image>
+        <image class="splasharts" src="images/splashart/qiyana.jpg" id="qiyanaSplashart"></image>
+        <image class="splasharts" src="images/splashart/quinn.jpg" id="quinnSplashart"></image>
+        <image class="splasharts" src="images/splashart/rakan.jpg" id="rakanSplashart"></image>
+        <image class="splasharts" src="images/splashart/rammus.jpg" id="rammusSplashart"></image>
+        <image class="splasharts" src="images/splashart/reksai.jpg" id="reksaiSplashart"></image>
+        <image class="splasharts" src="images/splashart/rell.jpg" id="rellSplashart"></image>
+        <image class="splasharts" src="images/splashart/renata.jpg" id="renataSplashart"></image>
+        <image class="splasharts" src="images/splashart/renekton.jpg" id="renektonSplashart"></image>
+        <image class="splasharts" src="images/splashart/rengar.jpg" id="rengarSplashart"></image>
+        <image class="splasharts" src="images/splashart/riven.jpg" id="rivenSplashart"></image>
+        <image class="splasharts" src="images/splashart/rumble.jpg" id="rumbleSplashart"></image>
+        <image class="splasharts" src="images/splashart/ryze.jpg" id="ryzeSplashart"></image>
+        <image class="splasharts" src="images/splashart/samira.jpg" id="samiraSplashart"></image>
+        <image class="splasharts" src="images/splashart/sejuani.jpg" id="sejuaniSplashart"></image>
+        <image class="splasharts" src="images/splashart/senna.jpg" id="sennaSplashart"></image>
+        <image class="splasharts" src="images/splashart/seraphine.jpg" id="seraphineSplashart"></image>
+        <image class="splasharts" src="images/splashart/sett.jpg" id="settSplashart"></image>
+        <image class="splasharts" src="images/splashart/shaco.jpg" id="shacoSplashart"></image>
+        <image class="splasharts" src="images/splashart/shen.jpg" id="shenSplashart"></image>
+        <image class="splasharts" src="images/splashart/shyvana.jpg" id="shyvanaSplashart"></image>
+        <image class="splasharts" src="images/splashart/singed.jpg" id="singedSplashart"></image>
+        <image class="splasharts" src="images/splashart/sion.jpg" id="sionSplashart"></image>
+        <image class="splasharts" src="images/splashart/sivir.jpg" id="sivirSplashart"></image>
+        <image class="splasharts" src="images/splashart/skarner.jpg" id="skarnerSplashart"></image>
+        <image class="splasharts" src="images/splashart/sona.jpg" id="sonaSplashart"></image>
+        <image class="splasharts" src="images/splashart/soraka.jpg" id="sorakaSplashart"></image>
+        <image class="splasharts" src="images/splashart/swain.jpg" id="swainSplashart"></image>
+        <image class="splasharts" src="images/splashart/sylas.jpg" id="sylasSplashart"></image>
+        <image class="splasharts" src="images/splashart/syndra.jpg" id="syndraSplashart"></image>
+        <image class="splasharts" src="images/splashart/tahmkench.jpg" id="tahmkenchSplashart"></image>
+        <image class="splasharts" src="images/splashart/taliyah.jpg" id="taliyahSplashart"></image>
+        <image class="splasharts" src="images/splashart/talon.jpg" id="talonSplashart"></image>
+        <image class="splasharts" src="images/splashart/taric.jpg" id="taricSplashart"></image>
+        <image class="splasharts" src="images/splashart/teemo.jpg" id="teemoSplashart"></image>
+        <image class="splasharts" src="images/splashart/thresh.jpg" id="threshSplashart"></image>
+        <image class="splasharts" src="images/splashart/tristana.jpg" id="tristanaSplashart"></image>
+        <image class="splasharts" src="images/splashart/trundle.jpg" id="trundleSplashart"></image>
+        <image class="splasharts" src="images/splashart/tryndamere.jpg" id="tryndamereSplashart"></image>
+        <image class="splasharts" src="images/splashart/twistedfate.jpg" id="twistedfateSplashart"></image>
+        <image class="splasharts" src="images/splashart/twitch.jpg" id="twitchSplashart"></image>
+        <image class="splasharts" src="images/splashart/udyr.jpg" id="udyrSplashart"></image>
+        <image class="splasharts" src="images/splashart/urgot.jpg" id="urgotSplashart"></image>
+        <image class="splasharts" src="images/splashart/varus.jpg" id="varusSplashart"></image>
+        <image class="splasharts" src="images/splashart/vayne.jpg" id="vayneSplashart"></image>
+        <image class="splasharts" src="images/splashart/veigar.jpg" id="veigarSplashart"></image>
+        <image class="splasharts" src="images/splashart/velkoz.jpg" id="velkozSplashart"></image>
+        <image class="splasharts" src="images/splashart/vex.jpg" id="vexSplashart"></image>
+        <image class="splasharts" src="images/splashart/vi.jpg" id="viSplashart"></image>
+        <image class="splasharts" src="images/splashart/viego.jpg" id="viegoSplashart"></image>
+        <image class="splasharts" src="images/splashart/viktor.jpg" id="viktorSplashart"></image>
+        <image class="splasharts" src="images/splashart/vladimir.jpg" id="vladimirSplashart"></image>
+        <image class="splasharts" src="images/splashart/volibear.jpg" id="volibearSplashart"></image>
+        <image class="splasharts" src="images/splashart/warwick.jpg" id="warwickSplashart"></image>
+        <image class="splasharts" src="images/splashart/monkeyking.jpg" id="monkeykingSplashart"></image>
+        <image class="splasharts" src="images/splashart/xayah.jpg" id="xayahSplashart"></image>
+        <image class="splasharts" src="images/splashart/xerath.jpg" id="xerathSplashart"></image>
+        <image class="splasharts" src="images/splashart/xinzhao.jpg" id="xinzhaoSplashart"></image>
+        <image class="splasharts" src="images/splashart/yasuo.jpg" id="yasuoSplashart"></image>
+        <image class="splasharts" src="images/splashart/yone.jpg" id="yoneSplashart"></image>
+        <image class="splasharts" src="images/splashart/yorick.jpg" id="yorickSplashart"></image>
+        <image class="splasharts" src="images/splashart/yuumi.jpg" id="yuumiSplashart"></image>
+        <image class="splasharts" src="images/splashart/zac.jpg" id="zacSplashart"></image>
+        <image class="splasharts" src="images/splashart/zed.jpg" id="zedSplashart"></image>
+        <image class="splasharts" src="images/splashart/zeri.jpg" id="zeriSplashart"></image>
+        <image class="splasharts" src="images/splashart/ziggs.jpg" id="ziggsSplashart"></image>
+        <image class="splasharts" src="images/splashart/zilean.jpg" id="zileanSplashart"></image>
+        <image class="splasharts" src="images/splashart/zoe.jpg" id="zoeSplashart"></image>
+        <image class="splasharts" src="images/splashart/zyra.jpg" id="zyraSplashart"></image>
+        
+        <image class="icons" onclick="select('aatrox')" src="images/icon/aatrox.jpg" id="aatroxIcon">
+        <image class="icons" onclick="select('ahri')" src="images/icon/ahri.jpg" id="ahriIcon">
+        <image class="icons" onclick="select('akali')" src="images/icon/akali.jpg" id="akaliIcon">
+        <image class="icons" onclick="select('akshan')" src="images/icon/akshan.jpg" id="akshanIcon">
+        <image class="icons" onclick="select('alistar')" src="images/icon/alistar.jpg" id="alistarIcon">
+        <image class="icons" onclick="select('amumu')" src="images/icon/amumu.jpg" id="amumuIcon">
+        <image class="icons" onclick="select('anivia')" src="images/icon/anivia.jpg" id="aniviaIcon">
+        <image class="icons" onclick="select('annie')" src="images/icon/annie.jpg" id="annieIcon">
+        <image class="icons" onclick="select('aphelios')" src="images/icon/aphelios.jpg" id="apheliosIcon">
+        <image class="icons" onclick="select('ashe')" src="images/icon/ashe.jpg" id="asheIcon">
+        <image class="icons" onclick="select('aurelionsol')" src="images/icon/aurelionsol.jpg" id="aurelionsolIcon">
+        <image class="icons" onclick="select('azir')" src="images/icon/azir.jpg" id="azirIcon">
+        <image class="icons" onclick="select('bard')" src="images/icon/bard.jpg" id="bardIcon">
+        <image class="icons" onclick="select('belveth')" src="images/icon/belveth.jpg" id="belvethIcon">
+        <image class="icons" onclick="select('blitzcrank')" src="images/icon/blitzcrank.jpg" id="blitzcrankIcon">
+        <image class="icons" onclick="select('brand')" src="images/icon/brand.jpg" id="brandIcon">
+        <image class="icons" onclick="select('braum')" src="images/icon/braum.jpg" id="braumIcon">
+        <image class="icons" onclick="select('caitlyn')" src="images/icon/caitlyn.jpg" id="caitlynIcon">
+        <image class="icons" onclick="select('camille')" src="images/icon/camille.jpg" id="camilleIcon">
+        <image class="icons" onclick="select('cassiopeia')" src="images/icon/cassiopeia.jpg" id="cassiopeiaIcon">
+        <image class="icons" onclick="select('chogath')" src="images/icon/chogath.jpg" id="chogathIcon">
+        <image class="icons" onclick="select('corki')" src="images/icon/corki.jpg" id="corkiIcon">
+        <image class="icons" onclick="select('darius')" src="images/icon/darius.jpg" id="dariusIcon">
+        <image class="icons" onclick="select('diana')" src="images/icon/diana.jpg" id="dianaIcon">
+        <image class="icons" onclick="select('drmundo')" src="images/icon/drmundo.jpg" id="drmundoIcon">
+        <image class="icons" onclick="select('draven')" src="images/icon/draven.jpg" id="dravenIcon">
+        <image class="icons" onclick="select('ekko')" src="images/icon/ekko.jpg" id="ekkoIcon">
+        <image class="icons" onclick="select('elise')" src="images/icon/elise.jpg" id="eliseIcon">
+        <image class="icons" onclick="select('evelynn')" src="images/icon/evelynn.jpg" id="evelynnIcon">
+        <image class="icons" onclick="select('ezreal')" src="images/icon/ezreal.jpg" id="ezrealIcon">
+        <image class="icons" onclick="select('fiddlesticks')" src="images/icon/fiddlesticks.jpg" id="fiddlesticksIcon">
+        <image class="icons" onclick="select('fiora')" src="images/icon/fiora.jpg" id="fioraIcon">
+        <image class="icons" onclick="select('fizz')" src="images/icon/fizz.jpg" id="fizzIcon">
+        <image class="icons" onclick="select('galio')" src="images/icon/galio.jpg" id="galioIcon">
+        <image class="icons" onclick="select('gangplank')" src="images/icon/gangplank.jpg" id="gangplankIcon">
+        <image class="icons" onclick="select('garen')" src="images/icon/garen.jpg" id="garenIcon">
+        <image class="icons" onclick="select('gnar')" src="images/icon/gnar.jpg" id="gnarIcon">
+        <image class="icons" onclick="select('gragas')" src="images/icon/gragas.jpg" id="gragasIcon">
+        <image class="icons" onclick="select('graves')" src="images/icon/graves.jpg" id="gravesIcon">
+        <image class="icons" onclick="select('gwen')" src="images/icon/gwen.jpg" id="gwenIcon">
+        <image class="icons" onclick="select('hecarim')" src="images/icon/hecarim.jpg" id="hecarimIcon">
+        <image class="icons" onclick="select('heimerdinger')" src="images/icon/heimerdinger.jpg" id="heimerdingerIcon">
+        <image class="icons" onclick="select('illaoi')" src="images/icon/illaoi.jpg" id="illaoiIcon">
+        <image class="icons" onclick="select('irelia')" src="images/icon/irelia.jpg" id="ireliaIcon">
+        <image class="icons" onclick="select('ivern')" src="images/icon/ivern.jpg" id="ivernIcon">
+        <image class="icons" onclick="select('janna')" src="images/icon/janna.jpg" id="jannaIcon">
+        <image class="icons" onclick="select('jarvaniv')" src="images/icon/jarvaniv.jpg" id="jarvanivIcon">
+        <image class="icons" onclick="select('jax')" src="images/icon/jax.jpg" id="jaxIcon">
+        <image class="icons" onclick="select('jayce')" src="images/icon/jayce.jpg" id="jayceIcon">
+        <image class="icons" onclick="select('jhin')" src="images/icon/jhin.jpg" id="jhinIcon">
+        <image class="icons" onclick="select('jinx')" src="images/icon/jinx.jpg" id="jinxIcon">
+        <image class="icons" onclick="select('kaisa')" src="images/icon/kaisa.jpg" id="kaisaIcon">
+        <image class="icons" onclick="select('kalista')" src="images/icon/kalista.jpg" id="kalistaIcon">
+        <image class="icons" onclick="select('karma')" src="images/icon/karma.jpg" id="karmaIcon">
+        <image class="icons" onclick="select('karthus')" src="images/icon/karthus.jpg" id="karthusIcon">
+        <image class="icons" onclick="select('kassadin')" src="images/icon/kassadin.jpg" id="kassadinIcon">
+        <image class="icons" onclick="select('katarina')" src="images/icon/katarina.jpg" id="katarinaIcon">
+        <image class="icons" onclick="select('kayle')" src="images/icon/kayle.jpg" id="kayleIcon">
+        <image class="icons" onclick="select('kayn')" src="images/icon/kayn.jpg" id="kaynIcon">
+        <image class="icons" onclick="select('kennen')" src="images/icon/kennen.jpg" id="kennenIcon">
+        <image class="icons" onclick="select('khazix')" src="images/icon/khazix.jpg" id="khazixIcon">
+        <image class="icons" onclick="select('kindred')" src="images/icon/kindred.jpg" id="kindredIcon">
+        <image class="icons" onclick="select('kled')" src="images/icon/kled.jpg" id="kledIcon">
+        <image class="icons" onclick="select('kogmaw')" src="images/icon/kogmaw.jpg" id="kogmawIcon">
+        <image class="icons" onclick="select('ksante')" src="images/icon/ksante.jpg" id="ksanteIcon">
+        <image class="icons" onclick="select('leblanc')" src="images/icon/leblanc.jpg" id="leblancIcon">
+        <image class="icons" onclick="select('leesin')" src="images/icon/leesin.jpg" id="leesinIcon">
+        <image class="icons" onclick="select('leona')" src="images/icon/leona.jpg" id="leonaIcon">
+        <image class="icons" onclick="select('lillia')" src="images/icon/lillia.jpg" id="lilliaIcon">
+        <image class="icons" onclick="select('lissandra')" src="images/icon/lissandra.jpg" id="lissandraIcon">
+        <image class="icons" onclick="select('lucian')" src="images/icon/lucian.jpg" id="lucianIcon">
+        <image class="icons" onclick="select('lulu')" src="images/icon/lulu.jpg" id="luluIcon">
+        <image class="icons" onclick="select('lux')" src="images/icon/lux.jpg" id="luxIcon">
+        <image class="icons" onclick="select('malphite')" src="images/icon/malphite.jpg" id="malphiteIcon">
+        <image class="icons" onclick="select('malzahar')" src="images/icon/malzahar.jpg" id="malzaharIcon">
+        <image class="icons" onclick="select('maokai')" src="images/icon/maokai.jpg" id="maokaiIcon">
+        <image class="icons" onclick="select('masteryi')" src="images/icon/masteryi.jpg" id="masteryiIcon">
+        <image class="icons" onclick="select('missfortune')" src="images/icon/missfortune.jpg" id="missfortuneIcon">
+        <image class="icons" onclick="select('mordekaiser')" src="images/icon/mordekaiser.jpg" id="mordekaiserIcon">
+        <image class="icons" onclick="select('morgana')" src="images/icon/morgana.jpg" id="morganaIcon">
+        <image class="icons" onclick="select('nami')" src="images/icon/nami.jpg" id="namiIcon">
+        <image class="icons" onclick="select('nasus')" src="images/icon/nasus.jpg" id="nasusIcon">
+        <image class="icons" onclick="select('nautilus')" src="images/icon/nautilus.jpg" id="nautilusIcon">
+        <image class="icons" onclick="select('neeko')" src="images/icon/neeko.jpg" id="neekoIcon">
+        <image class="icons" onclick="select('nidalee')" src="images/icon/nidalee.jpg" id="nidaleeIcon">
+        <image class="icons" onclick="select('nilah')" src="images/icon/nilah.jpg" id="nilahIcon">
+        <image class="icons" onclick="select('nocturne')" src="images/icon/nocturne.jpg" id="nocturneIcon">
+        <image class="icons" onclick="select('nunu')" src="images/icon/nunu.jpg" id="nunuIcon">
+        <image class="icons" onclick="select('olaf')" src="images/icon/olaf.jpg" id="olafIcon">
+        <image class="icons" onclick="select('orianna')" src="images/icon/orianna.jpg" id="oriannaIcon">
+        <image class="icons" onclick="select('ornn')" src="images/icon/ornn.jpg" id="ornnIcon">
+        <image class="icons" onclick="select('pantheon')" src="images/icon/pantheon.jpg" id="pantheonIcon">
+        <image class="icons" onclick="select('poppy')" src="images/icon/poppy.jpg" id="poppyIcon">
+        <image class="icons" onclick="select('pyke')" src="images/icon/pyke.jpg" id="pykeIcon">
+        <image class="icons" onclick="select('qiyana')" src="images/icon/qiyana.jpg" id="qiyanaIcon">
+        <image class="icons" onclick="select('quinn')" src="images/icon/quinn.jpg" id="quinnIcon">
+        <image class="icons" onclick="select('rakan')" src="images/icon/rakan.jpg" id="rakanIcon">
+        <image class="icons" onclick="select('rammus')" src="images/icon/rammus.jpg" id="rammusIcon">
+        <image class="icons" onclick="select('reksai')" src="images/icon/reksai.jpg" id="reksaiIcon">
+        <image class="icons" onclick="select('rell')" src="images/icon/rell.jpg" id="rellIcon">
+        <image class="icons" onclick="select('renata')" src="images/icon/renata.jpg" id="renataIcon">
+        <image class="icons" onclick="select('renekton')" src="images/icon/renekton.jpg" id="renektonIcon">
+        <image class="icons" onclick="select('rengar')" src="images/icon/rengar.jpg" id="rengarIcon">
+        <image class="icons" onclick="select('riven')" src="images/icon/riven.jpg" id="rivenIcon">
+        <image class="icons" onclick="select('rumble')" src="images/icon/rumble.jpg" id="rumbleIcon">
+        <image class="icons" onclick="select('ryze')" src="images/icon/ryze.jpg" id="ryzeIcon">
+        <image class="icons" onclick="select('samira')" src="images/icon/samira.jpg" id="samiraIcon">
+        <image class="icons" onclick="select('sejuani')" src="images/icon/sejuani.jpg" id="sejuaniIcon">
+        <image class="icons" onclick="select('senna')" src="images/icon/senna.jpg" id="sennaIcon">
+        <image class="icons" onclick="select('seraphine')" src="images/icon/seraphine.jpg" id="seraphineIcon">
+        <image class="icons" onclick="select('sett')" src="images/icon/sett.jpg" id="settIcon">
+        <image class="icons" onclick="select('shaco')" src="images/icon/shaco.jpg" id="shacoIcon">
+        <image class="icons" onclick="select('shen')" src="images/icon/shen.jpg" id="shenIcon">
+        <image class="icons" onclick="select('shyvana')" src="images/icon/shyvana.jpg" id="shyvanaIcon">
+        <image class="icons" onclick="select('singed')" src="images/icon/singed.jpg" id="singedIcon">
+        <image class="icons" onclick="select('sion')" src="images/icon/sion.jpg" id="sionIcon">
+        <image class="icons" onclick="select('sivir')" src="images/icon/sivir.jpg" id="sivirIcon">
+        <image class="icons" onclick="select('skarner')" src="images/icon/skarner.jpg" id="skarnerIcon">
+        <image class="icons" onclick="select('sona')" src="images/icon/sona.jpg" id="sonaIcon">
+        <image class="icons" onclick="select('soraka')" src="images/icon/soraka.jpg" id="sorakaIcon">
+        <image class="icons" onclick="select('swain')" src="images/icon/swain.jpg" id="swainIcon">
+        <image class="icons" onclick="select('sylas')" src="images/icon/sylas.jpg" id="sylasIcon">
+        <image class="icons" onclick="select('syndra')" src="images/icon/syndra.jpg" id="syndraIcon">
+        <image class="icons" onclick="select('tahmkench')" src="images/icon/tahmkench.jpg" id="tahmkenchIcon">
+        <image class="icons" onclick="select('taliyah')" src="images/icon/taliyah.jpg" id="taliyahIcon">
+        <image class="icons" onclick="select('talon')" src="images/icon/talon.jpg" id="talonIcon">
+        <image class="icons" onclick="select('taric')" src="images/icon/taric.jpg" id="taricIcon">
+        <image class="icons" onclick="select('teemo')" src="images/icon/teemo.jpg" id="teemoIcon">
+        <image class="icons" onclick="select('thresh')" src="images/icon/thresh.jpg" id="threshIcon">
+        <image class="icons" onclick="select('tristana')" src="images/icon/tristana.jpg" id="tristanaIcon">
+        <image class="icons" onclick="select('trundle')" src="images/icon/trundle.jpg" id="trundleIcon">
+        <image class="icons" onclick="select('tryndamere')" src="images/icon/tryndamere.jpg" id="tryndamereIcon">
+        <image class="icons" onclick="select('twistedfate')" src="images/icon/twistedfate.jpg" id="twistedfateIcon">
+        <image class="icons" onclick="select('twitch')" src="images/icon/twitch.jpg" id="twitchIcon">
+        <image class="icons" onclick="select('udyr')" src="images/icon/udyr.jpg" id="udyrIcon">
+        <image class="icons" onclick="select('urgot')" src="images/icon/urgot.jpg" id="urgotIcon">
+        <image class="icons" onclick="select('varus')" src="images/icon/varus.jpg" id="varusIcon">
+        <image class="icons" onclick="select('vayne')" src="images/icon/vayne.jpg" id="vayneIcon">
+        <image class="icons" onclick="select('veigar')" src="images/icon/veigar.jpg" id="veigarIcon">
+        <image class="icons" onclick="select('velkoz')" src="images/icon/velkoz.jpg" id="velkozIcon">
+        <image class="icons" onclick="select('vex')" src="images/icon/vex.jpg" id="vexIcon">
+        <image class="icons" onclick="select('vi')" src="images/icon/vi.jpg" id="viIcon">
+        <image class="icons" onclick="select('viego')" src="images/icon/viego.jpg" id="viegoIcon">
+        <image class="icons" onclick="select('viktor')" src="images/icon/viktor.jpg" id="viktorIcon">
+        <image class="icons" onclick="select('vladimir')" src="images/icon/vladimir.jpg" id="vladimirIcon">
+        <image class="icons" onclick="select('volibear')" src="images/icon/volibear.jpg" id="volibearIcon">
+        <image class="icons" onclick="select('warwick')" src="images/icon/warwick.jpg" id="warwickIcon">
+        <image class="icons" onclick="select('monkeyking')" src="images/icon/monkeyking.jpg" id="monkeykingIcon">
+        <image class="icons" onclick="select('xayah')" src="images/icon/xayah.jpg" id="xayahIcon">
+        <image class="icons" onclick="select('xerath')" src="images/icon/xerath.jpg" id="xerathIcon">
+        <image class="icons" onclick="select('xinzhao')" src="images/icon/xinzhao.jpg" id="xinzhaoIcon">
+        <image class="icons" onclick="select('yasuo')" src="images/icon/yasuo.jpg" id="yasuoIcon">
+        <image class="icons" onclick="select('yone')" src="images/icon/yone.jpg" id="yoneIcon">
+        <image class="icons" onclick="select('yorick')" src="images/icon/yorick.jpg" id="yorickIcon">
+        <image class="icons" onclick="select('yuumi')" src="images/icon/yuumi.jpg" id="yuumiIcon">
+        <image class="icons" onclick="select('zac')" src="images/icon/zac.jpg" id="zacIcon">
+        <image class="icons" onclick="select('zed')" src="images/icon/zed.jpg" id="zedIcon">
+        <image class="icons" onclick="select('zeri')" src="images/icon/zeri.jpg" id="zeriIcon">
+        <image class="icons" onclick="select('ziggs')" src="images/icon/ziggs.jpg" id="ziggsIcon">
+        <image class="icons" onclick="select('zilean')" src="images/icon/zilean.jpg" id="zileanIcon">
+        <image class="icons" onclick="select('zoe')" src="images/icon/zoe.jpg" id="zoeIcon">
+        <image class="icons" onclick="select('zyra')" src="images/icon/zyra.jpg" id="zyraIcon">
+    </div>
+    
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanOne" style="right:23.2%;top:14%" id="blueBanOne">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanOne" style="right:1.6%;top:14%" id="redBanOne">
+    
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanTwo" style="right:23.2%;top:43%" id="blueBanTwo">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanTwo" style="right:1.6%;top:43%" id="redBanTwo">
+    
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanThree" style="right:23.2%;top:72%" id="blueBanThree">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanThree" style="right:1.6%;top:72%" id="redBanThree">
+    
+    <button onclick="lockIn()" class="banbutton" id="blueLockChampButton">Select</button>
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getDatabase, ref, child, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          databaseURL: "https://lol-1v1-draft-default-rtdb.firebaseio.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        function setdaVariable(variable,value){
+            set(ref(db, variable), {value: value});
+        }
+        function getdaVariable(variable){
+            return get(child(ref(db), `${variable}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val()['value'];} })
+        }
+        window.setVariable = setdaVariable;
+        window.getVariable = getdaVariable;
+    </script>
+    <script>
+        function champName(name){
+            if (name=='Wukong'){
+                name='monkeyking';
+            }
+            if (name=='Renata Glasc'){
+                name='renata';
+            }
+            if (name=="Nunu & Willump"){
+                name='nunu'
+            }
+            if(name==undefined){
+                return name;
+            }
+            return(name.toLowerCase().replace(/\s/g, "").replace("'",""))
+        }
+        function imBackBaby(name) {
+            if(name == "aurelionsol"){
+                name = "Aurelion Sol";
+            }
+            if(name == "belveth"){
+                name = "Bel'Veth";
+            }
+            if(name == "chogath"){
+                name = "Cho'Gath";
+            }
+            if(name == "drmundo"){
+                name = "Dr. Mundo";
+            }
+            if(name == "jarvaniv"){
+                name = "Jarvan IV";
+            }
+            if(name == "kaisa"){
+                name = "Kai'Sa";
+            }
+            if(name == "khazix"){
+                name = "Kha'Zix";
+            }
+            if(name == "kogmaw"){
+                name = "Kog'Maw";
+            }
+            if(name == "ksante"){
+                name = "K'Sante";
+            }
+            if(name == "leblanc"){
+                name = "LeBlanc";
+            }
+            if(name == "leesin"){
+                name = "Lee Sin";
+            }
+            if(name == "masteryi"){
+                name = "Master Yi";
+            }
+            if(name == "missfortune"){
+                name = "Miss Fortune";
+            }
+            if(name == "nunu"){
+                name = "Nunu & Willump";
+            }
+            if(name == "reksai"){
+                name = "Rek'Sai";
+            }
+            if(name == "renata"){
+                name = "Renata Glasc";
+            }
+            if(name == "tahmkench"){
+                name = "Tahm Kench";
+            }
+            if(name == "twistedfate"){
+                name = "Twisted Fate";
+            }
+            if(name == "velkoz"){
+                name = "Vel'Koz";
+            }
+            if(name == "monkeyking"){
+                name = "Wukong";
+            }
+            if(name == "xinzhao"){
+                name = "Xin Zhao";
+            }
+            return name.charAt(0).toUpperCase() + name.slice(1);
+        }
+        async function lockIn() {
+            banAmount = await getVariable("currentBanAmount");
+            let bans = [await getVariable("redBanThree"), await getVariable("blueBanThree"), await getVariable("redBanTwo"), await getVariable("blueBanTwo"), await getVariable("redBanOne"), await getVariable("blueBanOne")];
+            if(banAmount == 0){
+                theBan = await getVariable("blueBanOne");
+            }
+            else if(banAmount == 2){
+                theBan = await getVariable("blueBanTwo");
+            }
+            else if(banAmount == 4){
+                theBan = await getVariable("blueBanThree");
+            }
+            if (!bans.includes(theBan,6-banAmount) && (theBan != undefined) && (banAmount%2)==0){
+                reset();
+                setVariable("currentBanAmount",banAmount+1);
+			}
+		}
+        async function select(name) {
+            banAmount = await getVariable("currentBanAmount");
+            if(banAmount<=4){
+                document.getElementById("blueChampionBar").value = imBackBaby(name);
+                document.getElementById("mydivBlueSplash").scrollTop = 0;
+                document.getElementById("mydivBlueSplash").style.overflow = "hidden";
+                document.getElementById(name+"Splashart").style.visibility = "visible";
+                document.getElementById("mydivBlueSplash").style.textAlign = "left";
+                document.getElementById("mydivBlueSplash").style.paddingTop = "0px";
+                document.getElementById("mydivBlueSplash").style.outlineWidth = "6px";
+                let bans = [await getVariable("redBanThree"), await getVariable("blueBanThree"), await getVariable("redBanTwo"), await getVariable("blueBanTwo"), await getVariable("redBanOne"), await getVariable("blueBanOne")];
+                if(banAmount == 0){
+                    theBan = await getVariable("blueBanOne");
+                }
+                else if(banAmount <= 2){
+                    theBan = await getVariable("blueBanTwo");
+                }
+                else if(banAmount <= 4){
+                    theBan = await getVariable("blueBanThree");
+                }
+                if (!(bans.includes(name,6-banAmount)) && (name != undefined) && (banAmount%2)==0){
+                    document.getElementById("blueLockChampButton").style.backgroundColor ='white';
+                    document.getElementById("blueLockChampButton").style.cursor = 'pointer';
+                }
+                if(banAmount == 0){
+                    setVariable("blueBanOne",name);
+                }
+                else if(banAmount <= 2){
+                    setVariable("blueBanTwo",name);
+                }
+                else if(banAmount <= 4){
+                    setVariable("blueBanThree",name);
+                }
+            }
+        }
+        async function reset() {
+            banAmount = await getVariable("currentBanAmount");
+            if(banAmount <= 4){
+                document.getElementById("blueChampionBar").value = "";
+                if(banAmount == 0){
+                    theBan = await getVariable("blueBanOne");
+                }
+                else if(banAmount <= 2){
+                    theBan = await getVariable("blueBanTwo");
+                }
+                else if(banAmount <= 4){
+                    theBan = await getVariable("blueBanThree");
+                }
+                document.getElementById(theBan+"Splashart").style.visibility = "hidden";
+                document.getElementById("mydivBlueSplash").style.overflow = "auto";
+                document.getElementById("mydivBlueSplash").style.textAlign = "left";
+                document.getElementById("mydivBlueSplash").style.padding = "3px";
+                document.getElementById("mydivBlueSplash").style.outlineWidth = "0px";
+                document.getElementById("blueLockChampButton").style.backgroundColor ='grey';
+                document.getElementById("blueLockChampButton").style.cursor = 'default';
+            }
+        }
+        async function start(){
+            document.getElementById("blueSummonerTag").value = await getVariable("blueSummoner");
+            document.getElementById("redSummonerTag").value = await getVariable("redSummoner");
+            document.getElementById("blueBanOne").src = "images/blankgrey.jpg";
+            document.getElementById("redBanOne").src = "images/blankgrey.jpg";
+            document.getElementById("blueBanTwo").src = "images/blankgrey.jpg";
+            document.getElementById("redBanTwo").src = "images/blankgrey.jpg";
+            document.getElementById("blueBanThree").src = "images/blankgrey.jpg";
+            document.getElementById("redBanThree").src = "images/blankgrey.jpg";
+            if(await getVariable("blueFinished")){
+                document.location.href = "spectatePage.html";
+            }
+        }
+        myInterval = setInterval(async function() {
+            if(await getVariable("draftStarted") == false){
+                document.location.href = "pleaseWait.html";
+                clearInterval(myInterval);
+            }
+            banAmount = await getVariable("currentBanAmount");
+            let bans = [await getVariable("redBanThree"), await getVariable("blueBanThree"), await getVariable("redBanTwo"), await getVariable("blueBanTwo"), await getVariable("redBanOne"), await getVariable("blueBanOne")];
+            if(banAmount == 0){
+                theBan = await getVariable("blueBanOne");
+            }
+            else if(banAmount <= 2){
+                theBan = await getVariable("blueBanTwo");
+            }
+            else if(banAmount <= 4){
+                theBan = await getVariable("blueBanThree");
+            }
+            if(!(bans.includes(name,6-banAmount)) && (name != undefined) && (banAmount%2)==0){
+                document.getElementById("blueLockChampButton").style.backgroundColor ='white';
+                document.getElementById("blueLockChampButton").style.cursor = 'pointer';
+            }
+            else{
+                document.getElementById("blueLockChampButton").style.backgroundColor ='grey';
+                document.getElementById("blueLockChampButton").style.cursor = 'default';
+            }
+            if(banAmount == 0){
+                document.getElementById("blueBanOne").src = "images/banners/blank.jpg";
+                document.getElementById("leFunny").innerHTML = "Blue Ban One";
+            }
+            else if(banAmount == 1){
+                document.getElementById("blueBanOne").src = "images/banners/"+await getVariable("blueBanOne")+".jpg";
+                document.getElementById("redBanOne").src = "images/banners/blank.jpg";
+                document.getElementById("leFunny").innerHTML = "Red Banning...";
+            }
+            else if(banAmount == 2){
+                document.getElementById("blueBanOne").src = "images/banners/"+await getVariable("blueBanOne")+".jpg";
+                document.getElementById("redBanOne").src = "images/banners/"+await getVariable("redBanOne")+".jpg";
+                document.getElementById("blueBanTwo").src = "images/banners/blank.jpg";
+                document.getElementById("leFunny").innerHTML = "Blue Ban Two";
+            }
+            else if(banAmount == 3){
+                document.getElementById("blueBanOne").src = "images/banners/"+await getVariable("blueBanOne")+".jpg";
+                document.getElementById("redBanOne").src = "images/banners/"+await getVariable("redBanOne")+".jpg";
+                document.getElementById("blueBanTwo").src = "images/banners/"+await getVariable("blueBanTwo")+".jpg";
+                document.getElementById("redBanTwo").src = "images/banners/blank.jpg";
+                document.getElementById("leFunny").innerHTML = "Red Banning...";
+            }
+            else if(banAmount == 4){
+                document.getElementById("blueBanOne").src = "images/banners/"+await getVariable("blueBanOne")+".jpg";
+                document.getElementById("redBanOne").src = "images/banners/"+await getVariable("redBanOne")+".jpg";
+                document.getElementById("blueBanTwo").src = "images/banners/"+await getVariable("blueBanTwo")+".jpg";
+                document.getElementById("redBanTwo").src = "images/banners/"+await getVariable("redBanTwo")+".jpg";
+                document.getElementById("blueBanThree").src = "images/banners/blank.jpg";
+                document.getElementById("leFunny").innerHTML = "Blue Ban Three";
+            }
+            else if(banAmount == 5){
+                document.getElementById("blueBanOne").src = "images/banners/"+await getVariable("blueBanOne")+".jpg";
+                document.getElementById("redBanOne").src = "images/banners/"+await getVariable("redBanOne")+".jpg";
+                document.getElementById("blueBanTwo").src = "images/banners/"+await getVariable("blueBanTwo")+".jpg";
+                document.getElementById("redBanTwo").src = "images/banners/"+await getVariable("redBanTwo")+".jpg";
+                document.getElementById("blueBanThree").src = "images/banners/"+await getVariable("blueBanThree")+".jpg";
+                document.getElementById("redBanThree").src = "images/banners/blank.jpg";
+                document.getElementById("leFunny").innerHTML = "Red Banning...";
+            }
+            else if(banAmount == 6){
+                setVariable("blueBanFinished",true);
+                document.location.href = "readyUp.html";
+                clearInterval(myInterval);
+            }
+            if (!"aatrox".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"aatrox".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("aatroxIcon").style.visibility = "hidden";
+                document.getElementById("aatroxIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("aatroxIcon").style.visibility = "visible";
+                document.getElementById("aatroxIcon").style.position = "static";
+            }
+            if (!"ahri".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"ahri".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("ahriIcon").style.visibility = "hidden";
+                document.getElementById("ahriIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("ahriIcon").style.visibility = "visible";
+                document.getElementById("ahriIcon").style.position = "static";
+            }
+            if (!"akali".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"akali".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("akaliIcon").style.visibility = "hidden";
+                document.getElementById("akaliIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("akaliIcon").style.visibility = "visible";
+                document.getElementById("akaliIcon").style.position = "static";
+            }
+            if (!"akshan".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"akshan".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("akshanIcon").style.visibility = "hidden";
+                document.getElementById("akshanIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("akshanIcon").style.visibility = "visible";
+                document.getElementById("akshanIcon").style.position = "static";
+            }
+            if (!"alistar".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"alistar".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("alistarIcon").style.visibility = "hidden";
+                document.getElementById("alistarIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("alistarIcon").style.visibility = "visible";
+                document.getElementById("alistarIcon").style.position = "static";
+            }
+            if (!"amumu".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"amumu".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("amumuIcon").style.visibility = "hidden";
+                document.getElementById("amumuIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("amumuIcon").style.visibility = "visible";
+                document.getElementById("amumuIcon").style.position = "static";
+            }
+            if (!"anivia".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"anivia".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("aniviaIcon").style.visibility = "hidden";
+                document.getElementById("aniviaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("aniviaIcon").style.visibility = "visible";
+                document.getElementById("aniviaIcon").style.position = "static";
+            }
+            if (!"annie".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"annie".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("annieIcon").style.visibility = "hidden";
+                document.getElementById("annieIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("annieIcon").style.visibility = "visible";
+                document.getElementById("annieIcon").style.position = "static";
+            }
+            if (!"aphelios".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"aphelios".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("apheliosIcon").style.visibility = "hidden";
+                document.getElementById("apheliosIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("apheliosIcon").style.visibility = "visible";
+                document.getElementById("apheliosIcon").style.position = "static";
+            }
+            if (!"ashe".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"ashe".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("asheIcon").style.visibility = "hidden";
+                document.getElementById("asheIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("asheIcon").style.visibility = "visible";
+                document.getElementById("asheIcon").style.position = "static";
+            }
+            if (!"aurelion sol".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"aurelionsol".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("aurelionsolIcon").style.visibility = "hidden";
+                document.getElementById("aurelionsolIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("aurelionsolIcon").style.visibility = "visible";
+                document.getElementById("aurelionsolIcon").style.position = "static";
+            }
+            if (!"azir".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"azir".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("azirIcon").style.visibility = "hidden";
+                document.getElementById("azirIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("azirIcon").style.visibility = "visible";
+                document.getElementById("azirIcon").style.position = "static";
+            }
+            if (!"bard".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"bard".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("bardIcon").style.visibility = "hidden";
+                document.getElementById("bardIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("bardIcon").style.visibility = "visible";
+                document.getElementById("bardIcon").style.position = "static";
+            }
+            if (!"bel'veth".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"belveth".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("belvethIcon").style.visibility = "hidden";
+                document.getElementById("belvethIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("belvethIcon").style.visibility = "visible";
+                document.getElementById("belvethIcon").style.position = "static";
+            }
+            if (!"blitzcrank".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"blitzcrank".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("blitzcrankIcon").style.visibility = "hidden";
+                document.getElementById("blitzcrankIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("blitzcrankIcon").style.visibility = "visible";
+                document.getElementById("blitzcrankIcon").style.position = "static";
+            }
+            if (!"brand".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"brand".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("brandIcon").style.visibility = "hidden";
+                document.getElementById("brandIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("brandIcon").style.visibility = "visible";
+                document.getElementById("brandIcon").style.position = "static";
+            }
+            if (!"braum".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"braum".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("braumIcon").style.visibility = "hidden";
+                document.getElementById("braumIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("braumIcon").style.visibility = "visible";
+                document.getElementById("braumIcon").style.position = "static";
+            }
+            if (!"caitlyn".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"caitlyn".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("caitlynIcon").style.visibility = "hidden";
+                document.getElementById("caitlynIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("caitlynIcon").style.visibility = "visible";
+                document.getElementById("caitlynIcon").style.position = "static";
+            }
+            if (!"camille".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"camille".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("camilleIcon").style.visibility = "hidden";
+                document.getElementById("camilleIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("camilleIcon").style.visibility = "visible";
+                document.getElementById("camilleIcon").style.position = "static";
+            }
+            if (!"cassiopeia".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"cassiopeia".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("cassiopeiaIcon").style.visibility = "hidden";
+                document.getElementById("cassiopeiaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("cassiopeiaIcon").style.visibility = "visible";
+                document.getElementById("cassiopeiaIcon").style.position = "static";
+            }
+            if (!"cho'gath".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"chogath".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("chogathIcon").style.visibility = "hidden";
+                document.getElementById("chogathIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("chogathIcon").style.visibility = "visible";
+                document.getElementById("chogathIcon").style.position = "static";
+            }
+            if (!"corki".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"corki".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("corkiIcon").style.visibility = "hidden";
+                document.getElementById("corkiIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("corkiIcon").style.visibility = "visible";
+                document.getElementById("corkiIcon").style.position = "static";
+            }
+            if (!"darius".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"darius".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("dariusIcon").style.visibility = "hidden";
+                document.getElementById("dariusIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("dariusIcon").style.visibility = "visible";
+                document.getElementById("dariusIcon").style.position = "static";
+            }
+            if (!"diana".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"diana".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("dianaIcon").style.visibility = "hidden";
+                document.getElementById("dianaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("dianaIcon").style.visibility = "visible";
+                document.getElementById("dianaIcon").style.position = "static";
+            }
+            if (!"dr. mundo".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"drmundo".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("drmundoIcon").style.visibility = "hidden";
+                document.getElementById("drmundoIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("drmundoIcon").style.visibility = "visible";
+                document.getElementById("drmundoIcon").style.position = "static";
+            }
+            if (!"draven".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"draven".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("dravenIcon").style.visibility = "hidden";
+                document.getElementById("dravenIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("dravenIcon").style.visibility = "visible";
+                document.getElementById("dravenIcon").style.position = "static";
+            }
+            if (!"ekko".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"ekko".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("ekkoIcon").style.visibility = "hidden";
+                document.getElementById("ekkoIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("ekkoIcon").style.visibility = "visible";
+                document.getElementById("ekkoIcon").style.position = "static";
+            }
+            if (!"elise".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"elise".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("eliseIcon").style.visibility = "hidden";
+                document.getElementById("eliseIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("eliseIcon").style.visibility = "visible";
+                document.getElementById("eliseIcon").style.position = "static";
+            }
+            if (!"evelynn".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"evelynn".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("evelynnIcon").style.visibility = "hidden";
+                document.getElementById("evelynnIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("evelynnIcon").style.visibility = "visible";
+                document.getElementById("evelynnIcon").style.position = "static";
+            }
+            if (!"ezreal".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"ezreal".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("ezrealIcon").style.visibility = "hidden";
+                document.getElementById("ezrealIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("ezrealIcon").style.visibility = "visible";
+                document.getElementById("ezrealIcon").style.position = "static";
+            }
+            if (!"fiddlesticks".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"fiddlesticks".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("fiddlesticksIcon").style.visibility = "hidden";
+                document.getElementById("fiddlesticksIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("fiddlesticksIcon").style.visibility = "visible";
+                document.getElementById("fiddlesticksIcon").style.position = "static";
+            }
+            if (!"fiora".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"fiora".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("fioraIcon").style.visibility = "hidden";
+                document.getElementById("fioraIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("fioraIcon").style.visibility = "visible";
+                document.getElementById("fioraIcon").style.position = "static";
+            }
+            if (!"fizz".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"fizz".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("fizzIcon").style.visibility = "hidden";
+                document.getElementById("fizzIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("fizzIcon").style.visibility = "visible";
+                document.getElementById("fizzIcon").style.position = "static";
+            }
+            if (!"galio".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"galio".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("galioIcon").style.visibility = "hidden";
+                document.getElementById("galioIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("galioIcon").style.visibility = "visible";
+                document.getElementById("galioIcon").style.position = "static";
+            }
+            if (!"gangplank".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"gangplank".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("gangplankIcon").style.visibility = "hidden";
+                document.getElementById("gangplankIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("gangplankIcon").style.visibility = "visible";
+                document.getElementById("gangplankIcon").style.position = "static";
+            }
+            if (!"garen".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"garen".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("garenIcon").style.visibility = "hidden";
+                document.getElementById("garenIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("garenIcon").style.visibility = "visible";
+                document.getElementById("garenIcon").style.position = "static";
+            }
+            if (!"gnar".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"gnar".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("gnarIcon").style.visibility = "hidden";
+                document.getElementById("gnarIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("gnarIcon").style.visibility = "visible";
+                document.getElementById("gnarIcon").style.position = "static";
+            }
+            if (!"gragas".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"gragas".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("gragasIcon").style.visibility = "hidden";
+                document.getElementById("gragasIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("gragasIcon").style.visibility = "visible";
+                document.getElementById("gragasIcon").style.position = "static";
+            }
+            if (!"graves".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"graves".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("gravesIcon").style.visibility = "hidden";
+                document.getElementById("gravesIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("gravesIcon").style.visibility = "visible";
+                document.getElementById("gravesIcon").style.position = "static";
+            }
+            if (!"gwen".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"gwen".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("gwenIcon").style.visibility = "hidden";
+                document.getElementById("gwenIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("gwenIcon").style.visibility = "visible";
+                document.getElementById("gwenIcon").style.position = "static";
+            }
+            if (!"hecarim".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"hecarim".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("hecarimIcon").style.visibility = "hidden";
+                document.getElementById("hecarimIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("hecarimIcon").style.visibility = "visible";
+                document.getElementById("hecarimIcon").style.position = "static";
+            }
+            if (!"heimerdinger".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"heimerdinger".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("heimerdingerIcon").style.visibility = "hidden";
+                document.getElementById("heimerdingerIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("heimerdingerIcon").style.visibility = "visible";
+                document.getElementById("heimerdingerIcon").style.position = "static";
+            }
+            if (!"illaoi".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"illaoi".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("illaoiIcon").style.visibility = "hidden";
+                document.getElementById("illaoiIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("illaoiIcon").style.visibility = "visible";
+                document.getElementById("illaoiIcon").style.position = "static";
+            }
+            if (!"irelia".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"irelia".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("ireliaIcon").style.visibility = "hidden";
+                document.getElementById("ireliaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("ireliaIcon").style.visibility = "visible";
+                document.getElementById("ireliaIcon").style.position = "static";
+            }
+            if (!"ivern".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"ivern".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("ivernIcon").style.visibility = "hidden";
+                document.getElementById("ivernIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("ivernIcon").style.visibility = "visible";
+                document.getElementById("ivernIcon").style.position = "static";
+            }
+            if (!"janna".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"janna".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("jannaIcon").style.visibility = "hidden";
+                document.getElementById("jannaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("jannaIcon").style.visibility = "visible";
+                document.getElementById("jannaIcon").style.position = "static";
+            }
+            if (!"jarvan iv".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"jarvaniv".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("jarvanivIcon").style.visibility = "hidden";
+                document.getElementById("jarvanivIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("jarvanivIcon").style.visibility = "visible";
+                document.getElementById("jarvanivIcon").style.position = "static";
+            }
+            if (!"jax".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"jax".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("jaxIcon").style.visibility = "hidden";
+                document.getElementById("jaxIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("jaxIcon").style.visibility = "visible";
+                document.getElementById("jaxIcon").style.position = "static";
+            }
+            if (!"jayce".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"jayce".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("jayceIcon").style.visibility = "hidden";
+                document.getElementById("jayceIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("jayceIcon").style.visibility = "visible";
+                document.getElementById("jayceIcon").style.position = "static";
+            }
+            if (!"jhin".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"jhin".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("jhinIcon").style.visibility = "hidden";
+                document.getElementById("jhinIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("jhinIcon").style.visibility = "visible";
+                document.getElementById("jhinIcon").style.position = "static";
+            }
+            if (!"jinx".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"jinx".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("jinxIcon").style.visibility = "hidden";
+                document.getElementById("jinxIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("jinxIcon").style.visibility = "visible";
+                document.getElementById("jinxIcon").style.position = "static";
+            }
+            if (!"kai'sa".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"kaisa".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("kaisaIcon").style.visibility = "hidden";
+                document.getElementById("kaisaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("kaisaIcon").style.visibility = "visible";
+                document.getElementById("kaisaIcon").style.position = "static";
+            }
+            if (!"kalista".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"kalista".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("kalistaIcon").style.visibility = "hidden";
+                document.getElementById("kalistaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("kalistaIcon").style.visibility = "visible";
+                document.getElementById("kalistaIcon").style.position = "static";
+            }
+            if (!"karma".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"karma".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("karmaIcon").style.visibility = "hidden";
+                document.getElementById("karmaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("karmaIcon").style.visibility = "visible";
+                document.getElementById("karmaIcon").style.position = "static";
+            }
+            if (!"karthus".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"karthus".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("karthusIcon").style.visibility = "hidden";
+                document.getElementById("karthusIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("karthusIcon").style.visibility = "visible";
+                document.getElementById("karthusIcon").style.position = "static";
+            }
+            if (!"kassadin".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"kassadin".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("kassadinIcon").style.visibility = "hidden";
+                document.getElementById("kassadinIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("kassadinIcon").style.visibility = "visible";
+                document.getElementById("kassadinIcon").style.position = "static";
+            }
+            if (!"katarina".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"katarina".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("katarinaIcon").style.visibility = "hidden";
+                document.getElementById("katarinaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("katarinaIcon").style.visibility = "visible";
+                document.getElementById("katarinaIcon").style.position = "static";
+            }
+            if (!"kayle".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"kayle".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("kayleIcon").style.visibility = "hidden";
+                document.getElementById("kayleIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("kayleIcon").style.visibility = "visible";
+                document.getElementById("kayleIcon").style.position = "static";
+            }
+            if (!"kayn".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"kayn".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("kaynIcon").style.visibility = "hidden";
+                document.getElementById("kaynIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("kaynIcon").style.visibility = "visible";
+                document.getElementById("kaynIcon").style.position = "static";
+            }
+            if (!"kennen".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"kennen".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("kennenIcon").style.visibility = "hidden";
+                document.getElementById("kennenIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("kennenIcon").style.visibility = "visible";
+                document.getElementById("kennenIcon").style.position = "static";
+            }
+            if (!"kha'zix".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"khazix".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("khazixIcon").style.visibility = "hidden";
+                document.getElementById("khazixIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("khazixIcon").style.visibility = "visible";
+                document.getElementById("khazixIcon").style.position = "static";
+            }
+            if (!"kindred".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"kindred".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("kindredIcon").style.visibility = "hidden";
+                document.getElementById("kindredIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("kindredIcon").style.visibility = "visible";
+                document.getElementById("kindredIcon").style.position = "static";
+            }
+            if (!"kled".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"kled".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("kledIcon").style.visibility = "hidden";
+                document.getElementById("kledIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("kledIcon").style.visibility = "visible";
+                document.getElementById("kledIcon").style.position = "static";
+            }
+            if (!"kog'maw".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"kogmaw".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("kogmawIcon").style.visibility = "hidden";
+                document.getElementById("kogmawIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("kogmawIcon").style.visibility = "visible";
+                document.getElementById("kogmawIcon").style.position = "static";
+            }
+            if (!"k'sante".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"ksante".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("ksanteIcon").style.visibility = "hidden";
+                document.getElementById("ksanteIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("ksanteIcon").style.visibility = "visible";
+                document.getElementById("ksanteIcon").style.position = "static";
+            }
+            if (!"leblanc".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"leblanc".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("leblancIcon").style.visibility = "hidden";
+                document.getElementById("leblancIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("leblancIcon").style.visibility = "visible";
+                document.getElementById("leblancIcon").style.position = "static";
+            }
+            if (!"lee sin".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"leesin".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("leesinIcon").style.visibility = "hidden";
+                document.getElementById("leesinIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("leesinIcon").style.visibility = "visible";
+                document.getElementById("leesinIcon").style.position = "static";
+            }
+            if (!"leona".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"leona".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("leonaIcon").style.visibility = "hidden";
+                document.getElementById("leonaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("leonaIcon").style.visibility = "visible";
+                document.getElementById("leonaIcon").style.position = "static";
+            }
+            if (!"lillia".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"lillia".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("lilliaIcon").style.visibility = "hidden";
+                document.getElementById("lilliaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("lilliaIcon").style.visibility = "visible";
+                document.getElementById("lilliaIcon").style.position = "static";
+            }
+            if (!"lissandra".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"lissandra".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("lissandraIcon").style.visibility = "hidden";
+                document.getElementById("lissandraIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("lissandraIcon").style.visibility = "visible";
+                document.getElementById("lissandraIcon").style.position = "static";
+            }
+            if (!"lucian".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"lucian".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("lucianIcon").style.visibility = "hidden";
+                document.getElementById("lucianIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("lucianIcon").style.visibility = "visible";
+                document.getElementById("lucianIcon").style.position = "static";
+            }
+            if (!"lulu".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"lulu".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("luluIcon").style.visibility = "hidden";
+                document.getElementById("luluIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("luluIcon").style.visibility = "visible";
+                document.getElementById("luluIcon").style.position = "static";
+            }
+            if (!"lux".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"lux".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("luxIcon").style.visibility = "hidden";
+                document.getElementById("luxIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("luxIcon").style.visibility = "visible";
+                document.getElementById("luxIcon").style.position = "static";
+            }
+            if (!"malphite".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"malphite".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("malphiteIcon").style.visibility = "hidden";
+                document.getElementById("malphiteIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("malphiteIcon").style.visibility = "visible";
+                document.getElementById("malphiteIcon").style.position = "static";
+            }
+            if (!"malzahar".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"malzahar".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("malzaharIcon").style.visibility = "hidden";
+                document.getElementById("malzaharIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("malzaharIcon").style.visibility = "visible";
+                document.getElementById("malzaharIcon").style.position = "static";
+            }
+            if (!"maokai".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"maokai".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("maokaiIcon").style.visibility = "hidden";
+                document.getElementById("maokaiIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("maokaiIcon").style.visibility = "visible";
+                document.getElementById("maokaiIcon").style.position = "static";
+            }
+            if (!"master yi".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"masteryi".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("masteryiIcon").style.visibility = "hidden";
+                document.getElementById("masteryiIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("masteryiIcon").style.visibility = "visible";
+                document.getElementById("masteryiIcon").style.position = "static";
+            }
+            if (!"miss fortune".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"missfortune".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("missfortuneIcon").style.visibility = "hidden";
+                document.getElementById("missfortuneIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("missfortuneIcon").style.visibility = "visible";
+                document.getElementById("missfortuneIcon").style.position = "static";
+            }
+            if (!"mordekaiser".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"mordekaiser".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("mordekaiserIcon").style.visibility = "hidden";
+                document.getElementById("mordekaiserIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("mordekaiserIcon").style.visibility = "visible";
+                document.getElementById("mordekaiserIcon").style.position = "static";
+            }
+            if (!"morgana".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"morgana".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("morganaIcon").style.visibility = "hidden";
+                document.getElementById("morganaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("morganaIcon").style.visibility = "visible";
+                document.getElementById("morganaIcon").style.position = "static";
+            }
+            if (!"nami".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"nami".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("namiIcon").style.visibility = "hidden";
+                document.getElementById("namiIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("namiIcon").style.visibility = "visible";
+                document.getElementById("namiIcon").style.position = "static";
+            }
+            if (!"nasus".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"nasus".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("nasusIcon").style.visibility = "hidden";
+                document.getElementById("nasusIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("nasusIcon").style.visibility = "visible";
+                document.getElementById("nasusIcon").style.position = "static";
+            }
+            if (!"nautilus".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"nautilus".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("nautilusIcon").style.visibility = "hidden";
+                document.getElementById("nautilusIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("nautilusIcon").style.visibility = "visible";
+                document.getElementById("nautilusIcon").style.position = "static";
+            }
+            if (!"neeko".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"neeko".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("neekoIcon").style.visibility = "hidden";
+                document.getElementById("neekoIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("neekoIcon").style.visibility = "visible";
+                document.getElementById("neekoIcon").style.position = "static";
+            }
+            if (!"nidalee".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"nidalee".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("nidaleeIcon").style.visibility = "hidden";
+                document.getElementById("nidaleeIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("nidaleeIcon").style.visibility = "visible";
+                document.getElementById("nidaleeIcon").style.position = "static";
+            }
+            if (!"nilah".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"nilah".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("nilahIcon").style.visibility = "hidden";
+                document.getElementById("nilahIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("nilahIcon").style.visibility = "visible";
+                document.getElementById("nilahIcon").style.position = "static";
+            }
+            if (!"nocturne".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"nocturne".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("nocturneIcon").style.visibility = "hidden";
+                document.getElementById("nocturneIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("nocturneIcon").style.visibility = "visible";
+                document.getElementById("nocturneIcon").style.position = "static";
+            }
+            if (!"nunu & willump".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"nunuwillump".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("nunuIcon").style.visibility = "hidden";
+                document.getElementById("nunuIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("nunuIcon").style.visibility = "visible";
+                document.getElementById("nunuIcon").style.position = "static";
+            }
+            if (!"olaf".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"olaf".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("olafIcon").style.visibility = "hidden";
+                document.getElementById("olafIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("olafIcon").style.visibility = "visible";
+                document.getElementById("olafIcon").style.position = "static";
+            }
+            if (!"orianna".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"orianna".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("oriannaIcon").style.visibility = "hidden";
+                document.getElementById("oriannaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("oriannaIcon").style.visibility = "visible";
+                document.getElementById("oriannaIcon").style.position = "static";
+            }
+            if (!"ornn".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"ornn".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("ornnIcon").style.visibility = "hidden";
+                document.getElementById("ornnIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("ornnIcon").style.visibility = "visible";
+                document.getElementById("ornnIcon").style.position = "static";
+            }
+            if (!"pantheon".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"pantheon".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("pantheonIcon").style.visibility = "hidden";
+                document.getElementById("pantheonIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("pantheonIcon").style.visibility = "visible";
+                document.getElementById("pantheonIcon").style.position = "static";
+            }
+            if (!"poppy".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"poppy".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("poppyIcon").style.visibility = "hidden";
+                document.getElementById("poppyIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("poppyIcon").style.visibility = "visible";
+                document.getElementById("poppyIcon").style.position = "static";
+            }
+            if (!"pyke".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"pyke".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("pykeIcon").style.visibility = "hidden";
+                document.getElementById("pykeIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("pykeIcon").style.visibility = "visible";
+                document.getElementById("pykeIcon").style.position = "static";
+            }
+            if (!"qiyana".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"qiyana".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("qiyanaIcon").style.visibility = "hidden";
+                document.getElementById("qiyanaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("qiyanaIcon").style.visibility = "visible";
+                document.getElementById("qiyanaIcon").style.position = "static";
+            }
+            if (!"quinn".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"quinn".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("quinnIcon").style.visibility = "hidden";
+                document.getElementById("quinnIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("quinnIcon").style.visibility = "visible";
+                document.getElementById("quinnIcon").style.position = "static";
+            }
+            if (!"rakan".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"rakan".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("rakanIcon").style.visibility = "hidden";
+                document.getElementById("rakanIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("rakanIcon").style.visibility = "visible";
+                document.getElementById("rakanIcon").style.position = "static";
+            }
+            if (!"rammus".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"rammus".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("rammusIcon").style.visibility = "hidden";
+                document.getElementById("rammusIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("rammusIcon").style.visibility = "visible";
+                document.getElementById("rammusIcon").style.position = "static";
+            }
+            if (!"rek'sai".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"reksai".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("reksaiIcon").style.visibility = "hidden";
+                document.getElementById("reksaiIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("reksaiIcon").style.visibility = "visible";
+                document.getElementById("reksaiIcon").style.position = "static";
+            }
+            if (!"rell".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"rell".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("rellIcon").style.visibility = "hidden";
+                document.getElementById("rellIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("rellIcon").style.visibility = "visible";
+                document.getElementById("rellIcon").style.position = "static";
+            }
+            if (!"renata glasc".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"renataglasc".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("renataIcon").style.visibility = "hidden";
+                document.getElementById("renataIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("renataIcon").style.visibility = "visible";
+                document.getElementById("renataIcon").style.position = "static";
+            }
+            if (!"renekton".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"renekton".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("renektonIcon").style.visibility = "hidden";
+                document.getElementById("renektonIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("renektonIcon").style.visibility = "visible";
+                document.getElementById("renektonIcon").style.position = "static";
+            }
+            if (!"rengar".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"rengar".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("rengarIcon").style.visibility = "hidden";
+                document.getElementById("rengarIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("rengarIcon").style.visibility = "visible";
+                document.getElementById("rengarIcon").style.position = "static";
+            }
+            if (!"riven".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"riven".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("rivenIcon").style.visibility = "hidden";
+                document.getElementById("rivenIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("rivenIcon").style.visibility = "visible";
+                document.getElementById("rivenIcon").style.position = "static";
+            }
+            if (!"rumble".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"rumble".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("rumbleIcon").style.visibility = "hidden";
+                document.getElementById("rumbleIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("rumbleIcon").style.visibility = "visible";
+                document.getElementById("rumbleIcon").style.position = "static";
+            }
+            if (!"ryze".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"ryze".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("ryzeIcon").style.visibility = "hidden";
+                document.getElementById("ryzeIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("ryzeIcon").style.visibility = "visible";
+                document.getElementById("ryzeIcon").style.position = "static";
+            }
+            if (!"samira".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"samira".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("samiraIcon").style.visibility = "hidden";
+                document.getElementById("samiraIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("samiraIcon").style.visibility = "visible";
+                document.getElementById("samiraIcon").style.position = "static";
+            }
+            if (!"sejuani".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"sejuani".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("sejuaniIcon").style.visibility = "hidden";
+                document.getElementById("sejuaniIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("sejuaniIcon").style.visibility = "visible";
+                document.getElementById("sejuaniIcon").style.position = "static";
+            }
+            if (!"senna".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"senna".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("sennaIcon").style.visibility = "hidden";
+                document.getElementById("sennaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("sennaIcon").style.visibility = "visible";
+                document.getElementById("sennaIcon").style.position = "static";
+            }
+            if (!"seraphine".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"seraphine".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("seraphineIcon").style.visibility = "hidden";
+                document.getElementById("seraphineIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("seraphineIcon").style.visibility = "visible";
+                document.getElementById("seraphineIcon").style.position = "static";
+            }
+            if (!"sett".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"sett".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("settIcon").style.visibility = "hidden";
+                document.getElementById("settIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("settIcon").style.visibility = "visible";
+                document.getElementById("settIcon").style.position = "static";
+            }
+            if (!"shaco".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"shaco".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("shacoIcon").style.visibility = "hidden";
+                document.getElementById("shacoIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("shacoIcon").style.visibility = "visible";
+                document.getElementById("shacoIcon").style.position = "static";
+            }
+            if (!"shen".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"shen".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("shenIcon").style.visibility = "hidden";
+                document.getElementById("shenIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("shenIcon").style.visibility = "visible";
+                document.getElementById("shenIcon").style.position = "static";
+            }
+            if (!"shyvana".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"shyvana".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("shyvanaIcon").style.visibility = "hidden";
+                document.getElementById("shyvanaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("shyvanaIcon").style.visibility = "visible";
+                document.getElementById("shyvanaIcon").style.position = "static";
+            }
+            if (!"singed".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"singed".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("singedIcon").style.visibility = "hidden";
+                document.getElementById("singedIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("singedIcon").style.visibility = "visible";
+                document.getElementById("singedIcon").style.position = "static";
+            }
+            if (!"sion".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"sion".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("sionIcon").style.visibility = "hidden";
+                document.getElementById("sionIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("sionIcon").style.visibility = "visible";
+                document.getElementById("sionIcon").style.position = "static";
+            }
+            if (!"sivir".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"sivir".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("sivirIcon").style.visibility = "hidden";
+                document.getElementById("sivirIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("sivirIcon").style.visibility = "visible";
+                document.getElementById("sivirIcon").style.position = "static";
+            }
+            if (!"skarner".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"skarner".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("skarnerIcon").style.visibility = "hidden";
+                document.getElementById("skarnerIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("skarnerIcon").style.visibility = "visible";
+                document.getElementById("skarnerIcon").style.position = "static";
+            }
+            if (!"sona".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"sona".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("sonaIcon").style.visibility = "hidden";
+                document.getElementById("sonaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("sonaIcon").style.visibility = "visible";
+                document.getElementById("sonaIcon").style.position = "static";
+            }
+            if (!"soraka".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"soraka".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("sorakaIcon").style.visibility = "hidden";
+                document.getElementById("sorakaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("sorakaIcon").style.visibility = "visible";
+                document.getElementById("sorakaIcon").style.position = "static";
+            }
+            if (!"swain".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"swain".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("swainIcon").style.visibility = "hidden";
+                document.getElementById("swainIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("swainIcon").style.visibility = "visible";
+                document.getElementById("swainIcon").style.position = "static";
+            }
+            if (!"sylas".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"sylas".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("sylasIcon").style.visibility = "hidden";
+                document.getElementById("sylasIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("sylasIcon").style.visibility = "visible";
+                document.getElementById("sylasIcon").style.position = "static";
+            }
+            if (!"syndra".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"syndra".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("syndraIcon").style.visibility = "hidden";
+                document.getElementById("syndraIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("syndraIcon").style.visibility = "visible";
+                document.getElementById("syndraIcon").style.position = "static";
+            }
+            if (!"tahm kench".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"tahmkench".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("tahmkenchIcon").style.visibility = "hidden";
+                document.getElementById("tahmkenchIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("tahmkenchIcon").style.visibility = "visible";
+                document.getElementById("tahmkenchIcon").style.position = "static";
+            }
+            if (!"taliyah".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"taliyah".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("taliyahIcon").style.visibility = "hidden";
+                document.getElementById("taliyahIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("taliyahIcon").style.visibility = "visible";
+                document.getElementById("taliyahIcon").style.position = "static";
+            }
+            if (!"talon".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"talon".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("talonIcon").style.visibility = "hidden";
+                document.getElementById("talonIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("talonIcon").style.visibility = "visible";
+                document.getElementById("talonIcon").style.position = "static";
+            }
+            if (!"taric".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"taric".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("taricIcon").style.visibility = "hidden";
+                document.getElementById("taricIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("taricIcon").style.visibility = "visible";
+                document.getElementById("taricIcon").style.position = "static";
+            }
+            if (!"teemo".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"teemo".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("teemoIcon").style.visibility = "hidden";
+                document.getElementById("teemoIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("teemoIcon").style.visibility = "visible";
+                document.getElementById("teemoIcon").style.position = "static";
+            }
+            if (!"thresh".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"thresh".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("threshIcon").style.visibility = "hidden";
+                document.getElementById("threshIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("threshIcon").style.visibility = "visible";
+                document.getElementById("threshIcon").style.position = "static";
+            }
+            if (!"tristana".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"tristana".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("tristanaIcon").style.visibility = "hidden";
+                document.getElementById("tristanaIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("tristanaIcon").style.visibility = "visible";
+                document.getElementById("tristanaIcon").style.position = "static";
+            }
+            if (!"trundle".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"trundle".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("trundleIcon").style.visibility = "hidden";
+                document.getElementById("trundleIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("trundleIcon").style.visibility = "visible";
+                document.getElementById("trundleIcon").style.position = "static";
+            }
+            if (!"tryndamere".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"tryndamere".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("tryndamereIcon").style.visibility = "hidden";
+                document.getElementById("tryndamereIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("tryndamereIcon").style.visibility = "visible";
+                document.getElementById("tryndamereIcon").style.position = "static";
+            }
+            if (!"twisted fate".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"twistedfate".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("twistedfateIcon").style.visibility = "hidden";
+                document.getElementById("twistedfateIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("twistedfateIcon").style.visibility = "visible";
+                document.getElementById("twistedfateIcon").style.position = "static";
+            }
+            if (!"twitch".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"twitch".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("twitchIcon").style.visibility = "hidden";
+                document.getElementById("twitchIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("twitchIcon").style.visibility = "visible";
+                document.getElementById("twitchIcon").style.position = "static";
+            }
+            if (!"udyr".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"udyr".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("udyrIcon").style.visibility = "hidden";
+                document.getElementById("udyrIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("udyrIcon").style.visibility = "visible";
+                document.getElementById("udyrIcon").style.position = "static";
+            }
+            if (!"urgot".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"urgot".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("urgotIcon").style.visibility = "hidden";
+                document.getElementById("urgotIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("urgotIcon").style.visibility = "visible";
+                document.getElementById("urgotIcon").style.position = "static";
+            }
+            if (!"varus".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"varus".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("varusIcon").style.visibility = "hidden";
+                document.getElementById("varusIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("varusIcon").style.visibility = "visible";
+                document.getElementById("varusIcon").style.position = "static";
+            }
+            if (!"vayne".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"vayne".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("vayneIcon").style.visibility = "hidden";
+                document.getElementById("vayneIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("vayneIcon").style.visibility = "visible";
+                document.getElementById("vayneIcon").style.position = "static";
+            }
+            if (!"veigar".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"veigar".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("veigarIcon").style.visibility = "hidden";
+                document.getElementById("veigarIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("veigarIcon").style.visibility = "visible";
+                document.getElementById("veigarIcon").style.position = "static";
+            }
+            if (!"vel'koz".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"velkoz".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("velkozIcon").style.visibility = "hidden";
+                document.getElementById("velkozIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("velkozIcon").style.visibility = "visible";
+                document.getElementById("velkozIcon").style.position = "static";
+            }
+            if (!"vex".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"vex".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("vexIcon").style.visibility = "hidden";
+                document.getElementById("vexIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("vexIcon").style.visibility = "visible";
+                document.getElementById("vexIcon").style.position = "static";
+            }
+            if (!"vi".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"vi".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("viIcon").style.visibility = "hidden";
+                document.getElementById("viIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("viIcon").style.visibility = "visible";
+                document.getElementById("viIcon").style.position = "static";
+            }
+            if (!"viego".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"viego".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("viegoIcon").style.visibility = "hidden";
+                document.getElementById("viegoIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("viegoIcon").style.visibility = "visible";
+                document.getElementById("viegoIcon").style.position = "static";
+            }
+            if (!"viktor".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"viktor".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("viktorIcon").style.visibility = "hidden";
+                document.getElementById("viktorIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("viktorIcon").style.visibility = "visible";
+                document.getElementById("viktorIcon").style.position = "static";
+            }
+            if (!"vladimir".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"vladimir".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("vladimirIcon").style.visibility = "hidden";
+                document.getElementById("vladimirIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("vladimirIcon").style.visibility = "visible";
+                document.getElementById("vladimirIcon").style.position = "static";
+            }
+            if (!"volibear".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"volibear".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("volibearIcon").style.visibility = "hidden";
+                document.getElementById("volibearIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("volibearIcon").style.visibility = "visible";
+                document.getElementById("volibearIcon").style.position = "static";
+            }
+            if (!"warwick".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"warwick".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("warwickIcon").style.visibility = "hidden";
+                document.getElementById("warwickIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("warwickIcon").style.visibility = "visible";
+                document.getElementById("warwickIcon").style.position = "static";
+            }
+            if (!"wukong".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"wukong".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("monkeykingIcon").style.visibility = "hidden";
+                document.getElementById("monkeykingIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("monkeykingIcon").style.visibility = "visible";
+                document.getElementById("monkeykingIcon").style.position = "static";
+            }
+            if (!"xayah".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"xayah".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("xayahIcon").style.visibility = "hidden";
+                document.getElementById("xayahIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("xayahIcon").style.visibility = "visible";
+                document.getElementById("xayahIcon").style.position = "static";
+            }
+            if (!"xerath".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"xerath".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("xerathIcon").style.visibility = "hidden";
+                document.getElementById("xerathIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("xerathIcon").style.visibility = "visible";
+                document.getElementById("xerathIcon").style.position = "static";
+            }
+            if (!"xin zhao".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"xinzhao".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("xinzhaoIcon").style.visibility = "hidden";
+                document.getElementById("xinzhaoIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("xinzhaoIcon").style.visibility = "visible";
+                document.getElementById("xinzhaoIcon").style.position = "static";
+            }
+            if (!"yasuo".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"yasuo".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("yasuoIcon").style.visibility = "hidden";
+                document.getElementById("yasuoIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("yasuoIcon").style.visibility = "visible";
+                document.getElementById("yasuoIcon").style.position = "static";
+            }
+            if (!"yone".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"yone".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("yoneIcon").style.visibility = "hidden";
+                document.getElementById("yoneIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("yoneIcon").style.visibility = "visible";
+                document.getElementById("yoneIcon").style.position = "static";
+            }
+            if (!"yorick".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"yorick".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("yorickIcon").style.visibility = "hidden";
+                document.getElementById("yorickIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("yorickIcon").style.visibility = "visible";
+                document.getElementById("yorickIcon").style.position = "static";
+            }
+            if (!"yuumi".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"yuumi".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("yuumiIcon").style.visibility = "hidden";
+                document.getElementById("yuumiIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("yuumiIcon").style.visibility = "visible";
+                document.getElementById("yuumiIcon").style.position = "static";
+            }
+            if (!"zac".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"zac".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("zacIcon").style.visibility = "hidden";
+                document.getElementById("zacIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("zacIcon").style.visibility = "visible";
+                document.getElementById("zacIcon").style.position = "static";
+            }
+            if (!"zed".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"zed".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("zedIcon").style.visibility = "hidden";
+                document.getElementById("zedIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("zedIcon").style.visibility = "visible";
+                document.getElementById("zedIcon").style.position = "static";
+            }
+            if (!"zeri".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"zeri".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("zeriIcon").style.visibility = "hidden";
+                document.getElementById("zeriIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("zeriIcon").style.visibility = "visible";
+                document.getElementById("zeriIcon").style.position = "static";
+            }
+            if (!"ziggs".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"ziggs".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("ziggsIcon").style.visibility = "hidden";
+                document.getElementById("ziggsIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("ziggsIcon").style.visibility = "visible";
+                document.getElementById("ziggsIcon").style.position = "static";
+            }
+            if (!"zilean".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"zilean".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("zileanIcon").style.visibility = "hidden";
+                document.getElementById("zileanIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("zileanIcon").style.visibility = "visible";
+                document.getElementById("zileanIcon").style.position = "static";
+            }
+            if (!"zoe".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"zoe".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("zoeIcon").style.visibility = "hidden";
+                document.getElementById("zoeIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("zoeIcon").style.visibility = "visible";
+                document.getElementById("zoeIcon").style.position = "static";
+            }
+            if (!"zyra".includes(document.getElementById("blueChampionBar").value.toLowerCase()) && !"zyra".includes(document.getElementById("blueChampionBar").value.toLowerCase())){
+                document.getElementById("zyraIcon").style.visibility = "hidden";
+                document.getElementById("zyraIcon").style.position = "absolute";
+            }
+            else{
+                document.getElementById("zyraIcon").style.visibility = "visible";
+                document.getElementById("zyraIcon").style.position = "static";
+            }
+            
+        },50);
+    </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+<title>Game Log</title>
+<meta name="1v1 Tournament Draft" content="Game Log Page">
+    <style>
+        .summnames{
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            position: absolute;
+            color: black;
+            text-align: center;
+            border-width: 3px;
+            border-color: black;
+            top: 25px;
+            width: 20%;
+            
+        }
+        .words{
+            font-family: 'Comic Sans MS';
+            font-size: 30pt;
+            color: black;
+            
+        }
+        .bans{
+            position: absolute;
+            width: 20%;
+            border: 3px solid black;
+            outline: 3px solid black;
+            outline-offset: -5px;
+            background-color: white;
+        }
+        .champs{
+            position: absolute;
+            width: 21.1%;
+            border: 3px solid black;
+            outline: 3px solid black;
+            outline-offset: -5px;
+        }
+        .symbols{
+            width: 3%;
+            position:absolute;
+            top: 25px;
+        }
+    </style>
+</head>
+<body style="background-color:#414141;">
+    <input class="summnames" disabled style="background-color:rgb(40, 80, 167);left:1.6%" id="blueSummonerTag"></input>
+    <input class="summnames" disabled style="background-color:rgb(201, 63, 63);right:1.6%" id="redSummonerTag"></input>
+
+    <image src="images/banned.png" class="symbols" style="left:23%" id="bannedBlue"></image>
+    <image src="images/ready.png" class="symbols" style="left:27%" id="readyBlue"></image>
+    <image src="images/fight.png" class="symbols" style="left:31%" id="fightBlue"></image>
+    
+    <image src="images/banned.png" class="symbols" style="right:23%"></image>
+    <image src="images/ready.png" class="symbols" style="right:27%"></image>
+    <image src="images/fight.png" class="symbols" style="right:31%"></image>
+
+    <select class="words" style="position:absolute;left:50%;top:4%;transform:translate(-50%,0%);margin:0px;background-color: grey;border-width: 3px;border-color: black" id="pastGames">
+        <option id="emptyLog" class="names" value="emptyLog">Select Game</option>
+        <option id="gameOne" class="names" value="gameOne">One</option>
+        <option id="gameTwo" class="names" value="gameTwo">Two</option>
+        <option id="gameThree" class="names" value="gameThree">Three</option>
+        <option id="gameFour" class="names" value="gameFour">Four</option>
+        <option id="gameFive" class="names" value="gameFive">Five</option>
+        <option id="gameSix" class="names" value="gameSix">Six</option>
+        <option id="gameSeven" class="names" value="gameSeven">Seven</option>
+        <option id="gameEight" class="names" value="gameEight">Eight</option>
+        <option id="gameNine" class="names" value="gameNine">Nine</option>
+        <option id="gameTen" class="names" value="gameTen">Ten</option>
+        <option id="gameEleven" class="names" value="gameEleven">Eleven</option>
+        <option id="gameTwelve" class="names" value="gameTwelve">Twelve</option>
+        <option id="gameThirteen" class="names" value="gameThirteen">Thirteen</option>
+        <option id="gameFourteen" class="names" value="gameFourteen">Fourteen</option>
+        <option id="gameFifteen" class="names" value="gameFifteen">Fifteen</option>
+        <option id="gameSixteen" class="names" value="gameSixteen">Sixteen</option>
+        <option id="gameSeventeen" class="names" value="gameSeventeen">Seventeen</option>
+        <option id="gameEighteen" class="names" value="gameEighteen">Eighteen</option>
+        <option id="gameNineteen" class="names" value="gameNineteen">Nineteen</option>
+        <option id="gameTwenty" class="names" value="gameTwenty">Twenty</option>
+        <option id="gameTwentyOne" class="names" value="gameTwentyOne">TwentyOne</option>
+        <option id="gameTwentyTwo" class="names" value="gameTwentyTwo">TwentyTwo</option>
+        <option id="gameTwentyThree" class="names" value="gameTwentyThree">TwentyThree</option>
+        <option id="gameTwentyFour" class="names" value="gameTwentyFour">TwentyFour</option>
+        <option id="gameTwentyFive" class="names" value="gameTwentyFive">TwentyFive</option>
+        <option id="gameTwentySix" class="names" value="gameTwentySix">TwentySix</option>
+        <option id="gameTwentySeven" class="names" value="gameTwentySeven">TwentySeven</option>
+        <option id="gameTwentyEight" class="names" value="gameTwentyEight">TwentyEight</option>
+        <option id="gameTwentyNine" class="names" value="gameTwentyNine">TwentyNine</option>
+        <option id="gameThirty" class="names" value="gameThirty">Thirty</option>
+        <option id="gameThirtyOne" class="names" value="gameThirtyOne">ThirtyOne</option>
+        <option id="gameThirtyTwo" class="names" value="gameThirtyTwo">ThirtyTwo</option>
+        <option id="gameThirtyThree" class="names" value="gameThirtyThree">ThirtyThree</option>
+        <option id="gameThirtyFour" class="names" value="gameThirtyFour">ThirtyFour</option>
+        <option id="gameThirtyFive" class="names" value="gameThirtyFive">ThirtyFive</option>
+        <option id="gameThirtySix" class="names" value="gameThirtySix">ThirtySix</option>
+        <option id="gameThirtySeven" class="names" value="gameThirtySeven">ThirtySeven</option>
+        <option id="gameThirtyEight" class="names" value="gameThirtyEight">ThirtyEight</option>
+        <option id="gameThirtyNine" class="names" value="gameThirtyNine">ThirtyNine</option>
+        <option id="gameForty" class="names" value="gameForty">Forty</option>
+    </select>    
+
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanOne" style="left:1.6%;top:14%" id="blueBanOne">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanOne" style="right:1.6%;top:14%" id="redBanOne">
+    
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanTwo" style="left:1.6%;top:43%" id="blueBanTwo">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanTwo" style="right:1.6%;top:43%" id="redBanTwo">
+    
+    <img class="bans" src="images/banners/blank.jpg" alt="blueBanThree" style="left:1.6%;top:72%" id="blueBanThree">
+    <img class="bans" src="images/banners/blank.jpg" alt="redBanThree" style="right:1.6%;top:72%" id="redBanThree">
+    
+    <img class="champs" src="images/verticle/blank.jpg" alt="blueChampion" style="left:23%;top:18.1%" id="blueChampion">
+    <img class="champs" src="images/verticle/blank.jpg" alt="redChampion" style="right:23%;top:18.1%" id="redChampion">
+    
+    <img src="images/vs2.png" alt="vs" style="position:absolute;width:10%;left:50%;top:50%;transform:translate(-50%,-50%);" id="versus">
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getDatabase, ref, child, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyAb_SkmjCvlmNEHIDw5jLbqp7sHk6TQbdw",
+          authDomain: "lol-1v1-draft.firebaseapp.com",
+          databaseURL: "https://lol-1v1-draft-default-rtdb.firebaseio.com",
+          projectId: "lol-1v1-draft",
+          storageBucket: "lol-1v1-draft.appspot.com",
+          messagingSenderId: "822259238783",
+          appId: "1:822259238783:web:d6e7ca83d38f247f9abc4a",
+          measurementId: "G-QJB4RRK913"
+        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        function setdaVariable(variable,value){
+            set(ref(db, variable), {value: value});
+        }
+        function getdaVariable(variable){
+            return get(child(ref(db), `${variable}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val()['value'];} })
+        }
+        function getdaGames(){
+            return get(child(ref(db), `${"games"}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val();} })
+        }
+        async function setdaGame(){
+            var games = await getGames();
+            //console.log(games);
+            let numbers = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen', 'Twenty', 'TwentyOne', 'TwentyTwo', 'TwentyThree', 'TwentyFour', 'TwentyFive', 'TwentySix', 'TwentySeven', 'TwentyEight', 'TwentyNine', 'Thirty', 'ThirtyOne', 'ThirtyTwo', 'ThirtyThree', 'ThirtyFour', 'ThirtyFive', 'ThirtySix', 'ThirtySeven', 'ThirtyEight', 'ThirtyNine', 'Forty'];
+            var game = {blueBanOne:await getVariable("blueBanOne"),blueBanTwo:await getVariable("blueBanTwo"),blueBanThree:await getVariable("blueBanThree"),blueChampion:await getVariable("blueChampion"),blueSummoner:await getVariable("blueSummoner"),redBanOne:await getVariable("redBanOne"),redBanTwo:await getVariable("redBanTwo"),redBanThree:await getVariable("redBanThree"),redChampion:await getVariable("redChampion"),blueSummoner:await getVariable("blueSummoner"),redSummoner:await getVariable("redSummoner")}
+            games["game"+numbers[await getVariable("gamesLogged")]] = game;
+            setVariable("gamesLogged",await getVariable("gamesLogged")+1);
+            set(ref(db, "games"), games);
+        }
+        async function getdaGame(whichGame){
+            var games = await getGames();
+            return games[whichGame];
+        }
+        window.setVariable = setdaVariable;
+        window.getVariable = getdaVariable;
+        window.getGames = getdaGames;
+        window.getGame = getdaGame;
+        window.setGame = setdaGame;
+    </script>
+    <script>
+        function champName(name){
+            if (name=='Wukong'){
+                name='monkeyking';
+            }
+            if (name=='Renata Glasc'){
+                name='renata';
+            }
+            if (name=="Nunu & Willump"){
+                name='nunu'
+            }
+            if(name==undefined){
+                return name;
+            }
+            return(name.toLowerCase().replace(/\s/g, "").replace("'",""))
+        }
+        var finished = false;
+        myInterval = setInterval(async function(){
+            games = await getVariable("gamesLogged");
+            if(games == 0){
+                document.getElementById('emptyLog').removeAttribute('hidden');
+            }
+            else{
+                document.getElementById('emptyLog').setAttribute('hidden','hidden')
+            }
+            let numbers = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen', 'Twenty', 'TwentyOne', 'TwentyTwo', 'TwentyThree', 'TwentyFour', 'TwentyFive', 'TwentySix', 'TwentySeven', 'TwentyEight', 'TwentyNine', 'Thirty', 'ThirtyOne', 'ThirtyTwo', 'ThirtyThree', 'ThirtyFour', 'ThirtyFive', 'ThirtySix', 'ThirtySeven', 'ThirtyEight', 'ThirtyNine', 'Forty'];
+            for(let i=0;i<40;i++){
+                if(i < games){
+                    document.getElementById("game"+numbers[i]).removeAttribute('hidden');
+                    game = await getGame("game"+numbers[i]);
+                    document.getElementById("game"+numbers[i]).innerHTML = game.blueSummoner + " Vs " + game.redSummoner;
+                }
+                else{
+                    document.getElementById("game"+numbers[i]).setAttribute('hidden','hidden');
+                }
+            }
+            selectedGame = document.getElementById("pastGames").value;
+            currentGame = await getGame(selectedGame);
+            if(currentGame != undefined){
+                document.getElementById("redBanOne").src = "images/banners/"+champName(currentGame.redBanOne)+".jpg";
+                document.getElementById("redBanTwo").src = "images/banners/"+champName(currentGame.redBanTwo)+".jpg";
+                document.getElementById("redBanThree").src = "images/banners/"+champName(currentGame.redBanThree)+".jpg";
+                document.getElementById("redChampion").src = "images/verticle/"+champName(currentGame.redChampion)+".jpg";
+                document.getElementById("blueBanOne").src = "images/banners/"+champName(currentGame.blueBanOne)+".jpg";
+                document.getElementById("blueBanTwo").src = "images/banners/"+champName(currentGame.blueBanTwo)+".jpg";
+                document.getElementById("blueBanThree").src = "images/banners/"+champName(currentGame.blueBanThree)+".jpg";
+                document.getElementById("blueChampion").src = "images/verticle/"+champName(currentGame.blueChampion)+".jpg";
+                document.getElementById("blueSummonerTag").value = currentGame.blueSummoner;
+                document.getElementById("redSummonerTag").value = currentGame.redSummoner;
+            }
+            
+        }, 100);
+    </script>
+</body>
+</html>

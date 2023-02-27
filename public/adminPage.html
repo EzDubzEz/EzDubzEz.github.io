@@ -2,11 +2,30 @@
 <html>
 <head>
 <title>Admin Page</title>
-<meta name="1v1 Tournament Draft" content="Login Page">
+<meta name="1v1 Tournament Draft" content="Admin Page">
     <style>
         .names{
             font-family: 'Comic Sans MS';
             font-size: 20pt;
+        }
+        .flipbutton{
+            font-family: 'Comic Sans MS';
+            font-size: 20pt;
+            border-radius: 12px;
+            width: 20%;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%,0%);
+            margin-top: 1%;
+
+        }
+        .flipbutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
         }
         .startbutton{
             font-family: 'Comic Sans MS';
@@ -20,7 +39,7 @@
             text-align: center;
             left: 50%;
             transform: translate(-50%,0%);
-            margin-top: 20%;
+            margin-top: 15%;
 
         }
         .startbutton:hover{
@@ -39,7 +58,7 @@
             text-align: center;
             left: 50%;
             transform: translate(-50%,0%);
-            margin-top: 32%;
+            margin-top: 27%;
 
         }
         .restartbutton:hover{
@@ -50,18 +69,31 @@
             font-family: 'Comic Sans MS';
             font-size: 22pt;
             border-radius: 12px;
-            width: 20%;
+            width: 250px;
             cursor: pointer;
             background-color: rgb(216, 216, 216);
             border-width: 6px;
-            position: absolute;
             text-align: center;
-            left: 50%;
-            margin: 25px;
             bottom: 0%;
 
         }
         .clearnamebutton:hover{
+            background-color: grey;
+            color:rgb(34, 34, 34)
+        }
+        .clearallbutton{
+            font-family: 'Comic Sans MS';
+            font-size: 22pt;
+            border-radius: 12px;
+            width: 200px;
+            cursor: pointer;
+            background-color: rgb(216, 216, 216);
+            border-width: 6px;
+            text-align: center;
+            margin-top: 40%;
+
+        }
+        .clearallbutton:hover{
             background-color: grey;
             color:rgb(34, 34, 34)
         }
@@ -113,9 +145,11 @@
         <option id="nameNineteenRed"  class="names"></option>
         <option id="nameTwentyRed"  class="names"></option>
     </select>
+    <button class="flipbutton" onclick="coinFlip()">Coinflip Sides</button>
     <button class="startbutton" onclick="beginDraft()">Let's Start</button>
     <button class="restartbutton" onclick="endDraft()">End Draft</button>
-    <select class="names" style="background-color:rgb(201, 63, 63); position:absolute; margin: 25px;bottom: 0%;right:50%;border-width: 3px;border-color: black" id="nameClearer">
+    <center>
+    <select class="names" style="background-color:grey; margin: 25px;border-width: 3px;border-color: black" id="nameClearer">
         <option id="nameOneRemove" class="names"></option>
         <option id="nameTwoRemove" class="names"></option>
         <option id="nameThreeRemove"  class="names"></option>
@@ -138,6 +172,11 @@
         <option id="nameTwentyRemove"  class="names"></option>
     </select>
     <button class="clearnamebutton" onclick="clearName()">Remove Player</button>
+    <button class="clearallbutton" onclick="clearAll()">Clear All</button>
+    </center>
+    <center>
+        <button class="clearnamebutton" onclick="clearGameLog()">Clear Game Log</button>
+    </center>
     <script type="module" >
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
@@ -163,23 +202,57 @@
                 if (snapshot.exists()) {
                     return snapshot.val()['value'];} })
         }
+        function getdaGames(){
+            return get(child(ref(db), `${"games"}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val();} })
+        }
+        async function savedaGame(){
+            var games = await getGames();
+            console.log(games);
+            let numbers = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen', 'Twenty', 'TwentyOne', 'TwentyTwo', 'TwentyThree', 'TwentyFour', 'TwentyFive', 'TwentySix', 'TwentySeven', 'TwentyEight', 'TwentyNine', 'Thirty', 'ThirtyOne', 'ThirtyTwo', 'ThirtyThree', 'ThirtyFour', 'ThirtyFive', 'ThirtySix', 'ThirtySeven', 'ThirtyEight', 'ThirtyNine', 'Forty'];
+            var game = {blueBanOne:await getVariable("blueBanOne"),blueBanTwo:await getVariable("blueBanTwo"),blueBanThree:await getVariable("blueBanThree"),blueChampion:await getVariable("blueChampion"),blueSummoner:await getVariable("blueSummoner"),redBanOne:await getVariable("redBanOne"),redBanTwo:await getVariable("redBanTwo"),redBanThree:await getVariable("redBanThree"),redChampion:await getVariable("redChampion"),blueSummoner:await getVariable("blueSummoner"),redSummoner:await getVariable("redSummoner")};
+            console.log(game);
+            games["game"+numbers[await getVariable("gamesLogged")]] = game;
+            setVariable("gamesLogged",await getVariable("gamesLogged")+1);
+            set(ref(db, "games"), games);
+        }
+        async function getdaGame(whichGame){
+            var games = await getGames();
+            return games[whichGame];
+        }
+        function cleardaGames(){
+            set(ref(db, "games"), {show:true});
+            set(ref(db, "gamesLogged"), {value:0});
+        }
         window.setVariable = setdaVariable;
         window.getVariable = getdaVariable;
+        window.getGames = getdaGames;
+        window.getGame = getdaGame;
+        window.saveGame = savedaGame;
+        window.clearGames = cleardaGames;
     </script>
     <script>
         function beginDraft(){
             if (document.getElementById("blueSelection").value != document.getElementById("redSelection").value){
+                clearPicksAndBans();
                 setVariable("blueSummoner",document.getElementById("blueSelection").value);
                 setVariable("redSummoner",document.getElementById("redSelection").value);
-                clearPicksAndBans();
                 setVariable("draftStarted",'true');
             }
         }
-        function endDraft(){
+        async function endDraft(){
             setVariable("draftStarted",false);
+            if(await getVariable("redFinished") && await getVariable("blueFinished")){
+                await saveGame();
+            }
+            clearPicksAndBans();
+        }
+        function clearGameLog(){
+            clearGames();
         }
         function clearName(){
-            var number = ''
+            var number = '';
             nameBox = document.getElementById('nameClearer').value;
             if (nameBox == document.getElementById('nameOneRemove').value){
                 number = 'One';
@@ -243,7 +316,32 @@
             }
             setVariable("name"+number,null);
         }
+        function clearAll(){
+            setVariable("nameOne",null);
+            setVariable("nameTwo",null);
+            setVariable("nameThree",null);
+            setVariable("nameFour",null);
+            setVariable("nameFive",null);
+            setVariable("nameSix",null);
+            setVariable("nameSeven",null);
+            setVariable("nameEight",null);
+            setVariable("nameNine",null);
+            setVariable("nameTen",null);
+            setVariable("nameEleven",null);
+            setVariable("nameTwelve",null);
+            setVariable("nameThirteen",null);
+            setVariable("nameFourteen",null);
+            setVariable("nameFifteen",null);
+            setVariable("nameSixteen",null);
+            setVariable("nameSeventeen",null);
+            setVariable("nameEighteen",null);
+            setVariable("nameNineteen",null);
+            setVariable("nameTwenty",null);
+        }
         function clearPicksAndBans(){
+            setVariable("currentBanAmount",0);
+            setVariable("redBanType",null);
+            setVariable("blueBanType",null);
             setVariable("redBanFinished",false);
             setVariable("blueBanFinished",false);
             setVariable("redReady",false);
@@ -254,17 +352,30 @@
             setVariable("redBanTwo",null);
             setVariable("redBanThree",null);
             setVariable("redChampion",null);
+            setVariable("redSummoner",null);
             setVariable("blueBanOne",null);
             setVariable("blueBanTwo",null);
             setVariable("blueBanThree",null);
             setVariable("blueChampion",null);
+            setVariable("blueSummoner",null);
+        }
+        function coinFlip(){
+            nameOne = document.getElementById("blueSelection").value;
+            nameTwo = document.getElementById("redSelection").value;
+            var flip = Math.random();
+            console.log(flip);
+            if(Math.random() >= .5){
+                document.getElementById("blueSelection").value = nameTwo;
+                document.getElementById("redSelection").value = nameOne;
+            }
+
         }
         setInterval(async function(){
             if (await getVariable("draftStarted") == 'true'){
-                document.getElementById("startedDraft").innerHTML = "Ongoing Match..."
+                document.getElementById("startedDraft").innerHTML = "Ongoing Match...";
             }
             else{
-                document.getElementById("startedDraft").innerHTML = "No Ongoing Match..."
+                document.getElementById("startedDraft").innerHTML = "No Ongoing Match";
             }
             var nameOne = await getVariable("nameOne");
             var nameTwo = await getVariable("nameTwo");
@@ -349,7 +460,23 @@
             document.getElementById("nameEighteenRemove").innerHTML = nameEighteen;
             document.getElementById("nameNineteenRemove").innerHTML = nameNineteen;
             document.getElementById("nameTwentyRemove").innerHTML = nameTwenty;
-        }, 1000)
+
+            let numbers = ['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty'];
+            for(let i=0;i<20;i++){
+                if(document.getElementById('name'+numbers[i]+'Blue').innerHTML=='undefined')
+                    document.getElementById('name'+numbers[i]+'Blue').setAttribute('hidden','hidden');
+                else
+                    document.getElementById('name'+numbers[i]+'Blue').removeAttribute('hidden');
+                if(document.getElementById('name'+numbers[i]+'Red').innerHTML=='undefined')
+                    document.getElementById('name'+numbers[i]+'Red').setAttribute('hidden','hidden');
+                else
+                    document.getElementById('name'+numbers[i]+'Red').removeAttribute('hidden');
+                if(document.getElementById('name'+numbers[i]+'Remove').innerHTML=='undefined')
+                    document.getElementById('name'+numbers[i]+'Remove').setAttribute('hidden','hidden');
+                else
+                    document.getElementById('name'+numbers[i]+'Remove').removeAttribute('hidden');
+            }
+        }, 1000);
     </script>
 </body>
 </html>

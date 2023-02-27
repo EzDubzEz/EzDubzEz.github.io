@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Waiting For Champ Select</title>
-<meta name="1v1 Tournament Draft" content="Login Page">
+<meta name="1v1 Tournament Draft" content="Waiting For Champ Select Page">
     <style>
         .textt{
             font-family: 'Comic Sans MS';
@@ -64,9 +64,10 @@
                 document.getElementById("redSummonerTag").style.left="0%"
             }
         }
-        setInterval(async function(){
+        myInterval = setInterval(async function(){
             if(await getVariable("draftStarted") == false){
                 document.location.href = "pleaseWait.html";
+                clearInterval(myInterval);
             }
             if((await getVariable("blueReady") == true) && (await getVariable("redReady") == true)){
                 if (await getVariable("blueSummoner") == sessionStorage.getItem("summonerName")) {
@@ -75,6 +76,7 @@
                 else if (await getVariable("redSummoner") == sessionStorage.getItem("summonerName")){
                     document.location.href = "redChampionSelect.html";
                 }
+                clearInterval(myInterval);
             }
             
         }, 500);
