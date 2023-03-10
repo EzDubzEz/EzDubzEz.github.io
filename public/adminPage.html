@@ -101,7 +101,7 @@
 </head>
 <body style="background-color:#414141;">
     <p style="position:absolute;left:50%;margin-top:7.5%;transform:translate(-50%,0%);font-family:'Comic Sans MS';font-size:40pt;color:white;" id="startedDraft"></p>
-    <select class="names" style="background-color:rgb(40, 80, 167); position:absolute; margin: 50px;left:0%;border-width: 3px;border-color: black;" id="blueSelection">
+    <select class="names" style="background-color:rgb(216,216,216); position:absolute; margin: 50px;left:0%;border-width: 3px;border-color: black;" id="firstSelection">
         <option id="nameOneBlue" class="names"></option>
         <option id="nameTwoBlue" class="names"></option>
         <option id="nameThreeBlue"  class="names"></option>
@@ -123,7 +123,7 @@
         <option id="nameNineteenBlue"  class="names"></option>
         <option id="nameTwentyBlue"  class="names"></option>
     </select>
-    <select class="names" style="background-color:rgb(201, 63, 63); position:absolute; margin: 50px;right:0%;border-width: 3px;border-color: black" id="redSelection">
+    <select class="names" style="background-color:rgb(216,216,216); position:absolute; margin: 50px;right:0%;border-width: 3px;border-color: black" id="secondSelection">
         <option id="nameOneRed" class="names"></option>
         <option id="nameTwoRed" class="names"></option>
         <option id="nameThreeRed"  class="names"></option>
@@ -225,33 +225,75 @@
             set(ref(db, "games"), {show:true});
             set(ref(db, "gamesLogged"), {value:0});
         }
+        function getdaNames(){
+            return get(child(ref(db), `${"names"}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val();} })
+        }
+        async function removedaName(name){
+            var names = await getNames();
+            console.log(name);
+            console.log(names);
+            names[name] = null;
+            set(ref(db, "names"), names);
+        }
+        function cleardaNames(){
+            set(ref(db, "names"), {show:true});
+        }
+        async function adddaName(name,side){
+            var names = await getNames();
+            names[name][side] = names[name][side]+1;
+            set(ref(db, "names"), names);
+        }
         window.setVariable = setdaVariable;
         window.getVariable = getdaVariable;
         window.getGames = getdaGames;
         window.getGame = getdaGame;
         window.saveGame = savedaGame;
         window.clearGames = cleardaGames;
+        window.getNames = getdaNames;
+        window.addName = adddaName;
+        window.clearNames = cleardaNames;
+        window.removeName = removedaName;
     </script>
     <script>
-        function beginDraft(){
-            if (document.getElementById("blueSelection").value != document.getElementById("redSelection").value){
+        async function beginDraft(){
+            if (document.getElementById("firstSelection").value != document.getElementById("secondSelection").value){
                 clearPicksAndBans();
-                setVariable("blueSummoner",document.getElementById("blueSelection").value);
-                setVariable("redSummoner",document.getElementById("redSelection").value);
-                setVariable("draftStarted",'true');
+                names = await getNames();
+                first = names[document.getElementById("firstSelection").value];
+                second = names[document.getElementById("secondSelection").value];
+				console.log(first.blue-first.red);
+				console.log(second.blue-second.red);
+                if(first.blue-first.red == second.blue-second.red){
+                    coinFlip();
+					setVariable("blueSummoner",document.getElementById("firstSelection").value);
+                	setVariable("redSummoner",document.getElementById("secondSelection").value);
+				}
+                else if(first.blue-first.red > second.blue-second.red){
+					setVariable("blueSummoner",document.getElementById("secondSelection").value);
+                	setVariable("redSummoner",document.getElementById("firstSelection").value);
+				}
+				else{
+					setVariable("blueSummoner",document.getElementById("firstSelection").value);
+					setVariable("redSummoner",document.getElementById("secondSelection").value);
+				}
             }
+			setVariable("draftStarted",'true');
         }
         async function endDraft(){
             setVariable("draftStarted",false);
             if(await getVariable("redFinished") && await getVariable("blueFinished")){
                 await saveGame();
+                await addName(await getVariable("blueSummoner"),"blue");
+                await addName(await getVariable("redSummoner"),"red");
             }
             clearPicksAndBans();
         }
         function clearGameLog(){
             clearGames();
         }
-        function clearName(){
+        async function clearName(){
             var number = '';
             nameBox = document.getElementById('nameClearer').value;
             if (nameBox == document.getElementById('nameOneRemove').value){
@@ -314,9 +356,11 @@
             else if (nameBox == document.getElementById('nameTwentyRemove').value){
                 number = 'Twenty';
             }
+            await remName(await getVariable("name"+number));
             setVariable("name"+number,null);
         }
         function clearAll(){
+            clearNames();
             setVariable("nameOne",null);
             setVariable("nameTwo",null);
             setVariable("nameThree",null);
@@ -360,13 +404,12 @@
             setVariable("blueSummoner",null);
         }
         function coinFlip(){
-            nameOne = document.getElementById("blueSelection").value;
-            nameTwo = document.getElementById("redSelection").value;
+            nameOne = document.getElementById("firstSelection").value;
+            nameTwo = document.getElementById("secondSelection").value;
             var flip = Math.random();
-            console.log(flip);
-            if(Math.random() >= .5){
-                document.getElementById("blueSelection").value = nameTwo;
-                document.getElementById("redSelection").value = nameOne;
+            if(flip >= .5){
+                document.getElementById("firstSelection").value = nameTwo;
+                document.getElementById("secondSelection").value = nameOne;
             }
 
         }

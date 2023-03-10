@@ -76,8 +76,21 @@
                 if (snapshot.exists()) {
                     return snapshot.val()['value'];} })
         }
+        function getdaNames(){
+            return get(child(ref(db), `${"names"}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val();} })
+        }
+        async function adddaName(name){
+            var names = await getNames();
+            var sides = {blue:0,red:0}
+            names[name] = sides;
+            set(ref(db, "names"), names);
+        }
         window.setVariable = setdaVariable;
         window.getVariable = getdaVariable;
+        window.addName = adddaName;
+        window.getNames = getdaNames;
         </script>
         <script>
         //"now < 1671512400000"
@@ -170,6 +183,7 @@
                     console.log("finished1");
                     sessionStorage.setItem("summonerName",document.getElementById("nameInputBox").value);
                     sessionStorage.setItem("whichName",'name'+number);
+                    addName(document.getElementById("nameInputBox").value);
                     console.log("finished2");
                     document.location.href = "pleaseWait.html";
                     console.log("finished3");
