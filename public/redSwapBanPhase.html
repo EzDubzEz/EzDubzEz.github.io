@@ -626,12 +626,12 @@
         async function start(){
             document.getElementById("blueSummonerTag").value = await getVariable("blueSummoner");
             document.getElementById("redSummonerTag").value = await getVariable("redSummoner");
-            document.getElementById("blueBanOne").src = "images/blankgrey.jpg";
-            document.getElementById("redBanOne").src = "images/blankgrey.jpg";
-            document.getElementById("blueBanTwo").src = "images/blankgrey.jpg";
-            document.getElementById("redBanTwo").src = "images/blankgrey.jpg";
-            document.getElementById("blueBanThree").src = "images/blankgrey.jpg";
-            document.getElementById("redBanThree").src = "images/blankgrey.jpg";
+            document.getElementById("blueBanOne").src = "images/banners/blankgrey.jpg";
+            document.getElementById("redBanOne").src = "images/banners/blankgrey.jpg";
+            document.getElementById("blueBanTwo").src = "images/banners/blankgrey.jpg";
+            document.getElementById("redBanTwo").src = "images/banners/blankgrey.jpg";
+            document.getElementById("blueBanThree").src = "images/banners/blankgrey.jpg";
+            document.getElementById("redBanThree").src = "images/banners/blankgrey.jpg";
             if(await getVariable("redFinished")){
                 document.location.href = "spectatePage.html";
             }

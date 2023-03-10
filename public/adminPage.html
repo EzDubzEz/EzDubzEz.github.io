@@ -263,8 +263,6 @@
                 names = await getNames();
                 first = names[document.getElementById("firstSelection").value];
                 second = names[document.getElementById("secondSelection").value];
-				console.log(first.blue-first.red);
-				console.log(second.blue-second.red);
                 if(first.blue-first.red == second.blue-second.red){
                     coinFlip();
 					setVariable("blueSummoner",document.getElementById("firstSelection").value);
@@ -356,7 +354,7 @@
             else if (nameBox == document.getElementById('nameTwentyRemove').value){
                 number = 'Twenty';
             }
-            await remName(await getVariable("name"+number));
+            await removeName(await getVariable("name"+number));
             setVariable("name"+number,null);
         }
         function clearAll(){
