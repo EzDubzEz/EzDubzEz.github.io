@@ -59,14 +59,14 @@
     <p class="words" style="position:absolute;left:50%;top:3%;transform:translate(-50%,0%);margin:0px">Prepare To Game</p>
     
 
-    <img class="bans" src="images/banners/blank.jpg" alt="blueBanOne" style="left:1.6%;top:14%" id="blueBanOneSpec">
-    <img class="bans" src="images/banners/blank.jpg" alt="redBanOne" style="right:1.6%;top:14%" id="redBanOneSpec">
+    <img class="bans" src="images/banners2/blank.jpg" alt="blueBanOne" style="left:1.6%;top:14%" id="blueBanOneSpec">
+    <img class="bans" src="images/banners2/blank.jpg" alt="redBanOne" style="right:1.6%;top:14%" id="redBanOneSpec">
     
-    <img class="bans" src="images/banners/blank.jpg" alt="blueBanTwo" style="left:1.6%;top:43%" id="blueBanTwoSpec">
-    <img class="bans" src="images/banners/blank.jpg" alt="redBanTwo" style="right:1.6%;top:43%" id="redBanTwoSpec">
+    <img class="bans" src="images/banners2/blank.jpg" alt="blueBanTwo" style="left:1.6%;top:43%" id="blueBanTwoSpec">
+    <img class="bans" src="images/banners2/blank.jpg" alt="redBanTwo" style="right:1.6%;top:43%" id="redBanTwoSpec">
     
-    <img class="bans" src="images/banners/blank.jpg" alt="blueBanThree" style="left:1.6%;top:72%" id="blueBanThreeSpec">
-    <img class="bans" src="images/banners/blank.jpg" alt="redBanThree" style="right:1.6%;top:72%" id="redBanThreeSpec">
+    <img class="bans" src="images/banners2/blank.jpg" alt="blueBanThree" style="left:1.6%;top:72%" id="blueBanThreeSpec">
+    <img class="bans" src="images/banners2/blank.jpg" alt="redBanThree" style="right:1.6%;top:72%" id="redBanThreeSpec">
     
     <img class="champs" src="images/verticle/blank.jpg" alt="blueChampion" style="left:23%;top:18.1%" id="blueChampionSpec">
     <img class="champs" src="images/verticle/blank.jpg" alt="redChampion" style="right:23%;top:18.1%" id="redChampionSpec">
@@ -188,25 +188,25 @@
                     document.getElementById("versus").src = "images/symbols/vs2.png"
                 }
                 if(await getVariable("redBanOne") != undefined){
-                    document.getElementById("redBanOneSpec").src = "images/banners/"+champName(await getVariable("redBanOne"))+".jpg";
+                    document.getElementById("redBanOneSpec").src = "images/banners2/"+champName(await getVariable("redBanOne"))+".jpg";
                 }
                 if(await getVariable("redBanTwo") != undefined){
-                    document.getElementById("redBanTwoSpec").src = "images/banners/"+champName(await getVariable("redBanTwo"))+".jpg";
+                    document.getElementById("redBanTwoSpec").src = "images/banners2/"+champName(await getVariable("redBanTwo"))+".jpg";
                 }
                 if(await getVariable("redBanThree") != undefined){
-                    document.getElementById("redBanThreeSpec").src = "images/banners/"+champName(await getVariable("redBanThree"))+".jpg";
+                    document.getElementById("redBanThreeSpec").src = "images/banners2/"+champName(await getVariable("redBanThree"))+".jpg";
                 }
                 if(await getVariable("redChampion") != undefined){
                     document.getElementById("redChampionSpec").src = "images/verticle/"+champName(await getVariable("redChampion"))+".jpg";
                 }
                 if(await getVariable("blueBanOne") != undefined){
-                    document.getElementById("blueBanOneSpec").src = "images/banners/"+champName(await getVariable("blueBanOne"))+".jpg";
+                    document.getElementById("blueBanOneSpec").src = "images/banners2/"+champName(await getVariable("blueBanOne"))+".jpg";
                 }
                 if(await getVariable("blueBanTwo") != undefined){
-                    document.getElementById("blueBanTwoSpec").src = "images/banners/"+champName(await getVariable("blueBanTwo"))+".jpg";
+                    document.getElementById("blueBanTwoSpec").src = "images/banners2/"+champName(await getVariable("blueBanTwo"))+".jpg";
                 }
                 if(await getVariable("blueBanThree") != undefined){
-                    document.getElementById("blueBanThreeSpec").src = "images/banners/"+champName(await getVariable("blueBanThree"))+".jpg";
+                    document.getElementById("blueBanThreeSpec").src = "images/banners2/"+champName(await getVariable("blueBanThree"))+".jpg";
                 }
                 if(await getVariable("blueChampion") != undefined){
                     document.getElementById("blueChampionSpec").src = "images/verticle/"+champName(await getVariable("blueChampion"))+".jpg";
